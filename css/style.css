@@ -33,7 +33,7 @@
 .language-selector {
     background-color: white;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .language-dropdown {
@@ -57,7 +57,7 @@
 
 .language-dropdown:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
     border-color: #007bff;
 }
 
@@ -80,7 +80,7 @@
     background-color: white;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 0;
     min-width: 140px;
 }
@@ -117,17 +117,20 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
+
 
 .print-button:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-
+.bi.bi-printer {
+    color: #fff;
+}
 
 /* =========================
    RESPONSIVIDADE
@@ -139,7 +142,7 @@
         margin: 10px;
         padding: 1cm;
     }
-    
+
     .controls-container {
         position: relative;
         top: 0;
@@ -150,14 +153,43 @@
 }
 
 @media screen and (max-width: 768px) {
+
+    /* Oculta todo o conteúdo da página exceto o container de controles */
+    body>*:not(.controls-container) {
+        display: none !important;
+    }
+
+    /* Exibe e centraliza o container de controles */
     .controls-container {
+        display: flex !important;
         flex-direction: column;
         gap: 15px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2000;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 12px 8px 20px 8px;
+        border-radius: 16px;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08), 0 1.5px 6px rgba(0, 0, 0, 0.04);
+        min-width: 240px;
+        max-width: 90vw;
     }
-    
+
+    /* Esconde todos os filhos exceto o dropdown e o botão imprimir */
+    .controls-container>*:not(.language-selector):not(.print-button) {
+        display: none !important;
+    }
+
     .language-dropdown,
     .print-button {
         width: 100%;
         min-width: 200px;
+    }
+
+    /* Garante que o body fique com fundo claro para o container */
+    body {
+        background: #f8f9fa !important;
     }
 }

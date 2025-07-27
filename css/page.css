@@ -107,8 +107,7 @@
 }
 
 .qr-code-header {
-    margin-left: 10px;
-    width: 80px;
+    width: 100px;
     object-fit: contain;
 }
 

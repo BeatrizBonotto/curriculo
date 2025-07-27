@@ -21,8 +21,8 @@ body {
 /* =========================
    TIPOGRAFIA HIERÁRQUICA
    ========================= */
-span{
-    vertical-align:middle;
+span {
+    vertical-align: middle;
     font-size: 10pt;
     color: #333;
     font-weight: normal;
@@ -209,19 +209,19 @@ li {
     body {
         font-size: 9pt;
     }
-    
+
     h1 {
         font-size: 14pt;
     }
-    
+
     h2 {
         font-size: 11pt;
     }
-    
+
     h3 {
         font-size: 10pt;
     }
-    
+
     h4 {
         font-size: 9pt;
     }
@@ -236,7 +236,7 @@ li {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
     }
-    
+
     body {
         font-size: 10pt !important;
         line-height: 1.4 !important;
@@ -244,7 +244,7 @@ li {
         background: white !important;
         font-family: 'Arial', sans-serif !important;
     }
-    
+
     h1 {
         font-size: 16pt !important;
         font-weight: bold !important;
@@ -252,7 +252,7 @@ li {
         margin-bottom: 5mm !important;
         page-break-after: avoid !important;
     }
-    
+
     h2 {
         font-size: 12pt !important;
         font-weight: bold !important;
@@ -263,7 +263,7 @@ li {
         text-transform: uppercase !important;
         page-break-after: avoid !important;
     }
-    
+
     h3 {
         font-size: 11pt !important;
         font-weight: bold !important;
@@ -271,7 +271,7 @@ li {
         margin-bottom: 3mm !important;
         page-break-after: avoid !important;
     }
-    
+
     h4 {
         font-size: 10pt !important;
         font-weight: bold !important;
@@ -279,65 +279,92 @@ li {
         margin-bottom: 2mm !important;
         page-break-after: avoid !important;
     }
-    
+
     p {
         margin-bottom: 3mm !important;
         text-align: justify !important;
         orphans: 2 !important;
         widows: 2 !important;
     }
-    
+
     .justified-text {
         text-align: justify !important;
         text-indent: 0 !important;
     }
-    
+
     a {
         color: #0066cc !important;
         text-decoration: underline !important;
     }
-    
+
     a:hover {
         color: #0052a3 !important;
     }
-    
+
     a:visited {
         color: #0066cc !important;
     }
-    
+
     ul {
         margin-left: 8mm !important;
         margin-bottom: 3mm !important;
     }
-    
+
     ol {
         margin-left: 8mm !important;
         margin-bottom: 3mm !important;
     }
-    
+
     li {
         margin-bottom: 1mm !important;
         text-align: justify !important;
         orphans: 2 !important;
         widows: 2 !important;
     }
-    
+
     /* Evitar quebras órfãs e viúvas */
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         page-break-after: avoid !important;
         break-after: avoid !important;
     }
-    .age{
+
+    .age {
         vertical-align: middle !important;
         font-size: 10pt !important;
         color: #666 !important;
     }
+
     /* Conversão de espaçamentos responsivos */
-    .mb-small { margin-bottom: 2mm !important; }
-    .mb-medium { margin-bottom: 3mm !important; }
-    .mb-large { margin-bottom: 5mm !important; }
-    .mb-xlarge { margin-bottom: 8mm !important; }
-    .mt-small { margin-top: 2mm !important; }
-    .mt-medium { margin-top: 3mm !important; }
-    .mt-large { margin-top: 5mm !important; }
+    .mb-small {
+        margin-bottom: 2mm !important;
+    }
+
+    .mb-medium {
+        margin-bottom: 3mm !important;
+    }
+
+    .mb-large {
+        margin-bottom: 5mm !important;
+    }
+
+    .mb-xlarge {
+        margin-bottom: 8mm !important;
+    }
+
+    .mt-small {
+        margin-top: 2mm !important;
+    }
+
+    .mt-medium {
+        margin-top: 3mm !important;
+    }
+
+    .mt-large {
+        margin-top: 5mm !important;
+    }
 }
