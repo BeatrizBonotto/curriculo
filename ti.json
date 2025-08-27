@@ -1,0 +1,173 @@
+{
+  "individuo": {
+    "primeiroNome": "Beatriz",
+    "sobrenome": "Souza",
+    "nomeCompleto": "Beatriz Souza",
+    "local": "Campinas-SP",
+    "pais": "Brasil",
+    "ocupacao": "Auxiliar Administrativa",
+    "descricao": "Sou formada em Administração e tenho mais de 5 anos de experiência na área administrativa, sempre envolvida com organização, atendimento ao cliente e melhoria de processos. Com o tempo, comecei a me interessar por tecnologia, especialmente vendo de perto a rotina do meu marido, que já atua na área. Isso me inspirou a buscar uma transição profissional, e foi assim que concluí o curso Técnico em Informática para Internet. Durante o curso, aprendi HTML, CSS, JavaScript, lógica de programação, análise de dados e testes de software e scrum. Hoje, busco uma oportunidade em TI para unir minha vivência prática com ferramentas digitais que realmente agreguem valor ao dia a dia das empresas.",
+    "keywords": "Administração, Atendimento ao Cliente, Transição de Carreira, HTML, CSS, JavaScript, Lógica de Programação, Análise de Dados, Testes de Software, Scrum",
+    "linkedin": "https://linkedin.com/in/beatrizsouza-adm",
+    "dataNasc": "1998-03-14",
+    "github": "https://github.com/BeatrizBonotto/",
+    "email": "beatrizsouzag@outlook.com",
+    "telefone": "+55 (19) 99103-5924",
+    "hardSkills": [
+      "Administração",
+      "Atendimento ao Cliente",
+      "transição de carreira",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Lógica de Programação",
+      "Análise de Dados",
+      "Testes de Software",
+      "Scrum"
+    ],
+    "softSkills": [
+      "Gestão de tempo",
+      "Habilidades analíticas",
+      "Organização",
+      "Comunicação assertiva",
+      "Pensamento estratégico"
+    ]
+  },
+  "historicoAcademico": [
+    {
+      "instituicao": "Politécnica Brasileira",
+      "curso": "Técnico em Informática para Internet",
+      "tipo": "Técnico",
+      "inicio": "01/11/2023",
+      "fim": "01/05/2025",
+      "atual": false,
+      "descricao": "Curso técnico voltado à formação prática e teórica em desenvolvimento web, com foco na criação de sites, sistemas e aplicações para internet. Abrange linguagens como HTML, CSS, JavaScript, lógica de programação, design responsivo e banco de dados, metodologias ágeis e testes de software."
+    },
+    {
+      "instituicao": "Anhanguera Educacional",
+      "curso": "Administração de Empresas",
+      "tipo": "Bacharelado",
+      "inicio": "01/06/2019",
+      "fim": "01/06/2023",
+      "atual": false,
+      "descricao": "Formação superior com foco em gestão estratégica, finanças, recursos humanos, marketing, logística e planejamento empresarial. Desenvolveu habilidades para atuação em diferentes setores administrativos e corporativos."
+    },
+    {
+      "instituicao": "Senac Brasil",
+      "curso": "Serviços Administrativos",
+      "tipo": "Curso Técnico",
+      "inicio": "01/10/2015",
+      "fim": "01/10/2016",
+      "atual": false,
+      "descricao": "Curso profissionalizante voltado ao desenvolvimento de competências em rotinas administrativas, atendimento ao cliente, organização de documentos e utilização de ferramentas de escritório."
+    },
+    {
+      "instituicao": "Senac Brasil",
+      "curso": "Gestão de Negócios",
+      "tipo": "Curso Técnico",
+      "inicio": "01/10/2013",
+      "fim": "01/10/2014",
+      "atual": false,
+      "descricao": "Curso com foco na introdução a práticas de gestão empresarial, planejamento estratégico, empreendedorismo, marketing e operações. Preparação para atuar em funções administrativas de apoio à gestão."
+    }
+  ],
+  "historicoProfissional": [
+    {
+      "instituicao": "Dínamo Seguros",
+      "titulo": "Auxiliar Administrativa",
+      "regime": "CLT",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Realizo cotações de seguros novos e renovações de todo ramo elementar. Administro seguros da carteira de clientes de imobiliárias parceiras. Faço atendimento ao cliente, fechamento de seguros, acompanhamento de emissões e resoluções com seguradoras.",
+      "inicio": "01/11/2020",
+      "fim": null,
+      "atual": true
+    },
+    {
+      "instituicao": "Dínamo Seguros",
+      "titulo": "Estagiária Administrativa",
+      "regime": "Estágio",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Emissão de boletos, controle de arquivos, envio de documentos e cotações de seguros. Auxílio nas demandas administrativas da empresa.",
+      "inicio": "01/08/2020",
+      "fim": "01/11/2020",
+      "atual": false
+    },
+    {
+      "instituicao": "Instituto Nacional do Seguro Social (INSS)",
+      "titulo": "Estagiária Administrativa",
+      "regime": "Estágio",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Elaboração de memorandos e ofícios, emissão e digitalização de documentos, organização de arquivos de processos.",
+      "inicio": "01/04/2019",
+      "fim": "01/04/2020",
+      "atual": false
+    },
+    {
+      "instituicao": "Tecnoset",
+      "titulo": "Aprendiz Administrativa",
+      "regime": "Aprendiz",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Anexava documentos, atendia clientes, elaborava planilhas e apresentações, monitorava suprimentos e encerramento de atendimentos.",
+      "inicio": "01/10/2015",
+      "fim": "01/10/2016",
+      "atual": false
+    },
+    {
+      "instituicao": "Claro Brasil",
+      "titulo": "Aprendiz Administrativa",
+      "regime": "Aprendiz",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Criação de planilhas, suporte ao setor administrativo, organização de arquivos e inserção de dados em sistema.",
+      "inicio": "01/10/2013",
+      "fim": "01/10/2014",
+      "atual": false
+    }
+  ],
+  "idiomas": [],
+  "certificacoes": [
+    {
+      "nome": "Jornada da Inteligência Profissional",
+      "instituicao": "Plataforma online",
+      "data": "01/01/2024",
+      "validade": "Vitalícia"
+    },
+    {
+      "nome": "Produtividade Inteligente",
+      "instituicao": "Plataforma online",
+      "data": "01/01/2024",
+      "validade": "Vitalícia"
+    },
+    {
+      "nome": "Semana do Excel",
+      "instituicao": "Plataforma online",
+      "data": "01/01/2024",
+      "validade": "Vitalícia"
+    },
+    {
+      "nome": "Argumentação persuasiva",
+      "instituicao": "Plataforma online",
+      "data": "01/01/2024",
+      "validade": "Vitalícia"
+    },
+    {
+      "nome": "Comunicação e pensamento assertivo",
+      "instituicao": "Plataforma online",
+      "data": "01/01/2024",
+      "validade": "Vitalícia"
+    }
+  ],
+  "projetos": [
+    {
+      "nome": "Landing page Starbucks",
+      "descricao": "Criação de uma landing page Starbucks utilizando HTML, CSS e JavaScript. Disponivel em: https://beatrizbonotto.github.io/Starbucks/",
+      "tecnologias": ["HTML", "CSS", "JavaScript"],
+      "link": "https://beatrizbonotto.github.io/Starbucks/",
+        "data": "Fevereiro 2025"
+    }
+  ]
+}
