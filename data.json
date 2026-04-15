@@ -1,186 +1,159 @@
 {
-    "individuo": 
-    {
-        "primeiroNome": "Beatriz",
-        "sobrenome": "Souza",
-        "nomeCompleto": "Beatriz Souza",
-        "local": "Campinas-SP",
-        "pais": "Brasil",
-        "ocupacao": "Analista de Seguros",
-        "descricao": "Profissional com mais de 5 anos de experiência na área administrativa, formada em Administração de Empresas e com experiência técnica em Serviços Administrativos e Gestão de Negócios. Atuação sólida em rotinas administrativas, atendimento ao cliente, organização de processos e análise de dados, com expertise em melhorias contínuas e suporte operacional.",
-        "keywords": "Administração, Atendimento ao Cliente, Seguros, Cotações, Gestão de Processos, Excel, Organização, Comunicação Assertiva, resolução de problemas, habilidades analíticas.",
-        "linkedin": "https://linkedin.com/in/beatrizsouza-adm",
-        "dataNasc": "1998-03-14",
-        "github": "https://github.com/BeatrizBonotto/",
-        "email": "beatrizsouzag@outlook.com",
-        "telefone": "+55 (19) 99103-5924",
-        "hardSkills": 
-        [
-            "Administração",
-            "Atendimento ao Cliente",
-            "Análise de Seguros",
-            "Cotações de Seguros",
-            "Gestão de Carteira de Clientes",
-            "Microsoft Excel",
-            "Emissão de Apólices",
-            "Renovação de Seguros",
-            "Análise de Riscos",
-            "Gestão de Processos Administrativos"
-        ],
-        "softSkills": 
-        [
-            "Gestão de tempo",
-            "Habilidades analíticas",
-            "Organização",
-            "Comunicação assertiva",
-            "Pensamento estratégico"
-        ]
-    },
-    "historicoAcademico": 
-    [
-        {
-            "instituicao": "Politécnica Brasileira",
-            "curso": "Técnico em Informática para Internet",
-            "tipo": "Técnico",
-            "inicio": "01/11/2023",
-            "fim": "01/05/2025",
-            "atual": false,
-            "descricao": "Curso técnico voltado à formação prática e teórica em desenvolvimento web, com foco na criação de sites, sistemas e aplicações para internet. Abrange linguagens como HTML, CSS, JavaScript, lógica de programação, design responsivo e banco de dados, metodologias ágeis e testes de software."
-        },
-        {
-            "instituicao": "Anhanguera Educacional",
-            "curso": "Administração de Empresas",
-            "tipo": "Bacharelado",
-            "inicio": "01/06/2019",
-            "fim": "01/06/2023",
-            "atual": false,
-            "descricao": "Formação superior com foco em gestão estratégica, finanças, recursos humanos, marketing, logística e planejamento empresarial. Desenvolveu habilidades para atuação em diferentes setores administrativos e corporativos."
-        },
-        {
-            "instituicao": "Senac Brasil",
-            "curso": "Serviços Administrativos",
-            "tipo": "Curso Técnico",
-            "inicio": "01/10/2015",
-            "fim": "01/10/2016",
-            "atual": false,
-            "descricao": "Curso profissionalizante voltado ao desenvolvimento de competências em rotinas administrativas, atendimento ao cliente, organização de documentos e utilização de ferramentas de escritório."
-        },
-        {
-            "instituicao": "Senac Brasil",
-            "curso": "Gestão de Negócios",
-            "tipo": "Curso Técnico",
-            "inicio": "01/10/2013",
-            "fim": "01/10/2014",
-            "atual": false,
-            "descricao": "Curso com foco na introdução a práticas de gestão empresarial, planejamento estratégico, empreendedorismo, marketing e operações. Preparação para atuar em funções administrativas de apoio à gestão."
-        }
+  "individuo": {
+    "primeiroNome": "Beatriz",
+    "sobrenome": "Souza",
+    "nomeCompleto": "Beatriz Souza",
+    "local": "Campinas-SP",
+    "pais": "Brasil",
+    "ocupacao": "Assistente Administrativa",
+    "descricao": "Profissional com mais de 5 anos de experiência na área administrativa, formada em Administração de Empresas, com atuação em rotinas administrativas, atendimento ao cliente, organização de documentos, controle de processos, elaboração de planilhas e suporte operacional. Experiência em acompanhamento de demandas, organização de arquivos, gestão de informações, emissão de documentos, relacionamento com clientes e apoio às áreas internas. Perfil organizado, proativo, analítico e focado em eficiência e melhoria contínua.",
+    "keywords": "Administração, Rotinas Administrativas, Atendimento ao Cliente, Organização de Documentos, Controle de Processos, Excel, Planilhas, Suporte Administrativo, Gestão de Informações, Emissão de Documentos, Organização, Comunicação Assertiva, Resolução de Problemas",
+    "linkedin": "https://linkedin.com/in/beatrizsouza-adm",
+    "dataNasc": "1998-03-14",
+    "github": "https://github.com/BeatrizBonotto/",
+    "email": "beatrizsouzag@outlook.com",
+    "telefone": "+55 (19) 99103-5924",
+    "hardSkills": [
+      "Rotinas Administrativas",
+      "Atendimento ao Cliente",
+      "Controle e Organização de Documentos",
+      "Elaboração de Planilhas",
+      "Microsoft Excel",
+      "Pacote Office",
+      "Controle de Agenda e Prazos",
+      "Emissão de Documentos e Boletos",
+      "Acompanhamento de Processos",
+      "Cadastro e Atualização de Dados",
+      "Arquivamento Físico e Digital",
+      "Suporte Administrativo",
+      "Gestão de Informações",
+      "Controle de Demandas",
+      "Digitalização e Conferência de Documentos"
     ],
-    "historicoProfissional": 
-    [
-        {
-            "instituicao": "Dínamo Seguros",
-            "titulo": "Analista de Seguros PL",
-            "regime": "CLT",
-            "local": "Campinas-SP",
-            "tipoLocal": "Presencial",
-            "descricao": "Realizo cotações de seguros novos e renovações de todo ramo elementar. Administro seguros da carteira de clientes de imobiliárias parceiras. Faço atendimento ao cliente, fechamento de seguros, acompanhamento de emissões e resoluções com seguradoras.",
-            "inicio": "01/08/2025",
-            "fim": null,
-            "atual": true
-        },
-        {
-            "instituicao": "Dínamo Seguros",
-            "titulo": "Auxiliar Administrativa",
-            "regime": "CLT",
-            "local": "Campinas-SP",
-            "tipoLocal": "Presencial",
-            "descricao": "Realizo cotações de seguros novos e renovações de todo ramo elementar. Administro seguros da carteira de clientes de imobiliárias parceiras. Faço atendimento ao cliente, fechamento de seguros, acompanhamento de emissões e resoluções com seguradoras.",
-            "inicio": "01/11/2020",
-            "fim": null,
-            "atual": false
-        },
-        {
-            "instituicao": "Dínamo Seguros",
-            "titulo": "Estagiária Administrativa",
-            "regime": "Estágio",
-            "local": "Campinas-SP",
-            "tipoLocal": "Presencial",
-            "descricao": "Emissão de boletos, controle de arquivos, envio de documentos e cotações de seguros. Auxílio nas demandas administrativas da empresa.",
-            "inicio": "01/08/2020",
-            "fim": "01/11/2020",
-            "atual": false
-        },
-        {
-            "instituicao": "Instituto Nacional do Seguro Social (INSS)",
-            "titulo": "Estagiária Administrativa",
-            "regime": "Estágio",
-            "local": "Campinas-SP",
-            "tipoLocal": "Presencial",
-            "descricao": "Elaboração de memorandos e ofícios, emissão e digitalização de documentos, organização de arquivos de processos.",
-            "inicio": "01/04/2019",
-            "fim": "01/04/2020",
-            "atual": false
-        },
-        {
-            "instituicao": "Tecnoset",
-            "titulo": "Aprendiz Administrativa",
-            "regime": "Aprendiz",
-            "local": "Campinas-SP",
-            "tipoLocal": "Presencial",
-            "descricao": "Anexava documentos, atendia clientes, elaborava planilhas e apresentações, monitorava suprimentos e encerramento de atendimentos.",
-            "inicio": "01/10/2015",
-            "fim": "01/10/2016",
-            "atual": false
-        },
-        {
-            "instituicao": "Claro Brasil",
-            "titulo": "Aprendiz Administrativa",
-            "regime": "Aprendiz",
-            "local": "Campinas-SP",
-            "tipoLocal": "Presencial",
-            "descricao": "Criação de planilhas, suporte ao setor administrativo, organização de arquivos e inserção de dados em sistema.",
-            "inicio": "01/10/2013",
-            "fim": "01/10/2014",
-            "atual": false
-        }
-    ],
-    "idiomas": 
-    [
-    ],
-    "certificacoes": 
-    [
-        {
-            "nome": "Jornada da Inteligência Profissional",
-            "instituicao": "Plataforma online",
-            "data": "01/03/2023",
-            "validade": "Vitalícia"
-        },
-        {
-            "nome": "Produtividade Inteligente",
-            "instituicao": "Plataforma online",
-            "data": "01/01/2023",
-            "validade": "Vitalícia"
-        },
-        {
-            "nome": "Semana do Excel",
-            "instituicao": "Plataforma online",
-            "data": "01/05/2024",
-            "validade": "Vitalícia"
-        },
-        {
-            "nome": "Argumentação persuasiva",
-            "instituicao": "Plataforma online",
-            "data": "01/06/2023",
-            "validade": "Vitalícia"
-        },
-        {
-            "nome": "Comunicação e pensamento assertivo",
-            "instituicao": "Plataforma online",
-            "data": "01/06/2022",
-            "validade": "Vitalícia"
-        }
-    ],
-    "projetos": 
-    [
+    "softSkills": [
+      "Organização",
+      "Gestão de tempo",
+      "Comunicação assertiva",
+      "Proatividade",
+      "Habilidades analíticas",
+      "Atenção aos detalhes",
+      "Resolução de problemas",
+      "Trabalho em equipe"
     ]
+  },
+  "historicoProfissional": [
+    {
+      "instituicao": "Dínamo Seguros",
+      "titulo": "Analista de Seguros PL",
+      "regime": "CLT",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Realizo cotações de seguros novos e renovações de todo ramo elementar. Administro seguros da carteira de clientes de imobiliárias parceiras. Faço atendimento ao cliente, fechamento de seguros, acompanhamento de emissões e resoluções com seguradoras.",
+      "tarefasAdministrativas": [
+        "Atendimento ao cliente por telefone, e-mail e presencialmente",
+        "Organização e atualização de cadastros e informações em sistema",
+        "Controle de prazos, pendências e acompanhamento de demandas",
+        "Elaboração e atualização de planilhas de acompanhamento",
+        "Organização e arquivamento de documentos físicos e digitais",
+        "Emissão, conferência e envio de documentos",
+        "Contato com parceiros e acompanhamento de solicitações",
+        "Suporte às rotinas administrativas e operacionais da empresa"
+      ],
+      "inicio": "01/08/2025",
+      "fim": null,
+      "atual": true
+    },
+    {
+      "instituicao": "Dínamo Seguros",
+      "titulo": "Auxiliar Administrativa",
+      "regime": "CLT",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Realizo cotações de seguros novos e renovações de todo ramo elementar. Administro seguros da carteira de clientes de imobiliárias parceiras. Faço atendimento ao cliente, fechamento de seguros, acompanhamento de emissões e resoluções com seguradoras.",
+      "tarefasAdministrativas": [
+        "Recebimento, separação e organização de documentos",
+        "Controle de arquivos e digitalização",
+        "Atualização de cadastros e informações em sistema",
+        "Emissão de boletos e envio de documentos",
+        "Atendimento ao cliente e suporte administrativo",
+        "Acompanhamento de solicitações e pendências",
+        "Elaboração de planilhas e controles internos"
+      ],
+      "inicio": "01/11/2020",
+      "fim": null,
+      "atual": false
+    },
+    {
+      "instituicao": "Dínamo Seguros",
+      "titulo": "Estagiária Administrativa",
+      "regime": "Estágio",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Emissão de boletos, controle de arquivos, envio de documentos e cotações de seguros. Auxílio nas demandas administrativas da empresa.",
+      "tarefasAdministrativas": [
+        "Emissão de boletos e documentos",
+        "Controle e organização de arquivos",
+        "Digitalização e envio de documentos",
+        "Alimentação de planilhas",
+        "Suporte às rotinas administrativas da equipe"
+      ],
+      "inicio": "01/08/2020",
+      "fim": "01/11/2020",
+      "atual": false
+    },
+    {
+      "instituicao": "Instituto Nacional do Seguro Social (INSS)",
+      "titulo": "Estagiária Administrativa",
+      "regime": "Estágio",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Elaboração de memorandos e ofícios, emissão e digitalização de documentos, organização de arquivos de processos.",
+      "tarefasAdministrativas": [
+        "Elaboração de memorandos e ofícios",
+        "Digitalização e conferência de documentos",
+        "Organização de arquivos e processos",
+        "Separação e controle de documentos",
+        "Apoio ao setor administrativo"
+      ],
+      "inicio": "01/04/2019",
+      "fim": "01/04/2020",
+      "atual": false
+    },
+    {
+      "instituicao": "Tecnoset",
+      "titulo": "Aprendiz Administrativa",
+      "regime": "Aprendiz",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Anexava documentos, atendia clientes, elaborava planilhas e apresentações, monitorava suprimentos e encerramento de atendimentos.",
+      "tarefasAdministrativas": [
+        "Atendimento ao cliente",
+        "Elaboração de planilhas e apresentações",
+        "Organização e anexação de documentos",
+        "Controle de suprimentos",
+        "Encerramento e acompanhamento de atendimentos"
+      ],
+      "inicio": "01/10/2015",
+      "fim": "01/10/2016",
+      "atual": false
+    },
+    {
+      "instituicao": "Claro Brasil",
+      "titulo": "Aprendiz Administrativa",
+      "regime": "Aprendiz",
+      "local": "Campinas-SP",
+      "tipoLocal": "Presencial",
+      "descricao": "Criação de planilhas, suporte ao setor administrativo, organização de arquivos e inserção de dados em sistema.",
+      "tarefasAdministrativas": [
+        "Criação e atualização de planilhas",
+        "Organização de arquivos",
+        "Inserção de dados em sistema",
+        "Suporte às atividades administrativas",
+        "Controle de informações e documentos"
+      ],
+      "inicio": "01/10/2013",
+      "fim": "01/10/2014",
+      "atual": false
+    }
+  ]
 }
