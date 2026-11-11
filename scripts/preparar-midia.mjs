@@ -72,16 +72,7 @@ fs.rmSync(fotoTmp);
 await sharp(retrato).resize(768, 1024).webp({ quality: 80 }).toFile(`${DESTINO}/perfil-padrao.webp`);
 await sharp(retrato).resize(600, 800).webp({ quality: 80 }).toFile(`${DESTINO}/perfil-social.webp`);
 
-// Imagem de compartilhamento 1200x630
-const foto = await sharp(retrato).resize({ height: 630 }).toBuffer();
-const lf = (await sharp(foto).metadata()).width;
-const svg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="#FAF5F2"/>
-<text x="72" y="130" font-family="Arial, sans-serif" font-size="22" fill="#9E4F67" letter-spacing="5">ANALISTA ADMINISTRATIVA</text>
-<text x="66" y="262" font-family="Georgia, serif" font-size="104" fill="#2B2226">Beatriz</text>
-<text x="66" y="372" font-family="Georgia, serif" font-style="italic" font-size="104" fill="#9E4F67">Bonotto</text>
-<text x="72" y="448" font-family="Arial, sans-serif" font-size="24" fill="#66545C">Administração · Atendimento · Seguros · Tecnologia</text>
-<text x="72" y="560" font-family="Arial, sans-serif" font-size="22" fill="#66545C">beatrizgsbonotto.web.app</text></svg>`;
-await sharp(Buffer.from(svg)).composite([{ input: foto, left: 1200 - lf, top: 0 }]).jpeg({ quality: 84 }).toFile(`${DESTINO}/og.jpg`);
+// a imagem de compartilhamento (og.jpg) sai da própria abertura: node scripts/og-imagem.mjs (depois do build)
 
 // quadros da seção "Como eu trabalho" (canvas rolado pelo scroll); sem eles o vídeo fica congelado no poster
 execFileSync(process.execPath, ['scripts/quadros-video.mjs', `${DESTINO}/escritorio.mp4`, `${DESTINO}/escritorio`, String(QUADROS), '1280'], { stdio: 'inherit' });
