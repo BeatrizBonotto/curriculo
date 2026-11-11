@@ -1549,3 +1549,69 @@ h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .n
 /* vídeos da Beatriz não têm selo para esconder: nenhum zoom */
 .video-recorte, .manifesto-video, .contato-video, .manifesto-poster { transform: none !important; }
 .contato-video { object-position: 50% 40%; }
+/* contato: só os canais, em cartões */
+.contato-secao .contato-video { margin-top: 0; }
+.contato-secao .contato-hero { background: transparent; }
+.contato-canais { padding-block: clamp(40px, 7svh, 80px) var(--secao); }
+.canais-cartoes { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.canais-cartoes a { display: grid; grid-template-columns: 48px minmax(0, 1fr) 18px; gap: 14px; align-items: center; padding: 18px; background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio); transition: border-color .3s, transform .3s var(--curva), box-shadow .3s; }
+.canal-ic { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; background: rgba(var(--acento-rgb), .12); color: var(--acento); }
+.canal-txt { display: grid; min-width: 0; }
+.canal-txt strong { font-family: var(--titulo); font-weight: 600; font-size: 1.2rem; }
+.canal-txt span { font-size: .85rem; color: var(--tinta-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.canais-cartoes a > .ic:last-child { opacity: .4; transition: transform .3s var(--curva), opacity .3s; }
+.canais-cartoes a:hover { border-color: rgba(var(--acento-rgb), .45); transform: translateY(-2px); box-shadow: var(--sombra); }
+.canais-cartoes a:hover > .ic:last-child { opacity: 1; transform: translateX(3px); }
+/* "trabalhando": a base do vídeo se dissolve na cor do site, sem linha horizontal */
+.manifesto-palco::after { content: ''; position: absolute; inset: auto 0 0; height: 22%; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,0), var(--bg) 92%); }
+.manifesto-palco { background: var(--bg); }
+/* na home o contato não fica sob o menu: o vídeo ocupa a caixa toda, sem faixa escura no topo */
+@media (min-width: 0px) { .contato-secao .contato-video { inset: 0; height: 100%; margin: 0; } }
+.contato-secao .contato-veu { top: 0; }
+.contato-secao .contato-veu { background: linear-gradient(90deg, rgba(11,11,13,.85) 0%, rgba(11,11,13,.55) 32%, rgba(11,11,13,0) 56%); }
+@media (max-width: 759px) { .contato-secao .contato-veu { background: linear-gradient(0deg, rgba(11,11,13,.85) 0%, rgba(11,11,13,.3) 55%, rgba(11,11,13,0) 80%); } }
+/* contato: painel único sobre a base do vídeo, três partes alinhadas */
+.contato-painel-wrap { position: relative; z-index: 3; margin-top: -72px; padding-bottom: var(--secao); }
+.contato-painel { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) auto; align-items: stretch; background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio-g); box-shadow: var(--sombra); overflow: hidden; }
+.contato-painel > * { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 30px 34px; }
+.contato-painel > * + * { border-left: 1px solid var(--linha); }
+.cp-rotulo { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--tinta-2); }
+.cp-email strong { font-family: var(--titulo); font-weight: 600; font-size: clamp(1.3rem, 1rem + 1vw, 1.9rem); line-height: 1.1; overflow-wrap: anywhere; transition: color .3s; }
+.cp-dica { display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--acento); }
+.cp-dica .ic { width: 16px; height: 16px; }
+.cp-email:hover strong { color: var(--acento); }
+.cp-redes ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 18px; }
+.cp-redes a { display: grid; justify-items: center; gap: 6px; font-size: .78rem; color: var(--tinta-2); }
+.cp-redes a .ic { width: 52px; height: 52px; padding: 14px; border-radius: 50%; background: rgba(var(--acento-rgb), .12); color: var(--acento); transition: background .3s, color .3s, transform .3s var(--curva); }
+.cp-redes a:hover .ic { background: var(--acento); color: #fff; transform: translateY(-3px); }
+.cp-cv .btn { white-space: nowrap; }
+@media (max-width: 959px) {
+  .contato-painel-wrap { margin-top: -40px; }
+  .contato-painel { grid-template-columns: 1fr; text-align: center; }
+  .contato-painel > * { align-items: center; padding: 24px 20px; }
+  .contato-painel > * + * { border-left: 0; border-top: 1px solid var(--linha); }
+  .cp-redes ul { justify-content: center; }
+}
+/* celular: o texto do contato fica sobre fundo escuro abaixo do vídeo (sem véu cinza) */
+@media (max-width: 759px) {
+  .contato-secao .contato-hero { background: #1b1418; padding-bottom: 64px; }
+  .contato-secao .contato-veu { display: none; }
+}
+/* contato ancorado: o vídeo fica parado em tela cheia e o painel de contatos sobe por cima dele */
+.contato-secao { padding-top: var(--secao); }
+.contato-secao .contato-hero { position: sticky; top: 0; height: 100svh; min-height: 0; z-index: 1; }
+.contato-painel-wrap { margin-top: 28svh; }
+@media (max-width: 959px) { .contato-painel-wrap { margin-top: 22svh; } }
+/* contato ancorado v2: tudo dentro da tela fixa, em coluna (título, depois painel) */
+.contato-secao { height: 150svh; padding-top: var(--secao); }
+.contato-secao .contato-hero { display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(20px, 4svh, 40px); padding-block: calc(var(--nav) + 24px) clamp(24px, 5svh, 56px); }
+.contato-secao .contato-texto { padding-block: 0; position: relative; }
+.contato-secao .contato-texto .pag-titulo { font-size: clamp(2.6rem, 1.4rem + 4.4vw, 5.6rem); line-height: 1; }
+.contato-secao .contato-painel-wrap { margin-top: 0; padding-bottom: 0; }
+@media (max-width: 959px) {
+  .contato-secao { height: auto; }
+  .contato-secao .contato-hero { position: relative; height: auto; min-height: 100svh; padding-top: 0; }
+  .contato-secao .contato-video { position: relative; height: auto; aspect-ratio: 16 / 10; }
+  .contato-secao .contato-texto .pag-titulo { font-size: 2.3rem; }
+}
+.contato-painel { color: var(--tinta); }

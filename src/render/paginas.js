@@ -661,24 +661,14 @@ export function contato(d, t) {
     <h2 id="contato-titulo" class="pag-titulo" data-dividir>${t('pag.contato.titulo')}</h2>
     <p>${t('pag.contato.sub')}</p>
   </div>
-</div>
-<div class="container contato-grade">
-  <form class="form" data-form novalidate aria-labelledby="form-titulo">
-    <h2 id="form-titulo" class="titulo-secundario">${t('contato.formTitulo')}</h2>
-    <div class="campo"><label for="f-nome">${t('contato.nome')}</label><input id="f-nome" name="nome" autocomplete="name" required maxlength="120"></div>
-    <div class="campo"><label for="f-email">${t('contato.email')}</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
-    <div class="campo"><label for="f-tipo">${t('contato.tipo')}</label><select id="f-tipo" name="assunto">
-      <option value="vaga">${t('contato.tipo.vaga')}</option><option value="outro">${t('contato.tipo.outro')}</option></select></div>
-    <div class="campo"><label for="f-msg">${t('contato.mensagem')}</label><textarea id="f-msg" name="mensagem" rows="6" required maxlength="5000"></textarea></div>
-    <div class="campo-isca" aria-hidden="true"><label for="f-site">Site</label><input id="f-site" name="site" tabindex="-1" autocomplete="off"></div>
-    <button class="btn btn-acento" type="submit" data-enviar data-texto-enviando="${t('contato.enviando')}">${t('contato.enviar')} ${icone('seta')}</button>
-    <p class="form-status" role="status" aria-live="polite" data-status data-ok="${esc(t('contato.ok'))}" data-erro="${esc(t('contato.erro'))}" data-invalido="${esc(t('contato.invalido'))}"></p>
-  </form>
-  <div class="contato-lado">
-    <h2 class="rotulo">${t('contato.canais')}</h2>
-    <ul class="canais">${canais(d, t).map(([href, ic, txt]) => `<li><a href="${esc(href)}" ${href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>${icone(ic)}<span>${esc(txt)}</span>${icone('seta')}</a></li>`).join('')}
-      <li><a href="${rota(d.lang, 'cv')}">${icone('download')}<span>${t('contato.cv')}</span>${icone('seta')}</a></li></ul>
+<div class="container contato-painel-wrap">
+  <div class="contato-painel">
+    ${(d.site.contato || {}).email ? `<a class="cp-email" href="mailto:${esc(d.site.contato.email)}"><span class="cp-rotulo">${t('contato.email')}</span><strong>${esc(d.site.contato.email)}</strong><span class="cp-dica">${icone('email')} ${t('contato.escreva')}</span></a>` : ''}
+    <div class="cp-redes"><span class="cp-rotulo">${t('contato.canais')}</span>
+      <ul>${canais(d, t).filter(([, ic]) => ic !== 'email').map(([href, ic, txt]) => `<li><a href="${esc(href)}" target="_blank" rel="noopener" aria-label="${esc(txt)}" title="${esc(txt)}">${icone(ic)}<span>${esc(txt)}</span></a></li>`).join('')}</ul></div>
+    <div class="cp-cv"><span class="cp-rotulo">${t('nav.cv')}</span><a class="btn btn-acento" href="${rota(d.lang, 'cv')}">${icone('download')} ${t('contato.cv')}</a></div>
   </div>
+</div>
 </div>
 </section>`;
 }
