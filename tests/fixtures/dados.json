@@ -1,0 +1,1683 @@
+{
+ "cvs": [
+  {
+   "id": "c614c3d8-bad3-44b4-8dcd-6449d61c5b32",
+   "slug": "administrativo",
+   "nome": "Administrativo",
+   "base": "adm",
+   "titulo": "Analista Administrativa",
+   "resumo": "Analista administrativa com {anos} anos de experiência e formação em Administração de Empresas. Atuo com rotinas administrativas, atendimento ao cliente, organização de documentos, controle de prazos e processos, planilhas e suporte operacional, hoje como Analista de Seguros na Dínamo Seguros. Perfil organizado, proativo e analítico, com foco em eficiência e melhoria contínua.",
+   "ordem": 1,
+   "i18n": {
+    "en": {
+     "nome": "Administrative",
+     "resumo": "Administrative analyst with {anos} years of experience and a degree in Business Administration. I handle administrative routines, customer service, document management, deadline and process control, spreadsheets and operational support, currently as an Insurance Analyst at Dínamo Seguros. Organized, proactive and analytical, focused on efficiency and continuous improvement.",
+     "titulo": "Administrative Analyst"
+    },
+    "es": {
+     "nome": "Administrativo",
+     "resumo": "Analista administrativa con {anos} años de experiencia y título en Administración de Empresas. Trabajo con rutinas administrativas, atención al cliente, organización de documentos, control de plazos y procesos, planillas y soporte operativo, hoy como Analista de Seguros en Dínamo Seguros. Perfil organizado, proactivo y analítico, enfocado en la eficiencia y la mejora continua.",
+     "titulo": "Analista Administrativa"
+    }
+   },
+   "secoes": [
+    "resumo",
+    "experiencia",
+    "competencias",
+    "formacao",
+    "idiomas"
+   ],
+   "detalhe": "auto",
+   "projetos": [],
+   "palavras_chave": [
+    "Administração",
+    "Rotinas Administrativas",
+    "Atendimento ao Cliente",
+    "Organização de Documentos",
+    "Controle de Processos",
+    "Excel",
+    "Seguros"
+   ],
+   "mostrar_idade": true
+  },
+  {
+   "id": "43d2a900-9448-43e3-9860-8317ac51fd42",
+   "slug": "ti",
+   "nome": "TI",
+   "base": "ti",
+   "titulo": "Desenvolvedora Web Júnior · Transição de carreira",
+   "resumo": "Formada em Administração, com {anos} anos de experiência administrativa e técnica em Informática para Internet. Na transição para tecnologia, uno a vivência com processos, atendimento e organização ao que aprendi no curso: HTML, CSS, JavaScript, lógica de programação, análise de dados, testes de software e Scrum. Busco uma oportunidade em TI para criar ferramentas digitais que agreguem valor ao dia a dia das empresas.",
+   "ordem": 2,
+   "i18n": {
+    "en": {
+     "nome": "Tech",
+     "resumo": "Business Administration graduate with {anos} years of administrative experience and a technical diploma in web development. Moving into tech, I bring hands-on experience with processes, customer service and organization together with what I learned in the course: HTML, CSS, JavaScript, programming logic, data analysis, software testing and Scrum. Looking for an IT opportunity to build digital tools that add value to companies every day.",
+     "titulo": "Junior Web Developer · Career change"
+    },
+    "es": {
+     "nome": "TI",
+     "resumo": "Licenciada en Administración, con {anos} años de experiencia administrativa y técnica en Informática para Internet. En la transición a la tecnología, uno la experiencia con procesos, atención y organización con lo que aprendí en el curso: HTML, CSS, JavaScript, lógica de programación, análisis de datos, pruebas de software y Scrum. Busco una oportunidad en TI para crear herramientas digitales que aporten valor al día a día de las empresas.",
+     "titulo": "Desarrolladora Web Junior · Transición de carrera"
+    }
+   },
+   "secoes": [
+    "resumo",
+    "formacao",
+    "projetos",
+    "competencias",
+    "experiencia",
+    "idiomas"
+   ],
+   "detalhe": "auto",
+   "projetos": [],
+   "palavras_chave": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Lógica de Programação",
+    "Testes de Software",
+    "Scrum",
+    "Análise de Dados",
+    "Transição de Carreira"
+   ],
+   "mostrar_idade": true
+  }
+ ],
+ "perfil": {
+  "primeiro_nome": "Beatriz",
+  "sobrenome": "G. Souza Bonotto",
+  "nome_completo": "Beatriz G. Souza Bonotto",
+  "data_nascimento": "1998-03-14",
+  "local": "Campinas-SP",
+  "pais": "Brasil",
+  "email": "beatrizsouzag@outlook.com",
+  "telefone": "+55 (19) 99103-5924",
+  "linkedin_url": "https://linkedin.com/in/beatrizsouza-adm",
+  "github_url": "https://github.com/BeatrizBonotto"
+ },
+ "projetos": [
+  {
+   "id": "c0c5030a-f896-42cf-96c5-514a7dc2fe18",
+   "slug": "starbucks",
+   "titulo": "Landing page Starbucks",
+   "papel": "Desenvolvimento completo",
+   "descricao_curta": "Landing page de estudo inspirada na Starbucks, feita do zero com HTML, CSS e JavaScript.",
+   "descricao_completa": "Projeto do curso técnico: página responsiva com seções de produtos, troca de imagens e layout pensado para celular e computador, publicada no GitHub Pages.",
+   "categoria": "dev",
+   "categorias": [
+    "dev"
+   ],
+   "imagem_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/starbucks/capa.webp?v=mwbkzf9t",
+   "galeria": [
+    {
+     "h": 900,
+     "w": 1440,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/starbucks/desktop-01.webp?v=mwbkzdhb",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 1688,
+     "w": 780,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/starbucks/mobile-01.webp?v=mwbkzdst",
+     "dispositivo": "mobile"
+    }
+   ],
+   "tecnologias": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+   ],
+   "funcionalidades": null,
+   "conquistas": null,
+   "link_projeto": "https://beatrizbonotto.github.io/Starbucks/",
+   "link_github": "https://github.com/BeatrizBonotto/Starbucks",
+   "data_projeto": "2025-02-01",
+   "destaque": true,
+   "bloqueado": false,
+   "professional_history_id": null,
+   "ordem": 1,
+   "i18n": {
+    "en": {
+     "papel": "Full development",
+     "titulo": "Starbucks landing page",
+     "descricao_curta": "Study landing page inspired by Starbucks, built from scratch with HTML, CSS and JavaScript.",
+     "descricao_completa": "Technical course project: a responsive page with product sections, image switching and a layout designed for phones and desktops, published on GitHub Pages."
+    },
+    "es": {
+     "papel": "Desarrollo completo",
+     "titulo": "Landing page Starbucks",
+     "descricao_curta": "Landing page de estudio inspirada en Starbucks, hecha desde cero con HTML, CSS y JavaScript.",
+     "descricao_completa": "Proyecto del curso técnico: página responsiva con secciones de productos, cambio de imágenes y diseño pensado para móvil y computadora, publicada en GitHub Pages."
+    }
+   }
+  },
+  {
+   "id": "ff3af965-2070-45e1-9a17-7694ddf3d43d",
+   "slug": "curriculo-multilingue",
+   "titulo": "Currículo multilíngue",
+   "papel": "Desenvolvimento completo",
+   "descricao_curta": "Currículo gerado a partir de um arquivo JSON, em português, inglês e espanhol, pronto para imprimir em A4.",
+   "descricao_completa": "Primeira versão do meu currículo on-line: os dados ficam em JSON e o JavaScript monta a página, com seletor de idioma, layout A4 com quebra de páginas e versão para PDF.",
+   "categoria": "dev",
+   "categorias": [
+    "dev"
+   ],
+   "imagem_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/curriculo-multilingue/capa.webp?v=mwbkzj8d",
+   "galeria": [
+    {
+     "h": 900,
+     "w": 1440,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/curriculo-multilingue/desktop-01.webp?v=mwbkzg52",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 1688,
+     "w": 780,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/curriculo-multilingue/mobile-01.webp?v=mwbkzi3v",
+     "dispositivo": "mobile"
+    }
+   ],
+   "tecnologias": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Bootstrap"
+   ],
+   "funcionalidades": null,
+   "conquistas": null,
+   "link_projeto": null,
+   "link_github": "https://github.com/BeatrizBonotto/curriculo",
+   "data_projeto": null,
+   "destaque": true,
+   "bloqueado": false,
+   "professional_history_id": null,
+   "ordem": 2,
+   "i18n": {
+    "en": {
+     "papel": "Full development",
+     "titulo": "Multilingual résumé",
+     "descricao_curta": "Résumé generated from a JSON file, in Portuguese, English and Spanish, ready to print on A4.",
+     "descricao_completa": "The first version of my online résumé: the data lives in JSON and JavaScript builds the page, with a language picker, an A4 layout with page breaks and a PDF version."
+    },
+    "es": {
+     "papel": "Desarrollo completo",
+     "titulo": "Currículum multilingüe",
+     "descricao_curta": "Currículum generado a partir de un archivo JSON, en portugués, inglés y español, listo para imprimir en A4.",
+     "descricao_completa": "La primera versión de mi currículum en línea: los datos están en JSON y JavaScript arma la página, con selector de idioma, diseño A4 con saltos de página y versión en PDF."
+    }
+   }
+  }
+ ],
+ "experiencias": [
+  {
+   "id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "instituicao": "Dínamo Seguros",
+   "titulo": "Analista de Seguros PL",
+   "regime": "CLT",
+   "local": "Campinas-SP",
+   "tipo_local": "Presencial",
+   "descricao": "Cotações de seguros novos e renovações de todo ramo elementar. Administro seguros da carteira de clientes de imobiliárias parceiras. Atendimento ao cliente, fechamento de seguros, acompanhamento de emissões e resoluções com seguradoras.\nAtividades: Controle de prazos, pendências e acompanhamento de demandas; planilhas de acompanhamento e cadastros sempre atualizados; contato com parceiros e seguradoras até a resolução.",
+   "data_inicio": "2025-08-01",
+   "data_fim": null,
+   "atual": true,
+   "categoria_profissional": "ADM",
+   "logo_url": null,
+   "imagens_urls": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "titulo": "Insurance Analyst (mid-level)",
+     "descricao": "Quotes for new policies and renewals across all property and casualty lines. I manage the insurance portfolio of partner real estate agencies. Customer service, closing policies, following up on issuance and resolving cases with insurers.\nMain tasks: Tracking deadlines, pending items and requests; follow-up spreadsheets and records kept up to date; contact with partners and insurers until each case is solved.",
+     "tipo_local": "On-site"
+    },
+    "es": {
+     "titulo": "Analista de Seguros (semi senior)",
+     "descricao": "Cotizaciones de seguros nuevos y renovaciones de todos los ramos generales. Administro los seguros de la cartera de inmobiliarias asociadas. Atención al cliente, cierre de seguros, seguimiento de emisiones y gestiones con aseguradoras.\nActividades: Control de plazos, pendientes y seguimiento de solicitudes; planillas de seguimiento y registros siempre actualizados; contacto con socios y aseguradoras hasta la resolución.",
+     "tipo_local": "Presencial"
+    }
+   }
+  },
+  {
+   "id": "17d07e77-6795-4067-8c35-bb1e0688bde9",
+   "instituicao": "Dínamo Seguros",
+   "titulo": "Auxiliar Administrativa",
+   "regime": "CLT",
+   "local": "Campinas-SP",
+   "tipo_local": "Presencial",
+   "descricao": "Cotações de seguros novos e renovações de todo ramo elementar. Administro seguros da carteira de clientes de imobiliárias parceiras. Atendimento ao cliente, fechamento de seguros, acompanhamento de emissões e resoluções com seguradoras.\nAtividades: Recebimento, separação, digitalização e arquivo de documentos; emissão de boletos e envio de documentos; planilhas e controles internos.",
+   "data_inicio": "2020-11-01",
+   "data_fim": "2025-08-01",
+   "atual": false,
+   "categoria_profissional": "ADM",
+   "logo_url": null,
+   "imagens_urls": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "titulo": "Administrative Assistant",
+     "descricao": "Quotes for new policies and renewals across all property and casualty lines. I manage the insurance portfolio of partner real estate agencies. Customer service, closing policies, following up on issuance and resolving cases with insurers.\nMain tasks: Receiving, sorting, scanning and filing documents; issuing payment slips and sending documents; spreadsheets and internal controls.",
+     "tipo_local": "On-site"
+    },
+    "es": {
+     "titulo": "Auxiliar Administrativa",
+     "descricao": "Cotizaciones de seguros nuevos y renovaciones de todos los ramos generales. Administro los seguros de la cartera de inmobiliarias asociadas. Atención al cliente, cierre de seguros, seguimiento de emisiones y gestiones con aseguradoras.\nActividades: Recepción, clasificación, digitalización y archivo de documentos; emisión de boletos y envío de documentos; planillas y controles internos.",
+     "tipo_local": "Presencial"
+    }
+   }
+  },
+  {
+   "id": "b84180fa-6f4f-4844-8cf7-3189e808571e",
+   "instituicao": "Dínamo Seguros",
+   "titulo": "Estagiária Administrativa",
+   "regime": "Estágio",
+   "local": "Campinas-SP",
+   "tipo_local": "Presencial",
+   "descricao": "Emissão de boletos, controle de arquivos, envio de documentos e cotações de seguros. Apoio às demandas administrativas da empresa.",
+   "data_inicio": "2020-08-01",
+   "data_fim": "2020-11-01",
+   "atual": false,
+   "categoria_profissional": "ADM",
+   "logo_url": null,
+   "imagens_urls": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "regime": "Internship",
+     "titulo": "Administrative Intern",
+     "descricao": "Issuing payment slips, managing files, sending documents and insurance quotes. Support for the company’s administrative tasks.",
+     "tipo_local": "On-site"
+    },
+    "es": {
+     "regime": "Pasantía",
+     "titulo": "Pasante Administrativa",
+     "descricao": "Emisión de boletos, control de archivos, envío de documentos y cotizaciones de seguros. Apoyo en las tareas administrativas de la empresa.",
+     "tipo_local": "Presencial"
+    }
+   }
+  },
+  {
+   "id": "9850e350-c4b9-461b-9ff4-826b324434eb",
+   "instituicao": "Instituto Nacional do Seguro Social (INSS)",
+   "titulo": "Estagiária Administrativa",
+   "regime": "Estágio",
+   "local": "Campinas-SP",
+   "tipo_local": "Presencial",
+   "descricao": "Elaboração de memorandos e ofícios, emissão e digitalização de documentos, organização de arquivos de processos.",
+   "data_inicio": "2019-04-01",
+   "data_fim": "2020-04-01",
+   "atual": false,
+   "categoria_profissional": "ADM",
+   "logo_url": null,
+   "imagens_urls": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "regime": "Internship",
+     "titulo": "Administrative Intern",
+     "descricao": "Drafting memos and official letters, issuing and scanning documents, organizing case files.",
+     "tipo_local": "On-site",
+     "instituicao": "INSS, Brazil’s National Social Security Institute"
+    },
+    "es": {
+     "regime": "Pasantía",
+     "titulo": "Pasante Administrativa",
+     "descricao": "Redacción de memorandos y oficios, emisión y digitalización de documentos, organización de archivos de expedientes.",
+     "tipo_local": "Presencial",
+     "instituicao": "INSS, Instituto Nacional del Seguro Social de Brasil"
+    }
+   }
+  },
+  {
+   "id": "d3dae06d-9692-4b74-b28f-7dea7b71160f",
+   "instituicao": "Tecnoset",
+   "titulo": "Aprendiz Administrativa",
+   "regime": "Aprendiz",
+   "local": "Campinas-SP",
+   "tipo_local": "Presencial",
+   "descricao": "Anexava documentos, atendia clientes, elaborava planilhas e apresentações, monitorava suprimentos e o encerramento de atendimentos.",
+   "data_inicio": "2015-10-01",
+   "data_fim": "2016-10-01",
+   "atual": false,
+   "categoria_profissional": "ADM",
+   "logo_url": null,
+   "imagens_urls": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "regime": "Apprentice",
+     "titulo": "Administrative Apprentice",
+     "descricao": "Attached documents, served customers, built spreadsheets and presentations, monitored supplies and the closing of service tickets.",
+     "tipo_local": "On-site"
+    },
+    "es": {
+     "regime": "Aprendiz",
+     "titulo": "Aprendiz Administrativa",
+     "descricao": "Adjuntaba documentos, atendía clientes, elaboraba planillas y presentaciones, controlaba suministros y el cierre de atenciones.",
+     "tipo_local": "Presencial"
+    }
+   }
+  },
+  {
+   "id": "e3c83d4c-ca14-4073-a461-a94581417745",
+   "instituicao": "Claro Brasil",
+   "titulo": "Aprendiz Administrativa",
+   "regime": "Aprendiz",
+   "local": "Campinas-SP",
+   "tipo_local": "Presencial",
+   "descricao": "Criação de planilhas, suporte ao setor administrativo, organização de arquivos e inserção de dados em sistema.",
+   "data_inicio": "2013-10-01",
+   "data_fim": "2014-10-01",
+   "atual": false,
+   "categoria_profissional": "ADM",
+   "logo_url": null,
+   "imagens_urls": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "regime": "Apprentice",
+     "titulo": "Administrative Apprentice",
+     "descricao": "Built spreadsheets, supported the administrative team, organized files and entered data into the system.",
+     "tipo_local": "On-site"
+    },
+    "es": {
+     "regime": "Aprendiz",
+     "titulo": "Aprendiz Administrativa",
+     "descricao": "Creación de planillas, apoyo al sector administrativo, organización de archivos e ingreso de datos en el sistema.",
+     "tipo_local": "Presencial"
+    }
+   }
+  }
+ ],
+ "formacoes": [
+  {
+   "id": "590a68a5-9b3f-4418-bebc-cf2c57c66bfc",
+   "instituicao": "Politécnica Brasileira",
+   "curso": "Técnico em Informática para Internet",
+   "tipo_academico": "tecnico",
+   "tipo_local": "Presencial",
+   "descricao": "Formação prática e teórica em desenvolvimento web: HTML, CSS, JavaScript, lógica de programação, design responsivo, banco de dados, metodologias ágeis e testes de software.",
+   "data_inicio": "2023-11-01",
+   "data_fim": "2025-05-01",
+   "atual": false,
+   "logo_url": null,
+   "imagens_urls": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "curso": "Technical Diploma in Web Development",
+     "descricao": "Hands-on and theoretical training in web development: HTML, CSS, JavaScript, programming logic, responsive design, databases, agile methods and software testing."
+    },
+    "es": {
+     "curso": "Técnico en Informática para Internet",
+     "descricao": "Formación práctica y teórica en desarrollo web: HTML, CSS, JavaScript, lógica de programación, diseño responsivo, bases de datos, metodologías ágiles y pruebas de software."
+    }
+   }
+  },
+  {
+   "id": "e1885487-a590-4bff-a5be-c5a0b963d31d",
+   "instituicao": "Anhanguera Educacional",
+   "curso": "Administração de Empresas",
+   "tipo_academico": "bacharel",
+   "tipo_local": "Presencial",
+   "descricao": "Gestão estratégica, finanças, recursos humanos, marketing, logística e planejamento empresarial.",
+   "data_inicio": "2019-06-01",
+   "data_fim": "2023-06-01",
+   "atual": false,
+   "logo_url": null,
+   "imagens_urls": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "curso": "Business Administration",
+     "descricao": "Strategic management, finance, human resources, marketing, logistics and business planning."
+    },
+    "es": {
+     "curso": "Administración de Empresas",
+     "descricao": "Gestión estratégica, finanzas, recursos humanos, marketing, logística y planificación empresarial."
+    }
+   }
+  },
+  {
+   "id": "f6f04eaf-a371-4822-b6ea-c07d4cf47cea",
+   "instituicao": "Senac Brasil",
+   "curso": "Serviços Administrativos",
+   "tipo_academico": "tecnico",
+   "tipo_local": "Presencial",
+   "descricao": "Rotinas administrativas, atendimento ao cliente, organização de documentos e ferramentas de escritório.",
+   "data_inicio": "2015-10-01",
+   "data_fim": "2016-10-01",
+   "atual": false,
+   "logo_url": null,
+   "imagens_urls": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "curso": "Administrative Services",
+     "descricao": "Administrative routines, customer service, document management and office tools."
+    },
+    "es": {
+     "curso": "Servicios Administrativos",
+     "descricao": "Rutinas administrativas, atención al cliente, organización de documentos y herramientas de oficina."
+    }
+   }
+  },
+  {
+   "id": "634c7c62-66eb-4cfd-8448-5163f16fd647",
+   "instituicao": "Senac Brasil",
+   "curso": "Gestão de Negócios",
+   "tipo_academico": "cursolivre",
+   "tipo_local": "Presencial",
+   "descricao": "Introdução à gestão empresarial, planejamento estratégico, empreendedorismo, marketing e operações.",
+   "data_inicio": "2013-10-01",
+   "data_fim": "2014-10-01",
+   "atual": false,
+   "logo_url": null,
+   "imagens_urls": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "curso": "Business Management",
+     "descricao": "Introduction to business management, strategic planning, entrepreneurship, marketing and operations."
+    },
+    "es": {
+     "curso": "Gestión de Negocios",
+     "descricao": "Introducción a la gestión empresarial, planificación estratégica, emprendimiento, marketing y operaciones."
+    }
+   }
+  }
+ ],
+ "certificacoes": [
+  {
+   "id": "90a87285-2000-4ac9-be00-3929ac891099",
+   "nome": "Jornada da Inteligência Profissional",
+   "instituicao": "Plataforma online",
+   "data_certificacao": "2024-01-01",
+   "validade": "Vitalícia",
+   "certificado_url": null,
+   "i18n": {
+    "en": {
+     "nome": "Professional Intelligence Journey",
+     "validade": "Lifetime",
+     "instituicao": "Online platform"
+    },
+    "es": {
+     "nome": "Jornada de la Inteligencia Profesional",
+     "validade": "Vitalicia",
+     "instituicao": "Plataforma en línea"
+    }
+   }
+  },
+  {
+   "id": "25f0ec9f-3be7-46df-b5d9-d16cc66b1b10",
+   "nome": "Produtividade Inteligente",
+   "instituicao": "Plataforma online",
+   "data_certificacao": "2024-01-01",
+   "validade": "Vitalícia",
+   "certificado_url": null,
+   "i18n": {
+    "en": {
+     "nome": "Smart Productivity",
+     "validade": "Lifetime",
+     "instituicao": "Online platform"
+    },
+    "es": {
+     "nome": "Productividad Inteligente",
+     "validade": "Vitalicia",
+     "instituicao": "Plataforma en línea"
+    }
+   }
+  },
+  {
+   "id": "6a937967-0d52-4f05-8098-049dbb1dcb00",
+   "nome": "Semana do Excel",
+   "instituicao": "Plataforma online",
+   "data_certificacao": "2024-01-01",
+   "validade": "Vitalícia",
+   "certificado_url": null,
+   "i18n": {
+    "en": {
+     "nome": "Excel Week",
+     "validade": "Lifetime",
+     "instituicao": "Online platform"
+    },
+    "es": {
+     "nome": "Semana de Excel",
+     "validade": "Vitalicia",
+     "instituicao": "Plataforma en línea"
+    }
+   }
+  },
+  {
+   "id": "2fc02e0c-d3f0-4bf4-a3a7-f9eb4406e557",
+   "nome": "Argumentação persuasiva",
+   "instituicao": "Plataforma online",
+   "data_certificacao": "2024-01-01",
+   "validade": "Vitalícia",
+   "certificado_url": null,
+   "i18n": {
+    "en": {
+     "nome": "Persuasive Argumentation",
+     "validade": "Lifetime",
+     "instituicao": "Online platform"
+    },
+    "es": {
+     "nome": "Argumentación persuasiva",
+     "validade": "Vitalicia",
+     "instituicao": "Plataforma en línea"
+    }
+   }
+  },
+  {
+   "id": "1019e4bd-260f-451d-82fa-0f16a70f8d26",
+   "nome": "Comunicação e pensamento assertivo",
+   "instituicao": "Plataforma online",
+   "data_certificacao": "2024-01-01",
+   "validade": "Vitalícia",
+   "certificado_url": null,
+   "i18n": {
+    "en": {
+     "nome": "Assertive Communication and Thinking",
+     "validade": "Lifetime",
+     "instituicao": "Online platform"
+    },
+    "es": {
+     "nome": "Comunicación y pensamiento asertivo",
+     "validade": "Vitalicia",
+     "instituicao": "Plataforma en línea"
+    }
+   }
+  }
+ ],
+ "competencias": [
+  {
+   "id": "456bcfb6-3682-48f7-ac8d-e907d02178ea",
+   "nome": "Rotinas administrativas",
+   "categoria": "Administrativo",
+   "i18n": {
+    "en": {
+     "nome": "Administrative routines",
+     "categoria": "Administrative"
+    },
+    "es": {
+     "nome": "Rutinas administrativas",
+     "categoria": "Administrativo"
+    }
+   }
+  },
+  {
+   "id": "5a354bf1-69b7-4c8c-8b7c-def665ec8d92",
+   "nome": "Atendimento ao cliente",
+   "categoria": "Administrativo",
+   "i18n": {
+    "en": {
+     "nome": "Customer service",
+     "categoria": "Administrative"
+    },
+    "es": {
+     "nome": "Atención al cliente",
+     "categoria": "Administrativo"
+    }
+   }
+  },
+  {
+   "id": "148a2509-53b7-4697-81c7-444a40752601",
+   "nome": "Controle e organização de documentos",
+   "categoria": "Administrativo",
+   "i18n": {
+    "en": {
+     "nome": "Document control and organization",
+     "categoria": "Administrative"
+    },
+    "es": {
+     "nome": "Control y organización de documentos",
+     "categoria": "Administrativo"
+    }
+   }
+  },
+  {
+   "id": "9cceef5b-8b09-4863-9da0-c8d9f9b05de1",
+   "nome": "Arquivamento físico e digital",
+   "categoria": "Administrativo",
+   "i18n": {
+    "en": {
+     "nome": "Physical and digital filing",
+     "categoria": "Administrative"
+    },
+    "es": {
+     "nome": "Archivo físico y digital",
+     "categoria": "Administrativo"
+    }
+   }
+  },
+  {
+   "id": "2e46d0f6-55f1-46cf-8bfe-6bd18e178728",
+   "nome": "Emissão de documentos e boletos",
+   "categoria": "Administrativo",
+   "i18n": {
+    "en": {
+     "nome": "Issuing documents and payment slips",
+     "categoria": "Administrative"
+    },
+    "es": {
+     "nome": "Emisión de documentos y boletos",
+     "categoria": "Administrativo"
+    }
+   }
+  },
+  {
+   "id": "0e45a55e-f405-4eca-a8f6-fb95f5d48ab6",
+   "nome": "Controle de agenda e prazos",
+   "categoria": "Administrativo",
+   "i18n": {
+    "en": {
+     "nome": "Calendar and deadline control",
+     "categoria": "Administrative"
+    },
+    "es": {
+     "nome": "Control de agenda y plazos",
+     "categoria": "Administrativo"
+    }
+   }
+  },
+  {
+   "id": "b85702a8-1916-4462-909c-b29e7611b30d",
+   "nome": "Acompanhamento de processos",
+   "categoria": "Administrativo",
+   "i18n": {
+    "en": {
+     "nome": "Process follow-up",
+     "categoria": "Administrative"
+    },
+    "es": {
+     "nome": "Seguimiento de procesos",
+     "categoria": "Administrativo"
+    }
+   }
+  },
+  {
+   "id": "861f59b5-895d-4173-b498-ebf417755337",
+   "nome": "Cadastro e atualização de dados",
+   "categoria": "Administrativo",
+   "i18n": {
+    "en": {
+     "nome": "Data entry and updates",
+     "categoria": "Administrative"
+    },
+    "es": {
+     "nome": "Registro y actualización de datos",
+     "categoria": "Administrativo"
+    }
+   }
+  },
+  {
+   "id": "c6768a72-91cb-4255-afc9-ece1424c81c3",
+   "nome": "Cotação e renovação de seguros",
+   "categoria": "Administrativo",
+   "i18n": {
+    "en": {
+     "nome": "Insurance quotes and renewals",
+     "categoria": "Administrative"
+    },
+    "es": {
+     "nome": "Cotización y renovación de seguros",
+     "categoria": "Administrativo"
+    }
+   }
+  },
+  {
+   "id": "8483bbd6-1087-4171-b021-da227c224ed5",
+   "nome": "Microsoft Excel",
+   "categoria": "Ferramentas",
+   "i18n": {
+    "en": {
+     "nome": "Microsoft Excel",
+     "categoria": "Tools"
+    },
+    "es": {
+     "nome": "Microsoft Excel",
+     "categoria": "Herramientas"
+    }
+   }
+  },
+  {
+   "id": "a5050bfc-1308-475d-89bb-7f54bbdd0569",
+   "nome": "Pacote Office",
+   "categoria": "Ferramentas",
+   "i18n": {
+    "en": {
+     "nome": "Microsoft Office",
+     "categoria": "Tools"
+    },
+    "es": {
+     "nome": "Paquete Office",
+     "categoria": "Herramientas"
+    }
+   }
+  },
+  {
+   "id": "671383a7-d40b-4571-9650-fc9e62ae9093",
+   "nome": "Elaboração de planilhas",
+   "categoria": "Ferramentas",
+   "i18n": {
+    "en": {
+     "nome": "Spreadsheet building",
+     "categoria": "Tools"
+    },
+    "es": {
+     "nome": "Elaboración de planillas",
+     "categoria": "Herramientas"
+    }
+   }
+  },
+  {
+   "id": "03682713-1528-4df2-b883-9903670369a2",
+   "nome": "HTML",
+   "categoria": "Tecnologia",
+   "i18n": {
+    "en": {
+     "nome": "HTML",
+     "categoria": "Technology"
+    },
+    "es": {
+     "nome": "HTML",
+     "categoria": "Tecnología"
+    }
+   }
+  },
+  {
+   "id": "a840584c-26ce-47cd-8c81-9cf868a35eda",
+   "nome": "CSS",
+   "categoria": "Tecnologia",
+   "i18n": {
+    "en": {
+     "nome": "CSS",
+     "categoria": "Technology"
+    },
+    "es": {
+     "nome": "CSS",
+     "categoria": "Tecnología"
+    }
+   }
+  },
+  {
+   "id": "a85ed285-b0bc-4a2d-a2f7-ee7b465a7f3f",
+   "nome": "JavaScript",
+   "categoria": "Tecnologia",
+   "i18n": {
+    "en": {
+     "nome": "JavaScript",
+     "categoria": "Technology"
+    },
+    "es": {
+     "nome": "JavaScript",
+     "categoria": "Tecnología"
+    }
+   }
+  },
+  {
+   "id": "cef6feb9-d5e4-4455-ab2d-30c02cb3c75c",
+   "nome": "Lógica de programação",
+   "categoria": "Tecnologia",
+   "i18n": {
+    "en": {
+     "nome": "Programming logic",
+     "categoria": "Technology"
+    },
+    "es": {
+     "nome": "Lógica de programación",
+     "categoria": "Tecnología"
+    }
+   }
+  },
+  {
+   "id": "f519de98-b98e-4629-a41c-5095f0c49ca6",
+   "nome": "Análise de dados",
+   "categoria": "Tecnologia",
+   "i18n": {
+    "en": {
+     "nome": "Data analysis",
+     "categoria": "Technology"
+    },
+    "es": {
+     "nome": "Análisis de datos",
+     "categoria": "Tecnología"
+    }
+   }
+  },
+  {
+   "id": "fd7457a2-2057-4efe-b865-d2e267d7c792",
+   "nome": "Testes de software",
+   "categoria": "Tecnologia",
+   "i18n": {
+    "en": {
+     "nome": "Software testing",
+     "categoria": "Technology"
+    },
+    "es": {
+     "nome": "Pruebas de software",
+     "categoria": "Tecnología"
+    }
+   }
+  },
+  {
+   "id": "442661cd-de4a-4d3e-81ea-e239acf2b619",
+   "nome": "Scrum",
+   "categoria": "Tecnologia",
+   "i18n": {
+    "en": {
+     "nome": "Scrum",
+     "categoria": "Technology"
+    },
+    "es": {
+     "nome": "Scrum",
+     "categoria": "Tecnología"
+    }
+   }
+  }
+ ],
+ "comportamentais": [
+  {
+   "id": "984be5f2-bdfd-4cfd-a1b0-0762d8f74b7a",
+   "nome": "Organização",
+   "i18n": {
+    "en": {
+     "nome": "Organization"
+    },
+    "es": {
+     "nome": "Organización"
+    }
+   }
+  },
+  {
+   "id": "5d3c702c-f940-4e96-a3a6-fca54d40e089",
+   "nome": "Gestão de tempo",
+   "i18n": {
+    "en": {
+     "nome": "Time management"
+    },
+    "es": {
+     "nome": "Gestión del tiempo"
+    }
+   }
+  },
+  {
+   "id": "41936c87-0f5d-4a6f-8e89-d83298e8c004",
+   "nome": "Comunicação assertiva",
+   "i18n": {
+    "en": {
+     "nome": "Assertive communication"
+    },
+    "es": {
+     "nome": "Comunicación asertiva"
+    }
+   }
+  },
+  {
+   "id": "4817a73f-afa6-4cf9-971e-1e9d9469263c",
+   "nome": "Proatividade",
+   "i18n": {
+    "en": {
+     "nome": "Proactivity"
+    },
+    "es": {
+     "nome": "Proactividad"
+    }
+   }
+  },
+  {
+   "id": "2d1e2204-fa77-4f62-87fe-e5b8c92ce98f",
+   "nome": "Atenção aos detalhes",
+   "i18n": {
+    "en": {
+     "nome": "Attention to detail"
+    },
+    "es": {
+     "nome": "Atención al detalle"
+    }
+   }
+  },
+  {
+   "id": "c979a495-9e41-4993-9806-d39ecced55ff",
+   "nome": "Habilidades analíticas",
+   "i18n": {
+    "en": {
+     "nome": "Analytical skills"
+    },
+    "es": {
+     "nome": "Habilidades analíticas"
+    }
+   }
+  },
+  {
+   "id": "0b831c56-298c-439b-8ef9-a820602a80e5",
+   "nome": "Resolução de problemas",
+   "i18n": {
+    "en": {
+     "nome": "Problem solving"
+    },
+    "es": {
+     "nome": "Resolución de problemas"
+    }
+   }
+  },
+  {
+   "id": "80625dcf-5015-4cd7-a435-ba776a79b0a3",
+   "nome": "Trabalho em equipe",
+   "i18n": {
+    "en": {
+     "nome": "Teamwork"
+    },
+    "es": {
+     "nome": "Trabajo en equipo"
+    }
+   }
+  },
+  {
+   "id": "f36c5105-30cc-4559-9d31-e7c7c522e82e",
+   "nome": "Pensamento estratégico",
+   "i18n": {
+    "en": {
+     "nome": "Strategic thinking"
+    },
+    "es": {
+     "nome": "Pensamiento estratégico"
+    }
+   }
+  }
+ ],
+ "idiomas": [
+  {
+   "id": "735911ec-9f20-42d1-ab07-1eb0670d0bb7",
+   "idioma": "Português",
+   "nivel": "Nativo",
+   "cursando": false,
+   "instituicao": null,
+   "i18n": {
+    "en": {
+     "nivel": "Native",
+     "idioma": "Portuguese"
+    },
+    "es": {
+     "nivel": "Nativo",
+     "idioma": "Portugués"
+    }
+   }
+  }
+ ],
+ "recomendacoes": [],
+ "arvore": [
+  {
+   "id": "1b870453-72ba-419f-85c5-a70170f6e995",
+   "nome": "Administrativo",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": null,
+   "descricao": null,
+   "ordem": 1,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Administrative"
+    },
+    "es": {
+     "nome": "Administrativo"
+    }
+   }
+  },
+  {
+   "id": "d8e54f1f-0311-4ef2-9d54-bed204dafd63",
+   "nome": "Rotinas administrativas",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "1b870453-72ba-419f-85c5-a70170f6e995",
+   "descricao": null,
+   "ordem": 1,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Administrative routines"
+    },
+    "es": {
+     "nome": "Rutinas administrativas"
+    }
+   }
+  },
+  {
+   "id": "6cc51cf5-3d6c-40fe-818b-e5fcca50181b",
+   "nome": "Microsoft Excel",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "5ca62f01-d9a5-4870-8067-76d3049de22b",
+   "descricao": null,
+   "ordem": 1,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Microsoft Excel"
+    },
+    "es": {
+     "nome": "Microsoft Excel"
+    }
+   }
+  },
+  {
+   "id": "efaf3035-0428-43e0-afd8-898dec85bb35",
+   "nome": "HTML",
+   "categoria": "dev",
+   "nivel": 0,
+   "parent_id": "d1819f5d-cd3e-40f1-9f7f-7be67d8bfe8e",
+   "descricao": null,
+   "ordem": 1,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "HTML"
+    },
+    "es": {
+     "nome": "HTML"
+    }
+   }
+  },
+  {
+   "id": "5ca62f01-d9a5-4870-8067-76d3049de22b",
+   "nome": "Ferramentas",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": null,
+   "descricao": null,
+   "ordem": 2,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Tools"
+    },
+    "es": {
+     "nome": "Herramientas"
+    }
+   }
+  },
+  {
+   "id": "98abe2c0-6e4a-4715-bfa3-c2b95626185a",
+   "nome": "Atendimento ao cliente",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "1b870453-72ba-419f-85c5-a70170f6e995",
+   "descricao": null,
+   "ordem": 2,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Customer service"
+    },
+    "es": {
+     "nome": "Atención al cliente"
+    }
+   }
+  },
+  {
+   "id": "dcd7b095-347c-4f14-848c-4717bd23c00a",
+   "nome": "CSS",
+   "categoria": "dev",
+   "nivel": 0,
+   "parent_id": "d1819f5d-cd3e-40f1-9f7f-7be67d8bfe8e",
+   "descricao": null,
+   "ordem": 2,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "CSS"
+    },
+    "es": {
+     "nome": "CSS"
+    }
+   }
+  },
+  {
+   "id": "18a8799d-ebde-4e39-bd38-d37a134f8021",
+   "nome": "Pacote Office",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "5ca62f01-d9a5-4870-8067-76d3049de22b",
+   "descricao": null,
+   "ordem": 2,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Microsoft Office"
+    },
+    "es": {
+     "nome": "Paquete Office"
+    }
+   }
+  },
+  {
+   "id": "5ec9f372-f684-4ef9-a759-df814be952e4",
+   "nome": "Controle e organização de documentos",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "1b870453-72ba-419f-85c5-a70170f6e995",
+   "descricao": null,
+   "ordem": 3,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Document control and organization"
+    },
+    "es": {
+     "nome": "Control y organización de documentos"
+    }
+   }
+  },
+  {
+   "id": "cd28933e-8280-4b88-aba1-439155198581",
+   "nome": "Elaboração de planilhas",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "5ca62f01-d9a5-4870-8067-76d3049de22b",
+   "descricao": null,
+   "ordem": 3,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Spreadsheet building"
+    },
+    "es": {
+     "nome": "Elaboración de planillas"
+    }
+   }
+  },
+  {
+   "id": "d1819f5d-cd3e-40f1-9f7f-7be67d8bfe8e",
+   "nome": "Tecnologia",
+   "categoria": "dev",
+   "nivel": 0,
+   "parent_id": null,
+   "descricao": null,
+   "ordem": 3,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Technology"
+    },
+    "es": {
+     "nome": "Tecnología"
+    }
+   }
+  },
+  {
+   "id": "0f158604-deed-4d3a-9185-b93ee21033c1",
+   "nome": "JavaScript",
+   "categoria": "dev",
+   "nivel": 0,
+   "parent_id": "d1819f5d-cd3e-40f1-9f7f-7be67d8bfe8e",
+   "descricao": null,
+   "ordem": 3,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "JavaScript"
+    },
+    "es": {
+     "nome": "JavaScript"
+    }
+   }
+  },
+  {
+   "id": "11e3521b-1b9c-4b7c-bb12-7e3ed24d20f6",
+   "nome": "Arquivamento físico e digital",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "1b870453-72ba-419f-85c5-a70170f6e995",
+   "descricao": null,
+   "ordem": 4,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Physical and digital filing"
+    },
+    "es": {
+     "nome": "Archivo físico y digital"
+    }
+   }
+  },
+  {
+   "id": "8e4d8ce9-d657-4f6c-9adb-30e4760ff585",
+   "nome": "Lógica de programação",
+   "categoria": "dev",
+   "nivel": 0,
+   "parent_id": "d1819f5d-cd3e-40f1-9f7f-7be67d8bfe8e",
+   "descricao": null,
+   "ordem": 4,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Programming logic"
+    },
+    "es": {
+     "nome": "Lógica de programación"
+    }
+   }
+  },
+  {
+   "id": "0f1e1d4e-321a-4836-b847-fe0d4f248495",
+   "nome": "Análise de dados",
+   "categoria": "dev",
+   "nivel": 0,
+   "parent_id": "d1819f5d-cd3e-40f1-9f7f-7be67d8bfe8e",
+   "descricao": null,
+   "ordem": 5,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Data analysis"
+    },
+    "es": {
+     "nome": "Análisis de datos"
+    }
+   }
+  },
+  {
+   "id": "6b9b17a8-e5ee-4d8e-af03-73ed0007cd72",
+   "nome": "Emissão de documentos e boletos",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "1b870453-72ba-419f-85c5-a70170f6e995",
+   "descricao": null,
+   "ordem": 5,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Issuing documents and payment slips"
+    },
+    "es": {
+     "nome": "Emisión de documentos y boletos"
+    }
+   }
+  },
+  {
+   "id": "dd206cd4-02c4-43a9-8c4c-35aa962fc0a1",
+   "nome": "Testes de software",
+   "categoria": "dev",
+   "nivel": 0,
+   "parent_id": "d1819f5d-cd3e-40f1-9f7f-7be67d8bfe8e",
+   "descricao": null,
+   "ordem": 6,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Software testing"
+    },
+    "es": {
+     "nome": "Pruebas de software"
+    }
+   }
+  },
+  {
+   "id": "dafef1a3-0870-4e02-99d8-da87c4c84301",
+   "nome": "Controle de agenda e prazos",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "1b870453-72ba-419f-85c5-a70170f6e995",
+   "descricao": null,
+   "ordem": 6,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Calendar and deadline control"
+    },
+    "es": {
+     "nome": "Control de agenda y plazos"
+    }
+   }
+  },
+  {
+   "id": "f88bcd62-163b-4d81-af96-9081f7b37da3",
+   "nome": "Scrum",
+   "categoria": "dev",
+   "nivel": 0,
+   "parent_id": "d1819f5d-cd3e-40f1-9f7f-7be67d8bfe8e",
+   "descricao": null,
+   "ordem": 7,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Scrum"
+    },
+    "es": {
+     "nome": "Scrum"
+    }
+   }
+  },
+  {
+   "id": "bca0adc4-c322-45b0-b479-70294f0931e0",
+   "nome": "Acompanhamento de processos",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "1b870453-72ba-419f-85c5-a70170f6e995",
+   "descricao": null,
+   "ordem": 7,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Process follow-up"
+    },
+    "es": {
+     "nome": "Seguimiento de procesos"
+    }
+   }
+  },
+  {
+   "id": "21c2757a-a6b8-48b3-bba6-abc08221f42b",
+   "nome": "Cadastro e atualização de dados",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "1b870453-72ba-419f-85c5-a70170f6e995",
+   "descricao": null,
+   "ordem": 8,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Data entry and updates"
+    },
+    "es": {
+     "nome": "Registro y actualización de datos"
+    }
+   }
+  },
+  {
+   "id": "3b6c26c0-5cde-430b-9d72-a53da28314f3",
+   "nome": "Cotação e renovação de seguros",
+   "categoria": "social",
+   "nivel": 0,
+   "parent_id": "1b870453-72ba-419f-85c5-a70170f6e995",
+   "descricao": null,
+   "ordem": 9,
+   "icon": null,
+   "bloqueado": false,
+   "i18n": {
+    "en": {
+     "nome": "Insurance quotes and renewals"
+    },
+    "es": {
+     "nome": "Cotización y renovación de seguros"
+    }
+   }
+  }
+ ],
+ "conquistas": [],
+ "site": {
+  "contato": {
+   "email": "beatrizsouzag@outlook.com",
+   "github": "https://github.com/BeatrizBonotto",
+   "linkedin": "https://linkedin.com/in/beatrizsouza-adm",
+   "whatsapp": "5519991035924"
+  },
+  "disponibilidade": {
+   "en": {
+    "texto": "Open to administrative and entry-level IT roles · Campinas or remote"
+   },
+   "es": {
+    "texto": "Abierta a vacantes administrativas y de inicio en TI · Campinas o remoto"
+   },
+   "pt": {
+    "texto": "Aberta a vagas administrativas e de entrada em TI · Campinas e remoto"
+   },
+   "ativo": true
+  },
+  "sobre_mim": {
+   "en": {
+    "visao": "Combine administrative experience with technology and help companies with digital tools that make a difference every day.",
+    "missao": "Keep processes organized and people well looked after, making the routine simpler for everyone.",
+    "pessoal": "I’m organized, detail-oriented and like to see things through to the end. I communicate clearly, work well in teams and I’m curious to learn, so much that I went after technology to grow with it.",
+    "valores": [
+     "Organization",
+     "Accountability for deadlines",
+     "Empathetic service",
+     "Continuous learning",
+     "Teamwork"
+    ],
+    "carreira": "I started early, as an apprentice at Claro and Tecnoset, where I learned to build spreadsheets, organize files and serve customers. I interned at INSS, handling official letters, memos and case files, and joined Dínamo Seguros as an intern. There I grew into an administrative assistant role and today I’m an Insurance Analyst. Along the way I graduated in Business Administration and completed a technical diploma in web development."
+   },
+   "es": {
+    "visao": "Unir la experiencia administrativa con la tecnología y ayudar a las empresas con herramientas digitales que marquen la diferencia en el día a día.",
+    "missao": "Mantener los procesos organizados y a las personas bien atendidas, haciendo la rutina más simple para todos.",
+    "pessoal": "Soy organizada, atenta a los detalles y me gusta resolver las cosas hasta el final. Me comunico con claridad, trabajo bien en equipo y tengo curiosidad por aprender, tanto que fui tras la tecnología para crecer con ella.",
+    "valores": [
+     "Organización",
+     "Responsabilidad con los plazos",
+     "Atención con empatía",
+     "Aprendizaje continuo",
+     "Trabajo en equipo"
+    ],
+    "carreira": "Empecé temprano, como aprendiz en Claro y Tecnoset, donde aprendí a crear planillas, organizar archivos y atender clientes. Hice una pasantía en el INSS, con oficios, memorandos y expedientes, y entré en Dínamo Seguros como pasante. Allí crecí a auxiliar administrativa y hoy soy Analista de Seguros. En el camino me licencié en Administración de Empresas y terminé el técnico en Informática para Internet."
+   },
+   "pt": {
+    "visao": "Unir a experiência administrativa à tecnologia e ajudar empresas com ferramentas digitais que façam diferença no dia a dia.",
+    "missao": "Manter processos organizados e pessoas bem atendidas, deixando a rotina mais simples para todos.",
+    "pessoal": "Sou organizada, atenta aos detalhes e gosto de resolver as coisas até o fim. Comunico com clareza, trabalho bem em equipe e tenho curiosidade para aprender, tanto que fui atrás da tecnologia para crescer junto com ela.",
+    "valores": [
+     "Organização",
+     "Responsabilidade com prazos",
+     "Atendimento com empatia",
+     "Aprendizado contínuo",
+     "Trabalho em equipe"
+    ],
+    "carreira": "Comecei cedo, como aprendiz na Claro e na Tecnoset, onde aprendi a criar planilhas, organizar arquivos e atender clientes. Fiz estágio no INSS, com ofícios, memorandos e processos, e entrei na Dínamo Seguros como estagiária. Lá cresci para auxiliar administrativa e hoje sou Analista de Seguros. No caminho me formei em Administração de Empresas e concluí o técnico em Informática para Internet."
+   }
+  },
+  "valor_hora": {
+   "visivel": false
+  },
+  "clientes": [
+   {
+    "logo": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/dinamo.webp?v=mwbmmff2",
+    "nome": "Dínamo Seguros"
+   },
+   {
+    "logo": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/inss.webp?v=mwbmmft1",
+    "nome": "INSS"
+   },
+   {
+    "logo": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/tecnoset.webp?v=mwbmmgec",
+    "nome": "Tecnoset"
+   },
+   {
+    "logo": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/claro.webp?v=mwbmmh1l",
+    "nome": "Claro"
+   }
+  ],
+  "hero": {
+   "en": {
+    "titulo": "Organization that keeps the routine flowing.",
+    "eyebrow": "Administrative Analyst · Campinas, Brazil",
+    "subtitulo": "Processes in order, customers well looked after and documents in the right place. Now bringing that same care to technology.",
+    "cta_primario": "See experience",
+    "cta_secundario": "Get in touch"
+   },
+   "es": {
+    "titulo": "Organización que hace fluir la rutina.",
+    "eyebrow": "Analista Administrativa · Campinas, Brasil",
+    "subtitulo": "Procesos en orden, clientes bien atendidos y documentos en su lugar. Ahora llevando ese cuidado también a la tecnología.",
+    "cta_primario": "Ver trayectoria",
+    "cta_secundario": "Hablar conmigo"
+   },
+   "pt": {
+    "titulo": "Organização que faz a rotina fluir.",
+    "eyebrow": "Analista Administrativa · Campinas, Brasil",
+    "subtitulo": "Processos em ordem, clientes bem atendidos e documentos no lugar certo. Agora levando esse cuidado também para a tecnologia.",
+    "cta_primario": "Ver trajetória",
+    "cta_secundario": "Falar comigo"
+   }
+  },
+  "manifesto": {
+   "en": {
+    "frases": [
+     "Every request has an owner, a deadline and a reply.",
+     "A good spreadsheet is one everyone understands.",
+     "Good service means actually solving it.",
+     "Always learning, now with code too."
+    ]
+   },
+   "es": {
+    "frases": [
+     "Cada solicitud tiene dueño, plazo y respuesta.",
+     "Una buena planilla es la que todos entienden.",
+     "Atender bien es resolver de verdad.",
+     "Aprender siempre, ahora también con código."
+    ]
+   },
+   "pt": {
+    "frases": [
+     "Cada demanda tem dono, prazo e retorno.",
+     "Planilha boa é a que todo mundo entende.",
+     "Atender bem é resolver de verdade.",
+     "Aprender sempre, agora também com código."
+    ]
+   }
+  },
+  "seo": {
+   "en": {
+    "titulo": "Beatriz Bonotto | Administrative Analyst in Campinas, Brazil | Résumé",
+    "descricao": "Administrative analyst with {anos} years of experience in administrative routines, customer service, documents and insurance. Business Administration graduate with a web development diploma."
+   },
+   "es": {
+    "titulo": "Beatriz Bonotto | Analista Administrativa en Campinas, Brasil | Currículum",
+    "descricao": "Analista administrativa con {anos} años de experiencia en rutinas administrativas, atención, documentos y seguros. Licenciada en Administración y técnica en Informática para Internet."
+   },
+   "pt": {
+    "titulo": "Beatriz Bonotto | Analista Administrativa em Campinas | Currículo",
+    "descricao": "Analista administrativa com {anos} anos de experiência em rotinas administrativas, atendimento, documentos e seguros. Formada em Administração e técnica em Informática para Internet."
+   }
+  },
+  "servicos": {
+   "en": [
+    {
+     "texto": "Records, files, documents and payment slips, always double-checked and on time.",
+     "titulo": "Administrative routines"
+    },
+    {
+     "texto": "By phone, email or in person, with clear follow-up until each request is solved.",
+     "titulo": "Customer service"
+    },
+    {
+     "texto": "Pending items tracked closely, with spreadsheets that show the status of every request.",
+     "titulo": "Deadline and process control"
+    },
+    {
+     "texto": "Quotes, renewals and follow-up on policy issuance with insurers.",
+     "titulo": "Insurance"
+    },
+    {
+     "texto": "Excel controls that organize scattered information and support decisions.",
+     "titulo": "Spreadsheets and data"
+    },
+    {
+     "texto": "HTML, CSS, JavaScript, software testing and Scrum to support tech teams.",
+     "titulo": "First steps in tech"
+    }
+   ],
+   "es": [
+    {
+     "texto": "Registros, archivos, documentos y boletos, siempre revisados y a tiempo.",
+     "titulo": "Rutinas administrativas"
+    },
+    {
+     "texto": "Por teléfono, correo o en persona, con respuesta clara hasta resolver cada solicitud.",
+     "titulo": "Atención al cliente"
+    },
+    {
+     "texto": "Pendientes seguidos de cerca, con planillas que muestran el estado de cada solicitud.",
+     "titulo": "Control de plazos y procesos"
+    },
+    {
+     "texto": "Cotizaciones, renovaciones y seguimiento de emisiones con las aseguradoras.",
+     "titulo": "Seguros"
+    },
+    {
+     "texto": "Controles en Excel que ordenan la información y ayudan a decidir.",
+     "titulo": "Planillas y datos"
+    },
+    {
+     "texto": "HTML, CSS, JavaScript, pruebas de software y Scrum para apoyar equipos de tecnología.",
+     "titulo": "Primeros pasos en TI"
+    }
+   ],
+   "pt": [
+    {
+     "texto": "Cadastros, arquivos, emissão de documentos e boletos, sempre conferidos e no prazo.",
+     "titulo": "Rotinas administrativas"
+    },
+    {
+     "texto": "Por telefone, e-mail ou presencial, com retorno claro até a solicitação estar resolvida.",
+     "titulo": "Atendimento ao cliente"
+    },
+    {
+     "texto": "Pendências acompanhadas de perto, com planilhas que mostram o status de cada demanda.",
+     "titulo": "Controle de prazos e processos"
+    },
+    {
+     "texto": "Cotações, renovações e acompanhamento de emissões junto às seguradoras.",
+     "titulo": "Seguros"
+    },
+    {
+     "texto": "Controles em Excel que organizam informação solta e ajudam a decidir.",
+     "titulo": "Planilhas e dados"
+    },
+    {
+     "texto": "HTML, CSS, JavaScript, testes de software e Scrum para apoiar times de tecnologia.",
+     "titulo": "Primeiros passos em TI"
+    }
+   ]
+  },
+  "sobre": {
+   "en": {
+    "texto": "I’m from Campinas, Brazil, a Business Administration graduate with {anos} years of administrative experience. I like a well-organized routine, good service and leaving every process a little better than I found it. Today I’m an Insurance Analyst at Dínamo Seguros and, alongside work, I completed a technical diploma in web development to bring this way of working to technology too."
+   },
+   "es": {
+    "texto": "Soy de Campinas, Brasil, licenciada en Administración y con {anos} años de experiencia en el área administrativa. Me gusta la rutina bien organizada, atender bien y dejar cada proceso un poco mejor de lo que lo encontré. Hoy soy Analista de Seguros en Dínamo Seguros y, en paralelo, terminé el técnico en Informática para Internet para llevar esta forma de trabajar también a la tecnología."
+   },
+   "pt": {
+    "texto": "Sou de Campinas-SP, formada em Administração e com {anos} anos de experiência na área administrativa. Gosto de rotina bem organizada, de atender bem e de ver cada processo um pouco melhor do que encontrei. Hoje sou Analista de Seguros na Dínamo Seguros e, em paralelo, concluí o técnico em Informática para Internet para levar esse jeito de trabalhar também para a tecnologia."
+   }
+  },
+  "palavras_chave": [
+   "Analista Administrativa",
+   "Assistente Administrativa",
+   "Auxiliar Administrativa",
+   "Rotinas Administrativas",
+   "Atendimento ao Cliente",
+   "Organização de Documentos",
+   "Controle de Processos",
+   "Excel",
+   "Seguros",
+   "Administração de Empresas",
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "Testes de Software",
+   "Scrum",
+   "Campinas"
+  ]
+ }
+}

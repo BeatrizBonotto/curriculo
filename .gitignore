@@ -1,0 +1,24 @@
+node_modules/
+dist/
+.env
+backups/
+test-results/
+playwright-report/
+revisao-prints/
+# páginas geradas pelo pré-render
+/index.html
+/en/
+/es/
+/cv/
+/projetos/
+/trajetoria/
+/competencias/
+/contato/
+public/sitemap.xml
+public/robots.txt
+/sobre/
+.firebase/
+assets/Branding/
+
+# vídeos antigos guardados só para comparação
+assets/videos/old_*
