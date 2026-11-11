@@ -1615,3 +1615,5 @@ h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .n
   .contato-secao .contato-texto .pag-titulo { font-size: 2.3rem; }
 }
 .contato-painel { color: var(--tinta); }
+/* celular: sem escurecer o topo (o menu já é claro sobre o vídeo branco); só a base escurece para o texto */
+@media (max-width: 759px) { .hero .sombra-v { background: linear-gradient(180deg, rgba(8,8,10,0) 0%, rgba(8,8,10,0) 58%, rgba(8,8,10,.8) 100%); } }
