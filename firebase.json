@@ -143,6 +143,9 @@
         "destination": "/es/#contato",
         "type": 301
       }
+    ],
+    "predeploy": [
+      "node scripts/checar-pdfs.mjs"
     ]
   }
 }

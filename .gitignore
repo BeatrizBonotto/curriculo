@@ -22,3 +22,4 @@ assets/Branding/
 
 # vídeos antigos guardados só para comparação
 assets/videos/old_*
+dist-e2e/
