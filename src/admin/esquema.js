@@ -122,7 +122,7 @@ export const SECOES = {
 export const CONTEUDO = {
   hero: [{ nome: 'eyebrow', i18n: true }, { nome: 'titulo', i18n: true }, { nome: 'subtitulo', tipo: 'area', i18n: true }, { nome: 'cta_primario', i18n: true }, { nome: 'cta_secundario', i18n: true }],
   disponibilidade: [{ nome: 'ativo', tipo: 'bool' }, { nome: 'texto', i18n: true }],
-  valor_hora: [{ nome: 'visivel', tipo: 'bool' }, { nome: 'a_partir', tipo: 'bool' }, { nome: 'brl', tipo: 'numero' }, { nome: 'usd', tipo: 'numero' }, { nome: 'eur', tipo: 'numero' }, { nome: 'clt_brl', tipo: 'numero' }, { nome: 'horas_dia', tipo: 'numero' }, { nome: 'dias_mes', tipo: 'numero' }, { nome: 'nota', tipo: 'area', i18n: true }],
+  valor_hora: [{ nome: 'visivel', tipo: 'bool' }, { nome: 'a_partir', tipo: 'bool' }, { nome: 'brl', tipo: 'numero' }, { nome: 'usd', tipo: 'numero' }, { nome: 'eur', tipo: 'numero' }, { nome: 'clt_brl', tipo: 'numero' }, { nome: 'ti_brl', tipo: 'numero' }, { nome: 'ti_usd', tipo: 'numero' }, { nome: 'ti_eur', tipo: 'numero' }, { nome: 'ti_clt_brl', tipo: 'numero' }, { nome: 'freela_pct', tipo: 'numero' }, { nome: 'horas_dia', tipo: 'numero' }, { nome: 'dias_mes', tipo: 'numero' }, { nome: 'nota', tipo: 'area', i18n: true }],
   contato: [{ nome: 'email', tipo: 'email' }, { nome: 'whatsapp', tipo: 'texto', ajuda: 'whatsapp' }, { nome: 'linkedin', tipo: 'url' }, { nome: 'github', tipo: 'url' }],
   sobre: [{ nome: 'texto', tipo: 'area', i18n: true, linhas: 7 }],
   manifesto: [{ nome: 'frases', tipo: 'lista', i18n: true }],

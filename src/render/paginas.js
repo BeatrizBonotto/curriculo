@@ -205,12 +205,16 @@ export function formatarValor(valor, moeda, lang) {
 function cartaoValor(d, t) {
   const v = textoSite(d.site, 'valor_hora', d.lang);
   if (!v.visivel) return '';
-  const cfg = { brl: v.brl, usd: v.usd, eur: v.eur, clt: v.clt_brl, h: v.horas_dia || 8, d: v.dias_mes || 21, lang: d.lang };
+  // perfil adm usa os campos base; o de TI usa os campos ti_*; freelancer = PJ + freela_pct%
+  const perfis = { adm: { brl: v.brl, usd: v.usd, eur: v.eur, clt: v.clt_brl } };
+  if (v.ti_brl) perfis.ti = { brl: v.ti_brl, usd: v.ti_usd, eur: v.ti_eur, clt: v.ti_clt_brl };
+  const cfg = { ...perfis.adm, perfis, freela: 1 + (v.freela_pct || 0) / 100, h: v.horas_dia || 8, d: v.dias_mes || 21, lang: d.lang };
   const grupo = (nome, rotulo, ops) => `<div class="valor-grupo" role="group" aria-label="${rotulo}">${ops.map(([val, txt], n) => `<button type="button" data-valor-${nome}="${val}" aria-pressed="${n === 0}">${txt}</button>`).join('')}</div>`;
   const inicial = formatarValor(v.brl, 'BRL', d.lang);
   return `<aside class="valor revelar" aria-labelledby="valor-titulo" data-valor='${esc(JSON.stringify(cfg))}'>
   <h3 id="valor-titulo" class="rotulo">${t('valor.titulo')}</h3>
   <div class="valor-filtros">
+    ${cfg.perfis.ti ? `<div class="valor-campo valor-campo-largo"><span class="mono">${t('valor.perfil')}</span>${grupo('perfil', t('valor.perfil'), [['adm', t('valor.perfil.adm')], ['ti', t('valor.perfil.ti')]])}</div>` : ''}
     <div class="valor-campo valor-campo-largo"><span class="mono">${t('valor.regime')}</span>${grupo('regime', t('valor.regime'), [['pj', t('valor.pj')], ['freela', t('valor.freela')], ['clt', t('valor.clt')]])}</div>
     <div class="valor-campo"><span class="mono">${t('valor.moeda')}</span>${grupo('moeda', t('valor.moeda'), [['BRL', 'R$'], ['USD', 'US$'], ['EUR', '€']])}</div>
     <div class="valor-campo"><span class="mono">${t('valor.unidade')}</span>${grupo('unidade', t('valor.unidade'), [['hora', t('valor.hora')], ['dia', t('valor.dia')], ['mes', t('valor.mes')]])}</div>

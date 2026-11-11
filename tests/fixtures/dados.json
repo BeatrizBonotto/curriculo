@@ -1740,9 +1740,6 @@
     "carreira": "Comecei cedo, como aprendiz na Claro e na Tecnoset, onde aprendi a criar planilhas, organizar arquivos e atender clientes. Fiz estágio no INSS, com ofícios, memorandos e processos, e entrei na Dínamo Seguros como estagiária. Lá cresci para auxiliar administrativa e hoje sou Analista de Seguros. No caminho me formei em Administração de Empresas e concluí o técnico em Informática para Internet."
    }
   },
-  "valor_hora": {
-   "visivel": false
-  },
   "clientes": [
    {
     "logo": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/dinamo.webp?v=mwbmmff2",
@@ -1761,6 +1758,30 @@
     "nome": "Claro"
    }
   ],
+  "valor_hora": {
+   "en": {
+    "nota": "Market reference values. Contractor and freelance per hour; CLT (Brazilian full-time) is the net monthly expectation. Freelance includes 20% over the contractor rate."
+   },
+   "es": {
+    "nota": "Valores de referencia de mercado. PJ y freelance por hora; CLT es la pretensión mensual neta. Freelance incluye 20% sobre PJ."
+   },
+   "pt": {
+    "nota": "Valores de referência de mercado. PJ e freelancer por hora; CLT é a pretensão mensal líquida. Freelancer inclui 20% sobre o PJ."
+   },
+   "brl": 55,
+   "eur": 16,
+   "usd": 18,
+   "ti_brl": 30,
+   "ti_eur": 9,
+   "ti_usd": 10,
+   "clt_brl": 5500,
+   "visivel": true,
+   "a_partir": true,
+   "dias_mes": 21,
+   "horas_dia": 8,
+   "freela_pct": 20,
+   "ti_clt_brl": 3000
+  },
   "hero": {
    "en": {
     "titulo": "Organization that keeps the routine flowing.",

@@ -831,7 +831,7 @@ async function taxas() {
 function valorEfeitos(raiz) {
   for (const box of $$('[data-valor]', raiz)) {
     const cfg = JSON.parse(box.dataset.valor);
-    const est = { regime: 'pj', moeda: 'BRL', unidade: 'hora' };
+    const est = { perfil: 'adm', regime: 'pj', moeda: 'BRL', unidade: 'hora' };
     const total = $('[data-valor-total]', box), suf = $('[data-valor-sufixo]', box), cambioNota = $('[data-valor-cambio]', box), prefixo = $('[data-valor-prefixo]', box);
     const sufixos = JSON.parse(suf.dataset.sufixos);
     const fmt = (n, m) => new Intl.NumberFormat({ pt: 'pt-BR', en: 'en-US', es: 'es-ES' }[cfg.lang], { style: 'currency', currency: m, maximumFractionDigits: 0 }).format(n);
@@ -842,20 +842,21 @@ function valorEfeitos(raiz) {
       const mult = { hora: 1, dia: cfg.h, mes: cfg.h * cfg.d }[est.unidade];
       let valor, convertido = false;
       notaEl.textContent = est.regime === 'clt' ? notaEl.dataset.clt : notaOriginal;
+      const p = cfg.perfis?.[est.perfil] || cfg;
       if (est.regime === 'clt') {
-        const mensal = cfg.clt;
+        const mensal = p.clt;
         const base = mensal / (cfg.h * cfg.d) * mult;
         if (est.moeda === 'BRL') valor = base; else { const r = await taxas(); valor = base * (r[est.moeda] || 0); convertido = true; }
         prefixo.textContent = '';
       } else {
-        valor = cfg[est.moeda.toLowerCase()] * mult;
+        valor = p[est.moeda.toLowerCase()] * mult * (est.regime === 'freela' ? cfg.freela || 1 : 1);
         prefixo.textContent = prefixoOriginal;
       }
       total.textContent = valor ? fmt(valor, est.moeda) : '-';
       suf.textContent = sufixos[est.unidade];
       cambioNota.hidden = !convertido;
     };
-    for (const k of ['regime', 'moeda', 'unidade']) {
+    for (const k of ['perfil', 'regime', 'moeda', 'unidade']) {
       const bs = $$(`[data-valor-${k}]`, box);
       bs.forEach(b => b.addEventListener('click', () => {
         const v = b.dataset[`valor${k[0].toUpperCase()}${k.slice(1)}`];
