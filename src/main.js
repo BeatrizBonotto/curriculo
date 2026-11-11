@@ -545,13 +545,14 @@ function heroEfeitos(raiz) {
     // Começa estendido (cobre a tela) e, até a metade do vídeo, vai se ajustando ao quadro inteiro e centralizado;
     // as bordas ganham um degradê transparente que funde o vídeo no fundo da mesma cor.
     // em tela de pé (celular) o vídeo cobre a tela o tempo todo, centrado nela; deitada, encaixa aos poucos
-    const k = canvas.width < canvas.height ? 0 : 1;
+    const k = 0;
     const cobre = Math.max(canvas.width / img.naturalWidth, canvas.height / img.naturalHeight);
     const cabe = Math.min(canvas.width / img.naturalWidth, canvas.height / img.naturalHeight);
     const esc = cobre + (cabe - cobre) * k;
     const dw = img.naturalWidth * esc, dh = img.naturalHeight * esc, y = (canvas.height - dh) / 2;
     const foco = FOCO[0] + (FOCO[1] - FOCO[0]) * (i / (quadros.length - 1));
-    const x = dw > canvas.width ? Math.min(0, Math.max(canvas.width - dw, canvas.width / 2 - foco * dw)) : (canvas.width - dw) / 2;
+    const alvo = canvas.width < canvas.height ? 0.5 : 0.4;
+    const x = dw > canvas.width ? Math.min(0, Math.max(canvas.width - dw, canvas.width * alvo - foco * dw)) : (canvas.width - dw) / 2;
     g.globalCompositeOperation = 'source-over';
     g.clearRect(0, 0, canvas.width, canvas.height);
     g.drawImage(img, x, y, dw, dh);
@@ -633,11 +634,11 @@ function manifestoEfeitos(raiz) {
     if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
     // no celular o vídeo aparece inteiro (sem corte); no desktop cobre a tela com o mesmo enquadramento do pôster
     const inteiro = innerWidth <= 600;
-    // recorta 9% da direita e de baixo: some a marca d'água do canto inferior direito
-    const sw = img.naturalWidth * 0.91, sh = img.naturalHeight * 0.91;
+    // vídeo sem marca d'água: quadro inteiro, sem recorte
+    const sw = img.naturalWidth, sh = img.naturalHeight;
     const k = (inteiro ? Math.min : Math.max)(w / sw, h / sh), dw = sw * k, dh = sh * k;
     g.clearRect(0, 0, w, h);
-    g.drawImage(img, 0, 0, sw, sh, (w - dw) * (inteiro ? 0.5 : 0.66), inteiro ? Math.round(56 * (w / canvas.clientWidth)) : (h - dh) * 0.5, dw, dh);
+    g.drawImage(img, 0, 0, sw, sh, (w - dw) * (inteiro ? 0.5 : 0.2), inteiro ? Math.round(56 * (w / canvas.clientWidth)) : (h - dh) * 0.5, dw, dh);
   };
   const quadros = carregarQuadros(canvas, () => { sec.classList.add('quadros'); requestAnimationFrame(() => desenhar(atual)); });
   const sq = ScrollTrigger.create({ trigger: sec, start: 'top bottom', end: 'bottom top', onUpdate: s => {

@@ -1479,7 +1479,6 @@ h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .l
 }
 @media (prefers-reduced-motion: reduce) { .hero-nome, .hero-nome-1 span { animation: none !important; transition: none; opacity: 1; transform: none; } }
 /* sem gradiente escuro sobre o vídeo e fundo branco atrás dele (o vídeo é branco: não aparece emenda) */
-.hero .sombra-v { display: none; }
 .hero-midia { background: #fff; }
 
 /* ================= Beatriz: empresas ================= */
@@ -1529,7 +1528,6 @@ h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .n
 /* sobre o vídeo branco a barra clareia (branca) em vez de escurecer */
 .nav.topo-claro.sobre-video:not(.aberta) { background: rgba(255,255,255, calc(var(--escuro, 0) * .84)); box-shadow: 0 1px 0 rgba(43,34,38, calc(var(--escuro, 0) * .08)); }
 /* abertura sem gradiente: textos de baixo viram selos claros legíveis sobre o vídeo branco */
-.hero-intro .status, .hero-intro .hero-rolar { color: #2B2226; text-shadow: none; background: rgba(255,252,250,.82); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 999px; box-shadow: 0 8px 22px -14px rgba(96,48,64,.5); }
 /* frases do "Como eu trabalho": a Cormorant é mais larga, três linhas cabem sem encostar no rótulo */
 .manifesto-frases { min-height: 4.4em; line-height: 1.06; }
 .manifesto-frases li { max-width: 18ch; }
@@ -1541,3 +1539,13 @@ h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .n
   .manifesto-veu { background: linear-gradient(270deg, rgba(20,12,16,.9) 0%, rgba(20,12,16,.55) 34%, rgba(20,12,16,0) 58%), linear-gradient(180deg, rgba(20,12,16,.45) 0%, transparent 20%, transparent 80%, rgba(20,12,16,.6) 100%); }
   .manifesto-texto { padding-left: max(var(--margem), 56vw); }
 }
+/* nome no desktop: à direita do rosto, sem fundo; a tarja translúcida fica só no celular */
+@media (min-width: 760px) {
+  .hero-nome { left: auto; right: var(--margem); bottom: auto; top: 26%; margin: 0; width: auto; max-width: 40vw; padding: 0; text-align: left;
+    background: none; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .hero-nome-1 { font-size: clamp(4rem, 7.6vw, 8rem); text-shadow: 0 2px 24px rgba(255,255,255,.9); }
+  .hero-nome-2 { text-shadow: 0 1px 14px rgba(255,255,255,.95); }
+}
+/* vídeos da Beatriz não têm selo para esconder: nenhum zoom */
+.video-recorte, .manifesto-video, .contato-video, .manifesto-poster { transform: none !important; }
+.contato-video { object-position: 50% 40%; }
