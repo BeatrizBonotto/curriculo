@@ -12,7 +12,7 @@ const CONSULTAS = {
   competencias: 'hard_skills?select=id,nome,categoria,i18n&order=ordem.asc',
   comportamentais: 'soft_skills?select=id,nome,i18n&order=ordem.asc',
   idiomas: 'languages?select=id,idioma,nivel,cursando,instituicao,i18n&order=ordem.asc',
-  recomendacoes: 'feedbacks?select=id,nome,cargo,empresa,mensagem,imagem_url,fonte,data_feedback,professional_history_id,ordem,i18n&order=ordem.asc',
+  recomendacoes: 'feedbacks?select=id,nome,cargo,empresa,mensagem,imagem_url,fonte,link_url,data_feedback,professional_history_id,ordem,i18n&order=ordem.asc',
   arvore: 'skills_tree?select=id,nome,categoria,nivel,parent_id,descricao,ordem,icon,bloqueado,i18n&order=ordem.asc',
   conquistas: 'achievements?select=id,titulo,descricao,categoria,imagem_url,desbloqueado,bloqueado,data_conquista,evidence,evidence_file,evidencias_urls,ordem,i18n&order=desbloqueado.desc,data_conquista.desc.nullslast,ordem.asc',
   site: 'site_content?select=key,value',

@@ -79,10 +79,10 @@ const aoRolar = () => {
     v = p < 0.55 ? p / 0.55 : Math.max(0, 1 - (p - 0.55) / 0.2);
   }
   // vídeo de abertura tem fundo branco: até a barra escurecer, o texto fica escuro em qualquer tema
-  nav.classList.toggle('topo-claro', !!hero && p < 0.6);
+  nav.classList.toggle('topo-claro', !!hero && p < 0.8);
   const escuro = v.toFixed(2);
   if (escuro !== ultimoEscuro) { nav.style.setProperty('--escuro', escuro); ultimoEscuro = escuro; }
-  nav.classList.toggle('escura', v > 0.45);
+  nav.classList.toggle('escura', !hero && v > 0.45);
   nav.classList.toggle('sobre-video', v > 0.02);
 
 
@@ -531,6 +531,7 @@ function heroEfeitos(raiz) {
   const g = canvas.getContext('2d');
   hero.classList.add('animado');
   let atual = 0, progresso = 0, ultimo = '';
+  const nome = $('[data-hero-nome]', hero);
   const desenhar = (i, forcar) => {
     const img = quadros[i];
     if (!img?.complete || !img.naturalWidth) return;
@@ -544,7 +545,7 @@ function heroEfeitos(raiz) {
     // Começa estendido (cobre a tela) e, até a metade do vídeo, vai se ajustando ao quadro inteiro e centralizado;
     // as bordas ganham um degradê transparente que funde o vídeo no fundo da mesma cor.
     // em tela de pé (celular) o vídeo cobre a tela o tempo todo, centrado nela; deitada, encaixa aos poucos
-    const k = canvas.width < canvas.height ? 0 : Math.min(1, i / ((quadros.length - 1) * 0.5));
+    const k = canvas.width < canvas.height ? 0 : 1;
     const cobre = Math.max(canvas.width / img.naturalWidth, canvas.height / img.naturalHeight);
     const cabe = Math.min(canvas.width / img.naturalWidth, canvas.height / img.naturalHeight);
     const esc = cobre + (cabe - cobre) * k;
@@ -582,6 +583,8 @@ function heroEfeitos(raiz) {
     ScrollTrigger.create({ ...rolagem, onUpdate: s => {
       progresso = s.progress;
       const i = Math.min(quadros.length - 1, Math.round(Math.min(1, progresso / 0.55) * (quadros.length - 1)));
+      // o nome entra na metade do vídeo e sai antes do quadro encolher
+      nome?.classList.toggle('visivel', progresso > 0.55 * 0.45 && progresso < 0.55 * 0.97);
       if (i !== atual) { atual = i; desenhar(i); }
     } });
     gsap.timeline({ scrollTrigger: { ...rolagem, scrub: 0.5, invalidateOnRefresh: true }, onUpdate: () => desenhar(atual) })
@@ -595,8 +598,6 @@ function heroEfeitos(raiz) {
     gsap.timeline({ scrollTrigger: { ...rolagem, scrub: 0.5 } })
       .to($('[data-hero-intro]', hero), { opacity: 0, y: 20, duration: 0.08 }, 0.47)
       .to($('.sombra-v', midia), { opacity: 0, duration: 0.15 }, 0.55)
-      .fromTo($('[data-hero-nome]', hero), { y: 0 }, { y: () => -innerHeight * 0.08, ease: 'none', duration: 0.42 }, 0)
-      .to($('[data-hero-nome]', hero), { opacity: 0, y: () => -innerHeight * 0.14, duration: 0.08 }, 0.42)
       .to(texto, { opacity: 1, y: 0, stagger: 0.03, duration: 0.14, ease: 'power3.out' }, 0.72)
       .set({}, {}, 1);
   }, raiz);

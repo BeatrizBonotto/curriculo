@@ -146,7 +146,8 @@ function destaques(d, t) {
 </section>`;
 }
 
-const FONTES = { linkedin: 'linkedin', feedz: 'feedz', site: 'globo', 'e-mail': 'email' };
+const FONTES = { linkedin: 'linkedin', feedz: 'feedz', site: 'globo', google: 'globo', 'e-mail': 'email' };
+const original = (x, t) => (/^https:\/\//.test(x.link_url || '') ? `<a class="rec-original" href="${esc(x.link_url)}" target="_blank" rel="noopener nofollow">${t('recs.original', { fonte: x.fonte || 'Google' })} ${icone('externo')}</a>` : '');
 const autor = (x, t) => `<header class="autor">${x.imagem_url ? `<img src="${esc(x.imagem_url)}" alt="" width="48" height="48" loading="lazy">` : `<span class="autor-ini" aria-hidden="true">${esc(iniciais(x.nome))}</span>`}
   <span class="autor-info"><strong>${esc(x.nome)}</strong><span>${esc([x.cargo, x.empresa].filter(Boolean).join(' · '))}</span></span>
   ${x.fonte ? `<span class="fonte" title="${esc(t('recs.fonte', { fonte: x.fonte }))}">${icone(FONTES[String(x.fonte).toLowerCase()] || 'globo', t('recs.fonte', { fonte: x.fonte }))}</span>` : ''}</header>`;
@@ -157,13 +158,13 @@ function cartaoRec(x, t, destaque = false, extra = false) {
   return `<li class="${destaque ? 'rec-destaque' : ''}" ${extra ? 'data-rec-extra hidden' : ''}><figure class="rec">
   ${autor(x, t)}
   <blockquote class="rec-texto"><p>${esc(x.mensagem.replace(/\s+/g, ' '))}</p></blockquote>
-  <footer class="rec-pe">${nota(x, t)}<button type="button" class="ler-mais" data-abrir-rec="${esc(x.id)}">${t('recs.continuar')} ${icone('seta')}</button></footer>
+  <footer class="rec-pe">${nota(x, t)}${original(x, t)}<button type="button" class="ler-mais" data-abrir-rec="${esc(x.id)}">${t('recs.continuar')} ${icone('seta')}</button></footer>
 </figure></li>`;
 }
 
 export function detalheRecomendacao(x, t) {
   return `<button class="modal-fechar" type="button" data-fechar-modal aria-label="${t('projetos.fechar')}">${icone('fechar')}</button>
-<div class="rec-modal">${autor(x, t)}<h2 id="modal-titulo" class="vh">${esc(x.nome)}</h2><blockquote>${paragrafos(x.mensagem)}</blockquote>${nota(x, t)}</div>`;
+<div class="rec-modal">${autor(x, t)}<h2 id="modal-titulo" class="vh">${esc(x.nome)}</h2><blockquote>${paragrafos(x.mensagem)}</blockquote>${nota(x, t)}${original(x, t)}</div>`;
 }
 
 export function formularioRecomendacao(t) {

@@ -1556,20 +1556,6 @@
     ]
    }
   },
-  "seo": {
-   "en": {
-    "titulo": "Beatriz Bonotto | Administrative Analyst in Campinas, Brazil | Résumé",
-    "descricao": "Administrative analyst with {anos} years of experience in administrative routines, customer service, documents and insurance. Business Administration graduate with a web development diploma."
-   },
-   "es": {
-    "titulo": "Beatriz Bonotto | Analista Administrativa en Campinas, Brasil | Currículum",
-    "descricao": "Analista administrativa con {anos} años de experiencia en rutinas administrativas, atención, documentos y seguros. Licenciada en Administración y técnica en Informática para Internet."
-   },
-   "pt": {
-    "titulo": "Beatriz Bonotto | Analista Administrativa em Campinas | Currículo",
-    "descricao": "Analista administrativa com {anos} anos de experiência em rotinas administrativas, atendimento, documentos e seguros. Formada em Administração e técnica em Informática para Internet."
-   }
-  },
   "servicos": {
    "en": [
     {
@@ -1678,6 +1664,20 @@
    "Testes de Software",
    "Scrum",
    "Campinas"
-  ]
+  ],
+  "seo": {
+   "en": {
+    "titulo": "Beatriz Bonotto | Administrative and Insurance Analyst in Campinas, Brazil | Résumé",
+    "descricao": "Administrative analyst with {anos} years of experience in administrative routines, customer service, documents and insurance. Business Administration graduate with a web development diploma."
+   },
+   "es": {
+    "titulo": "Beatriz Bonotto | Analista Administrativa y de Seguros en Campinas, Brasil | Currículum",
+    "descricao": "Analista administrativa con {anos} años de experiencia en rutinas administrativas, atención, documentos y seguros. Licenciada en Administración y técnica en Informática para Internet."
+   },
+   "pt": {
+    "titulo": "Beatriz Bonotto | Analista Administrativa e de Seguros em Campinas | Currículo",
+    "descricao": "Analista administrativa com {anos} anos de experiência em rotinas administrativas, atendimento, documentos e seguros. Formada em Administração e técnica em Informática para Internet."
+   }
+  }
  }
 }

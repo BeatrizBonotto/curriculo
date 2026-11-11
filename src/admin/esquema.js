@@ -63,7 +63,8 @@ export const SECOES = {
     campos: [
       { nome: 'nome', tipo: 'texto', obrigatorio: true }, { nome: 'cargo', tipo: 'texto' }, { nome: 'empresa', tipo: 'texto' },
       { nome: 'mensagem', tipo: 'area', obrigatorio: true, i18n: true, linhas: 8 },
-      { nome: 'fonte', tipo: 'select', opcoes: ['LinkedIn', 'Feedz', 'E-mail', 'Site'] },
+      { nome: 'fonte', tipo: 'select', opcoes: ['Google', 'LinkedIn', 'E-mail', 'Site'] },
+      { nome: 'link_url', tipo: 'texto' },
       { nome: 'imagem_url', tipo: 'imagem', pasta: 'pessoas', largura: 256 },
       { nome: 'data_feedback', tipo: 'data' }, { nome: 'aprovado', tipo: 'bool' }, { nome: 'ordem', tipo: 'numero' },
     ],

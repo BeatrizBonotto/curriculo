@@ -130,7 +130,7 @@ ${SITE.idiomas.filter(l => l !== lang).map(l => `<meta property="og:locale:alter
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=DM+Sans:opsz,wght@9..40,300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=DM+Sans:opsz,wght@9..40,300..700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="${'https://nmlosqhywrxpcqlfuhcp.supabase.co'}" crossorigin>
 ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, '\\u003c')}</script>` : ''}
 ${extra}`;

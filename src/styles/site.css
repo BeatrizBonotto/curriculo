@@ -1457,23 +1457,30 @@ h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .l
 /* ================= Beatriz: abertura ================= */
 /* vídeo sem marca d'água: nada de máscara esfumando o pôster */
 .hero-poster { -webkit-mask-image: none; mask-image: none; }
-/* nome sobre o vídeo (fundo sempre branco, então as cores são fixas): à direita, no alto, longe do rosto */
-.hero-nome { display: none; position: absolute; z-index: 3; top: 22%; right: var(--margem); margin: 0; text-align: right; pointer-events: none; color: #2B2226; }
+/* nome sobre o vídeo (fundo sempre branco, cores fixas): tarja centralizada no terço de baixo, longe do rosto,
+   visível só no meio do vídeo (.visivel vem do main.js) */
+.hero-nome { display: none; position: absolute; z-index: 3; left: 0; right: 0; margin-inline: auto; bottom: 13%; width: min(560px, calc(100% - 32px)); padding: 18px 28px 20px;
+  text-align: center; pointer-events: none; color: #2B2226; background: rgba(255, 252, 250, .72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1px solid rgba(158, 79, 103, .18); border-radius: 18px; box-shadow: 0 24px 50px -28px rgba(96, 48, 64, .45);
+  opacity: 0; transform: translateY(18px) scale(.98); transition: opacity .6s var(--curva), transform .6s var(--curva); }
 .hero.animado .hero-nome { display: block; }
-.hero-nome-1 { display: block; font-family: var(--titulo); font-style: italic; font-weight: 380; font-size: clamp(3.4rem, 7.4vw, 8rem); line-height: .92; letter-spacing: -.02em; color: #9E4F67; }
-.hero-nome-1 span { display: inline-block; opacity: 0; transform: translateY(.35em) rotate(4deg); animation: nome-letra 1s var(--curva) forwards; animation-delay: calc(.4s + var(--i) * .07s); }
-.hero-nome-2 { display: block; margin-top: .25em; font-family: var(--titulo); font-weight: 400; font-size: clamp(1.25rem, 2.1vw, 2.2rem); letter-spacing: .01em; opacity: 0; animation: nome-sobe 1s var(--curva) 1s forwards; }
-.hero-nome-cargo { display: inline-block; margin-top: 1.1em; padding-top: .9em; border-top: 1px solid rgba(158, 79, 103, .45); font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; color: #66545C; opacity: 0; animation: nome-sobe 1s var(--curva) 1.2s forwards; }
+.hero-nome.visivel { opacity: 1; transform: none; }
+.hero-nome-1 { display: block; font-family: var(--script); font-weight: 400; font-size: clamp(3.6rem, 6.4vw, 6rem); line-height: 1; color: #9E4F67; }
+.hero-nome-1 span { display: inline-block; opacity: 0; transform: translateY(.3em); }
+.hero-nome.visivel .hero-nome-1 span { animation: nome-letra .9s var(--curva) forwards; animation-delay: calc(.1s + var(--i) * .06s); }
+.hero-nome-2 { display: block; margin-top: .1em; font-family: var(--titulo); font-weight: 500; font-size: clamp(1.2rem, 1.7vw, 1.6rem); letter-spacing: .04em; }
+.hero-nome-cargo { display: inline-block; margin-top: .8em; padding-top: .7em; border-top: 1px solid rgba(158, 79, 103, .4); font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: #66545C; }
 @keyframes nome-letra { to { opacity: 1; transform: none; } }
-@keyframes nome-sobe { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-/* celular: não cabe ao lado dela, então vira uma tarja translúcida na altura do tronco */
 @media (max-width: 759px) {
-  .hero-nome { left: 0; right: 0; top: auto; bottom: 16%; padding: 16px 16px 18px; text-align: center; background: rgba(250, 245, 242, .74); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-block: 1px solid rgba(158, 79, 103, .22); }
-  .hero-nome-1 { font-size: clamp(3rem, 15vw, 4.4rem); }
-  .hero-nome-2 { font-size: 1.1rem; }
-  .hero-nome-cargo { margin-top: .7em; padding-top: .6em; font-size: .66rem; }
+  .hero-nome { bottom: 17%; padding: 14px 16px 16px; }
+  .hero-nome-1 { font-size: clamp(3.2rem, 16vw, 4.4rem); }
+  .hero-nome-2 { font-size: 1.05rem; }
+  .hero-nome-cargo { font-size: .64rem; }
 }
-@media (prefers-reduced-motion: reduce) { .hero-nome *, .hero-nome-1 span { animation: none; opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-nome, .hero-nome-1 span { animation: none !important; transition: none; opacity: 1; transform: none; } }
+/* sem gradiente escuro sobre o vídeo e fundo branco atrás dele (o vídeo é branco: não aparece emenda) */
+.hero .sombra-v { display: none; }
+.hero-midia { background: #fff; }
 
 /* ================= Beatriz: empresas ================= */
 .empresas { padding-block: clamp(56px, 9svh, 96px) 0; }
@@ -1509,3 +1516,28 @@ h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .l
 .projetos-grade .destaque { width: auto; }
 .contato-secao { padding-top: var(--secao); }
 .contato-secao .contato-hero { min-height: 72svh; }
+.nav.topo-claro:not(.escura):not(.aberta) .tema-botao, .nav.topo-claro:not(.escura):not(.aberta) .nav-botao, .nav.topo-claro:not(.escura):not(.aberta) .nav-lingua summary { background: rgba(255,255,255,.72); color: #2B2226; }
+@media (max-width: 959px) {
+  .sobre-foto { margin-inline: auto; width: min(100%, 340px); max-width: 340px; aspect-ratio: 1 / 1; max-height: none; }
+  .sobre-foto img { object-position: 50% 22%; }
+}
+/* ajuste para a Cormorant Garamond */
+h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .numero strong, .servicos-lista h3, .cartao-corpo strong, .linha-corpo h3, .percurso-linha h3, .empresas-lista strong { font-weight: 600; letter-spacing: -.005em; }
+.hero-titulo, .pag-titulo { font-weight: 500; }
+.hero-titulo em, .pag-titulo em, h2 em { font-family: var(--script); font-weight: 400; }
+.nav-marca span { font-family: var(--titulo); font-weight: 600; font-size: 1.2rem; }
+/* sobre o vídeo branco a barra clareia (branca) em vez de escurecer */
+.nav.topo-claro.sobre-video:not(.aberta) { background: rgba(255,255,255, calc(var(--escuro, 0) * .84)); box-shadow: 0 1px 0 rgba(43,34,38, calc(var(--escuro, 0) * .08)); }
+/* abertura sem gradiente: textos de baixo viram selos claros legíveis sobre o vídeo branco */
+.hero-intro .status, .hero-intro .hero-rolar { color: #2B2226; text-shadow: none; background: rgba(255,252,250,.82); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 999px; box-shadow: 0 8px 22px -14px rgba(96,48,64,.5); }
+/* frases do "Como eu trabalho": a Cormorant é mais larga, três linhas cabem sem encostar no rótulo */
+.manifesto-frases { min-height: 4.4em; line-height: 1.06; }
+.manifesto-frases li { max-width: 18ch; }
+.rec-original { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; color: var(--acento); text-decoration: underline; text-underline-offset: 3px; margin-right: auto; }
+.rec-original .ic { width: 14px; height: 14px; }
+.rec-modal .rec-original { margin-top: 16px; }
+/* "Como eu trabalho" no desktop: ela fica à esquerda no vídeo, então o texto e o véu vão para a direita */
+@media (min-width: 960px) {
+  .manifesto-veu { background: linear-gradient(270deg, rgba(20,12,16,.9) 0%, rgba(20,12,16,.55) 34%, rgba(20,12,16,0) 58%), linear-gradient(180deg, rgba(20,12,16,.45) 0%, transparent 20%, transparent 80%, rgba(20,12,16,.6) 100%); }
+  .manifesto-texto { padding-left: max(var(--margem), 56vw); }
+}

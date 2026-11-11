@@ -48,7 +48,7 @@
 /* Conteúdo do documento */
 .folha-cabeca { margin: -8mm 0 3mm; padding-bottom: 1.5mm; font-size: 7.4pt; color: #8a8a90; border-bottom: .5pt solid #e3e3e6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cv-cabeca { display: grid; grid-template-columns: 5fr 7fr; gap: 6mm; align-items: center; padding-bottom: 4mm; margin-bottom: 1mm; border-bottom: 1.5pt solid #1c1c1e; }
-.cv-cabeca h1 { font-family: var(--titulo); font-size: 26pt; font-weight: 450; letter-spacing: -.01em; line-height: 1; color: #2B2226; }
+.cv-cabeca h1 { font-family: var(--titulo); font-size: 28pt; font-weight: 600; letter-spacing: -.01em; line-height: 1; color: #2B2226; }
 .cv-cargo { margin-top: 2mm; font-size: 11pt; font-weight: 600; color: #9E4F67; }
 .cv-idade { margin-top: 1mm; font-size: 8.6pt; color: #6a6a70 !important; }
 .cv-cabeca-contato { display: flex; align-items: center; justify-content: flex-end; gap: 4mm; }
