@@ -1004,7 +1004,261 @@
    }
   }
  ],
- "recomendacoes": [],
+ "recomendacoes": [
+  {
+   "id": "727a21fa-be00-4528-b815-4e9577212f55",
+   "nome": "Rafael Ramos",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "Não tive dificuldade alguma em fechar meu seguro, graças a explicação e transparência da consultora Beatriz Souza! Muito educada, objetiva e disposta a me ajudar, sem falar que o valor das coberturas é bem justo.",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pBeFVITXRVVTU0YzJwVlNYWlFSR1J6TmtRMVUwRRAB!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:Ci9DQUlRQUNvZENodHljRjlvT2pBeFVITXRVVTU0YzJwVlNYWlFSR1J6TmtRMVUwRRAB",
+   "data_feedback": "2026-10-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 1,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "I had no trouble at all closing my insurance, thanks to the explanation and transparency of consultant Beatriz Souza! Very polite, objective and willing to help, not to mention the coverage price is very fair."
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "¡No tuve ninguna dificultad para cerrar mi seguro, gracias a la explicación y transparencia de la consultora Beatriz Souza! Muy educada, objetiva y dispuesta a ayudarme, además el valor de las coberturas es muy justo."
+    }
+   }
+  },
+  {
+   "id": "b0f6485f-6f34-465a-8f12-ed80743ca4fe",
+   "nome": "Fabio Rogerio Arruda Ferreira",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "100% satisfeito com a Dínamo Corretora de Seguros. A se destacar uma moça de nome Beatriz, que é muito atenciosa explicando com muita paciência como é o funcionamento do Seguro Fiança para aluguel de casa. Percebi que ela tem muito conhecimento técnico sobre o assunto e isso me ajudou demais na escolha das melhores opções. Certamente farei outros tipos de seguros com a Dínamo.",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tFNVFqSnpOVEJJYzJoSFJVUktiRXQwVW01MWVXYxAB!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:Ci9DQUlRQUNvZENodHljRjlvT2tFNVFqSnpOVEJJYzJoSFJVUktiRXQwVW01MWVXYxAB",
+   "data_feedback": "2025-11-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 2,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "100% satisfied with Dínamo insurance brokerage. Special mention to Beatriz, who was very attentive and patiently explained how rent guarantee insurance works. I could tell she has deep technical knowledge of the subject, and it helped me a lot to choose the best options. I will certainly take out other kinds of insurance with Dínamo."
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "100% satisfecho con Dínamo Corredora de Seguros. Destaco a Beatriz, muy atenta, que me explicó con mucha paciencia cómo funciona el seguro de fianza para alquiler. Noté que tiene mucho conocimiento técnico del tema y eso me ayudó mucho a elegir las mejores opciones. Sin duda contrataré otros seguros con Dínamo."
+    }
+   }
+  },
+  {
+   "id": "0908f2b1-9053-4f7b-8bf9-3d2e2f090223",
+   "nome": "João Paulo Oriente",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "Já sou cliente da Dínamo há 4+ anos e sempre fui muito bem atendido. Hoje foi mais uma comprovação disso: a Beatriz Souza fez uma cotação super rápida e o atendimento foi nota 10! Muito obrigado, Bia!",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pWT00ybFhhMkprYVVaYVoyWlFhR05pZUU1TldHYxAB!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:Ci9DQUlRQUNvZENodHljRjlvT2pWT00ybFhhMkprYVVaYVoyWlFhR05pZUU1TldHYxAB",
+   "data_feedback": "2026-10-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 3,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "I've been a Dínamo client for 4+ years and have always been very well served. Today proved it once again: Beatriz Souza made a super fast quote and the service was a perfect 10! Thank you so much, Bia!"
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "Soy cliente de Dínamo hace más de 4 años y siempre me atendieron muy bien. Hoy fue otra prueba: Beatriz Souza hizo una cotización súper rápida y la atención fue de 10. ¡Muchas gracias, Bia!"
+    }
+   }
+  },
+  {
+   "id": "b44e37d3-2e15-4426-82ba-60f6cea3def0",
+   "nome": "taina roberta fontes justino",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "Seguro fiança feito com a Beatriz, super recomendo! Extremamente atenciosa, ágil e profissional.",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2s5NVIzTXpOak5FYW0xNFpFZFVSVWQwZWtOSmFtYxAB!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:Ci9DQUlRQUNvZENodHljRjlvT2s5NVIzTXpOak5FYW0xNFpFZFVSVWQwZWtOSmFtYxAB",
+   "data_feedback": "2026-07-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 4,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "Rent guarantee insurance done with Beatriz, highly recommend! Extremely attentive, quick and professional."
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "Seguro de fianza hecho con Beatriz, ¡lo recomiendo mucho! Extremadamente atenta, ágil y profesional."
+    }
+   }
+  },
+  {
+   "id": "44ce76a5-4361-486b-8c83-5db6d7f644fc",
+   "nome": "Marlo Martins Filho",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "Estou muito satisfeito com os serviços prestados pela Beatriz, sempre de bom humor, clareza e atenção! Parabéns Dínamo, equipe top demais!",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURCdnZhT2hRRRAB!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:ChdDSUhNMG9nS0VJQ0FnSURCdnZhT2hRRRAB",
+   "data_feedback": "2023-11-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 5,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "I'm very happy with Beatriz's service, always good-humored, clear and attentive! Congratulations Dínamo, an amazing team!"
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "¡Estoy muy satisfecho con los servicios de Beatriz, siempre de buen humor, con claridad y atención! ¡Felicitaciones Dínamo, un equipo excelente!"
+    }
+   }
+  },
+  {
+   "id": "646f7f29-80d9-49dc-9371-5589ba9def4d",
+   "nome": "Ana Carolina Soares",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "Atendimento excelente, muito solícitos com o cliente. Ótimo serviço. O Edson é extremamente simpático e prestativo! A Beatriz também sempre nos atende super bem! Resolve nossos problemas! Nota 1000!",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUR1cjhEMlp3EAE!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:ChZDSUhNMG9nS0VJQ0FnSUR1cjhEMlp3EAE",
+   "data_feedback": "2026-07-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 6,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "Excellent service, very helpful to clients. Great service. Edson is extremely friendly and helpful! Beatriz also always serves us really well! She solves our problems! A perfect score!"
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "Atención excelente, muy serviciales con el cliente. Gran servicio. ¡Edson es muy simpático y atento! ¡Beatriz también siempre nos atiende súper bien! ¡Resuelve nuestros problemas! ¡Nota 1000!"
+    }
+   }
+  },
+  {
+   "id": "b06d8f33-6848-4c8b-93b4-efe4eae823fe",
+   "nome": "maria angélica godoi",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "Excelente atendimento, a Beatriz é rápida e resolve tudo, recomendo muito.",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUROLTYtWW93RRAB!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:ChdDSUhNMG9nS0VJQ0FnSUROLTYtWW93RRAB",
+   "data_feedback": "2024-11-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 7,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "Excellent service, Beatriz is quick and solves everything, highly recommend."
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "Excelente atención, Beatriz es rápida y resuelve todo, la recomiendo mucho."
+    }
+   }
+  },
+  {
+   "id": "af0b2997-1f8f-42e4-a4c2-abbfde351d7c",
+   "nome": "Leister Cerri",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "Atendimento de qualidade com equipe muito bem preparada e atenciosa. Destaque especial para o atendimento da Beatriz.",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2sxQ2RqbGhTRm94TVV4bk1HTkZOMjV2YTBoQ2FYYxAB!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:Ci9DQUlRQUNvZENodHljRjlvT2sxQ2RqbGhTRm94TVV4bk1HTkZOMjV2YTBoQ2FYYxAB",
+   "data_feedback": "2026-07-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 8,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "Quality service with a very well-prepared and attentive team. Special mention to the service from Beatriz."
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "Atención de calidad con un equipo muy bien preparado y atento. Destaque especial para la atención de Beatriz."
+    }
+   }
+  },
+  {
+   "id": "1028038a-d1ed-4ccf-a23f-553cb8e531b2",
+   "nome": "Sandra Mondin",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "Corretora Beatriz. Excelente agilidade no atendimento. Ótima profissional.",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25sTVJFeEROazA1UW01TGRtdHdRV1l6T0dkaVpHYxAB!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:Ci9DQUlRQUNvZENodHljRjlvT25sTVJFeEROazA1UW01TGRtdHdRV1l6T0dkaVpHYxAB",
+   "data_feedback": "2026-10-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 9,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "Broker Beatriz. Excellent, fast service. A great professional."
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "Corredora Beatriz. Excelente agilidad en la atención. Gran profesional."
+    }
+   }
+  },
+  {
+   "id": "f1293fa4-1495-49d3-933b-8cc056026641",
+   "nome": "Mônica da Matta",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "Fui atendida pela Beatriz, uma excelente profissional. Só tenho a agradecer pela sua atenção.",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25GUWJETlNibGRCTW5oUmNXRkdOMUowU25WSlFtYxAB!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:Ci9DQUlRQUNvZENodHljRjlvT25GUWJETlNibGRCTW5oUmNXRkdOMUowU25WSlFtYxAB",
+   "data_feedback": "2026-08-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 10,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "I was served by Beatriz, an excellent professional. I can only thank her for her attention."
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "Me atendió Beatriz, una excelente profesional. Solo tengo que agradecer su atención."
+    }
+   }
+  },
+  {
+   "id": "b5f84b55-4c9d-4b4a-806e-fda8b7922cc5",
+   "nome": "Amós Gomes",
+   "cargo": "Cliente",
+   "empresa": "Dínamo Seguros",
+   "mensagem": "Com atendente Beatriz, 5 estrelas.",
+   "imagem_url": null,
+   "fonte": "Google",
+   "link_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2psc1JVbFlja2RyUmtsbmFGbDBiSFJ3TlVoS1kxRRAB!2m1!1s0x94c8c5ffc979def3:0x21fdea58df96c6d6!3m1!1s2@1:Ci9DQUlRQUNvZENodHljRjlvT2psc1JVbFlja2RyUmtsbmFGbDBiSFJ3TlVoS1kxRRAB",
+   "data_feedback": "2026-08-01",
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 11,
+   "i18n": {
+    "en": {
+     "cargo": "Client",
+     "mensagem": "With Beatriz as my attendant, 5 stars."
+    },
+    "es": {
+     "cargo": "Cliente",
+     "mensagem": "Con la atención de Beatriz, 5 estrellas."
+    }
+   }
+  }
+ ],
  "arvore": [
   {
    "id": "1b870453-72ba-419f-85c5-a70170f6e995",
