@@ -3,7 +3,7 @@ import { UI_PAGINAS } from './ui-paginas.js';
 // Textos fixos da interface pública. Toda chave precisa existir nos três idiomas (tests/unit/i18n.test.js).
 export const UI = {
   pt: {
-    'meta.lang': 'pt-BR', 'meta.locale': 'pt_BR', 'meta.cv': 'Currículo',
+    'meta.lang': 'pt-BR', 'meta.locale': 'pt_BR', 'meta.cargo': 'Analista Administrativa', 'meta.pais': 'Brasil', 'meta.cv': 'Currículo',
     'nav.pular': 'Pular para o conteúdo', 'nav.menu': 'Abrir menu', 'nav.fechar': 'Fechar menu',
     'nav.projetos': 'Projetos', 'nav.trajetoria': 'Trajetória', 'nav.servicos': 'Serviços',
     'nav.contato': 'Contato', 'nav.cta': 'Fale comigo', 'nav.idioma': 'Idioma', 'nav.inicio': 'Início',
@@ -47,7 +47,7 @@ export const UI = {
     'trajetoria.cat.ADM': 'Administrativo', 'trajetoria.cat.TI': 'Tecnologia',
   },
   en: {
-    'meta.lang': 'en', 'meta.locale': 'en_US', 'meta.cv': 'Résumé',
+    'meta.lang': 'en', 'meta.cargo': 'Administrative Analyst', 'meta.pais': 'Brazil', 'meta.locale': 'en_US', 'meta.cv': 'Résumé',
     'nav.pular': 'Skip to content', 'nav.menu': 'Open menu', 'nav.fechar': 'Close menu',
     'nav.projetos': 'Projects', 'nav.trajetoria': 'Experience', 'nav.servicos': 'Services',
     'nav.contato': 'Contact', 'nav.cta': 'Get in touch', 'nav.idioma': 'Language', 'nav.inicio': 'Home',
@@ -91,7 +91,7 @@ export const UI = {
     'trajetoria.cat.ADM': 'Administrative', 'trajetoria.cat.TI': 'Technology',
   },
   es: {
-    'meta.lang': 'es', 'meta.locale': 'es_ES', 'meta.cv': 'Currículum',
+    'meta.lang': 'es', 'meta.cargo': 'Analista Administrativa', 'meta.pais': 'Brasil', 'meta.locale': 'es_ES', 'meta.cv': 'Currículum',
     'nav.pular': 'Saltar al contenido', 'nav.menu': 'Abrir menú', 'nav.fechar': 'Cerrar menú',
     'nav.projetos': 'Proyectos', 'nav.trajetoria': 'Trayectoria', 'nav.servicos': 'Servicios',
     'nav.contato': 'Contacto', 'nav.cta': 'Hablemos', 'nav.idioma': 'Idioma', 'nav.inicio': 'Inicio',

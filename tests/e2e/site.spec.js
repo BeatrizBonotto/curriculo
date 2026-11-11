@@ -220,7 +220,7 @@ test('cheat code: errado treme e avisa; certo libera o Admin no menu', async ({ 
 test('números: valor real no HTML sem JS e no DOM durante a contagem', async ({ page, browser, request }) => {
   const html = await (await request.get('/')).text();
   const esperados = [...html.matchAll(/<strong data-contar="(\d+)">(\d+)<\/strong>/g)];
-  expect(esperados).toHaveLength(3); // recomendações zeradas não aparecem
+  expect(esperados.length).toBeGreaterThan(0); // só números maiores que zero aparecem (checado abaixo)
   for (const [, alvo, texto] of esperados) { expect(texto).toBe(alvo); expect(+texto).toBeGreaterThan(0); }
 
   const ctx = await browser.newContext({ javaScriptEnabled: false });

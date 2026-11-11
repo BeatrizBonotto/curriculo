@@ -53,7 +53,7 @@ export function conteudoCV(d, t, qr = '', variante) {
   const paras = (txt, max = Infinity) => String(txt || '').replace(/\r/g, '').split(/\n+/).map(l => l.trim()).filter(Boolean).slice(0, max)
     .map(l => (l.startsWith('- ') ? `<p class="cv-atomo cv-sub" data-junto>${esc(l.slice(2))}</p>` : `<p class="cv-atomo">${esc(l)}</p>`)).join('');
   const tel = c.whatsapp ? `+${c.whatsapp.replace(/^(\d{2})(\d{2})(\d{5})(\d{4})$/, '$1 ($2) $3-$4')}` : '';
-  const local = `${d.perfil.local || 'Campinas-SP'}, ${d.perfil.pais || 'Brasil'}`;
+  const local = `${d.perfil.local || 'Campinas-SP'}, ${t('meta.pais')}`;
   const sem = u => u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
   const linhas = [
     c.email && ['email', `mailto:${c.email}`, c.email], tel && ['whatsapp', `https://wa.me/${c.whatsapp}`, tel],
@@ -68,7 +68,7 @@ export function conteudoCV(d, t, qr = '', variante) {
   return `<header class="cv-atomo cv-cabeca">
   <div class="cv-cabeca-nome">
     <h1>${SITE.nome}</h1>
-    <p class="cv-cargo">${esc(vt.titulo || SITE.cargo)}</p>
+    <p class="cv-cargo">${esc(vt.titulo || t('meta.cargo'))}</p>
     ${d.perfil.data_nascimento && vt.mostrar_idade !== false ? `<p class="cv-idade" data-nascimento="${esc(d.perfil.data_nascimento)}" data-modelo="${esc(t('cv.anos', { n: '{n}' }))}">(${t('cv.anos', { n: idadeEm(d.perfil.data_nascimento) })})</p>` : ''}
   </div>
   <div class="cv-cabeca-contato">
@@ -113,7 +113,7 @@ ${head({ lang: d.lang, t, titulo: t('cv.titulo'), descricao: t('cv.descricao'), 
   <a class="btn btn-acento btn-pequeno" href="${rota(d.lang, 'cv')}${t('cv.arquivo')}" download type="application/pdf" data-baixar aria-label="${t('cv.baixar')}">${icone('download')}<span>${t('cv.baixar')}</span></a>
 </header>
 <main id="conteudo" class="cv-mesa" data-main data-assinatura="${assinatura(bruto)}">
-  <div class="cv-paginas" data-paginas data-rotulo-pagina="${t('cv.pagina')}" data-cabeca="${esc([SITE.nome, (d.site.contato || {}).email, `${d.perfil.local || 'Campinas-SP'}, ${d.perfil.pais || 'Brasil'}`].filter(Boolean).join(' | '))}">
+  <div class="cv-paginas" data-paginas data-rotulo-pagina="${t('cv.pagina')}" data-cabeca="${esc([SITE.nome, (d.site.contato || {}).email, `${d.perfil.local || 'Campinas-SP'}, ${t('meta.pais')}`].filter(Boolean).join(' | '))}">
     <article class="folha" data-fluxo>${conteudoCV(d, t, qr)}</article>
   </div>
 </main>

@@ -116,7 +116,7 @@ ${alternos}
 <meta property="og:image" content="${og}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="${SITE.nome} · ${SITE.cargo}">
+<meta property="og:image:alt" content="${SITE.nome} · ${t('meta.cargo')}">
 <meta property="og:locale" content="${t('meta.locale')}">
 ${SITE.idiomas.filter(l => l !== lang).map(l => `<meta property="og:locale:alternate" content="${{ pt: 'pt_BR', en: 'en_US', es: 'es_ES' }[l]}">`).join('')}
 <meta property="profile:first_name" content="Beatriz">

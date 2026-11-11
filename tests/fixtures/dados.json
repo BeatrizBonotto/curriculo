@@ -405,7 +405,8 @@
    "i18n": {
     "en": {
      "curso": "Technical Diploma in Web Development",
-     "descricao": "Hands-on and theoretical training in web development: HTML, CSS, JavaScript, programming logic, responsive design, databases, agile methods and software testing."
+     "descricao": "Hands-on and theoretical training in web development: HTML, CSS, JavaScript, programming logic, responsive design, databases, agile methods and software testing.",
+     "tipo_local": "On-site"
     },
     "es": {
      "curso": "Técnico en Informática para Internet",
@@ -429,7 +430,8 @@
    "i18n": {
     "en": {
      "curso": "Business Administration",
-     "descricao": "Strategic management, finance, human resources, marketing, logistics and business planning."
+     "descricao": "Strategic management, finance, human resources, marketing, logistics and business planning.",
+     "tipo_local": "On-site"
     },
     "es": {
      "curso": "Administración de Empresas",
@@ -453,7 +455,8 @@
    "i18n": {
     "en": {
      "curso": "Administrative Services",
-     "descricao": "Administrative routines, customer service, document management and office tools."
+     "descricao": "Administrative routines, customer service, document management and office tools.",
+     "tipo_local": "On-site"
     },
     "es": {
      "curso": "Servicios Administrativos",
@@ -477,7 +480,8 @@
    "i18n": {
     "en": {
      "curso": "Business Management",
-     "descricao": "Introduction to business management, strategic planning, entrepreneurship, marketing and operations."
+     "descricao": "Introduction to business management, strategic planning, entrepreneurship, marketing and operations.",
+     "tipo_local": "On-site"
     },
     "es": {
      "curso": "Gestión de Negocios",

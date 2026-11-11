@@ -45,7 +45,7 @@ function hero(d, t) {
       <canvas class="hero-canvas" data-sequencia="/media/intro/" data-quadros="60" aria-hidden="true"></canvas>
       <div class="sombra-v" aria-hidden="true"></div>
     </div>
-    <p class="hero-nome" data-hero-nome aria-hidden="true"><span class="hero-nome-1">${[...(d.perfil.primeiro_nome || SITE.nome.split(' ')[0])].map((c, i) => `<span style="--i:${i}">${esc(c)}</span>`).join('')}</span><span class="hero-nome-2">${esc(d.perfil.sobrenome || '')}</span><span class="hero-nome-cargo">${esc(SITE.cargo)}</span></p>
+    <p class="hero-nome" data-hero-nome aria-hidden="true"><span class="hero-nome-1">${[...(d.perfil.primeiro_nome || SITE.nome.split(' ')[0])].map((c, i) => `<span style="--i:${i}">${esc(c)}</span>`).join('')}</span><span class="hero-nome-2">${esc(d.perfil.sobrenome || '')}</span><span class="hero-nome-cargo">${esc(t('meta.cargo'))}</span></p>
     <div class="hero-intro container" data-hero-intro aria-hidden="true">${status}<span class="hero-rolar">${icone('baixo')}${t('hero.rolar')}</span></div>
     <div class="hero-conteudo container" data-hero-conteudo>
       <div class="hero-texto">

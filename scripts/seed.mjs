@@ -53,19 +53,19 @@ const experiencias = [
 const formacoes = [
   { instituicao: 'Politécnica Brasileira', curso: 'Técnico em Informática para Internet', tipo_academico: 'tecnico', data_inicio: '2023-11-01', data_fim: '2025-05-01', ordem: 1,
     descricao: 'Formação prática e teórica em desenvolvimento web: HTML, CSS, JavaScript, lógica de programação, design responsivo, banco de dados, metodologias ágeis e testes de software.',
-    i18n: tr({ curso: 'Technical Diploma in Web Development', descricao: 'Hands-on and theoretical training in web development: HTML, CSS, JavaScript, programming logic, responsive design, databases, agile methods and software testing.' },
+    i18n: tr({ curso: 'Technical Diploma in Web Development', descricao: 'Hands-on and theoretical training in web development: HTML, CSS, JavaScript, programming logic, responsive design, databases, agile methods and software testing.', tipo_local: 'On-site' },
       { curso: 'Técnico en Informática para Internet', descricao: 'Formación práctica y teórica en desarrollo web: HTML, CSS, JavaScript, lógica de programación, diseño responsivo, bases de datos, metodologías ágiles y pruebas de software.' }) },
   { instituicao: 'Anhanguera Educacional', curso: 'Administração de Empresas', tipo_academico: 'bacharel', data_inicio: '2019-06-01', data_fim: '2023-06-01', ordem: 2,
     descricao: 'Gestão estratégica, finanças, recursos humanos, marketing, logística e planejamento empresarial.',
-    i18n: tr({ curso: 'Business Administration', descricao: 'Strategic management, finance, human resources, marketing, logistics and business planning.' },
+    i18n: tr({ curso: 'Business Administration', descricao: 'Strategic management, finance, human resources, marketing, logistics and business planning.', tipo_local: 'On-site' },
       { curso: 'Administración de Empresas', descricao: 'Gestión estratégica, finanzas, recursos humanos, marketing, logística y planificación empresarial.' }) },
   { instituicao: 'Senac Brasil', curso: 'Serviços Administrativos', tipo_academico: 'tecnico', data_inicio: '2015-10-01', data_fim: '2016-10-01', ordem: 3,
     descricao: 'Rotinas administrativas, atendimento ao cliente, organização de documentos e ferramentas de escritório.',
-    i18n: tr({ curso: 'Administrative Services', descricao: 'Administrative routines, customer service, document management and office tools.' },
+    i18n: tr({ curso: 'Administrative Services', descricao: 'Administrative routines, customer service, document management and office tools.', tipo_local: 'On-site' },
       { curso: 'Servicios Administrativos', descricao: 'Rutinas administrativas, atención al cliente, organización de documentos y herramientas de oficina.' }) },
   { instituicao: 'Senac Brasil', curso: 'Gestão de Negócios', tipo_academico: 'cursolivre', data_inicio: '2013-10-01', data_fim: '2014-10-01', ordem: 4,
     descricao: 'Introdução à gestão empresarial, planejamento estratégico, empreendedorismo, marketing e operações.',
-    i18n: tr({ curso: 'Business Management', descricao: 'Introduction to business management, strategic planning, entrepreneurship, marketing and operations.' },
+    i18n: tr({ curso: 'Business Management', descricao: 'Introduction to business management, strategic planning, entrepreneurship, marketing and operations.', tipo_local: 'On-site' },
       { curso: 'Gestión de Negocios', descricao: 'Introducción a la gestión empresarial, planificación estratégica, emprendimiento, marketing y operaciones.' }) },
 ].map(f => ({ tipo_local: 'Presencial', atual: false, visivel: true, ...f }));
 

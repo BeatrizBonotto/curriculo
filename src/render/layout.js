@@ -34,7 +34,7 @@ export function navegacao(lang, t, pagina) {
 export function rodape(lang, t) {
   return `<footer class="rodape">
   <div class="container rodape-grade">
-    <div class="rodape-marca"><img src="/media/logo-64.webp" alt="" width="40" height="40" loading="lazy"><div><strong>${SITE.nome}</strong><p class="mono">${SITE.cargo} · Campinas, BR</p></div></div>
+    <div class="rodape-marca"><img src="/media/logo-64.webp" alt="" width="40" height="40" loading="lazy"><div><strong>${SITE.nome}</strong><p class="mono">${t('meta.cargo')} · Campinas, BR</p></div></div>
     <nav class="rodape-links" aria-label="${t('nav.menu')}">
       <a href="${rota(lang)}">${t('nav.inicio')}</a>
       ${PAGINAS_NAV.map(p => `<a href="${hrefNav(lang, p)}">${t(p[1])}</a>`).join('')}
