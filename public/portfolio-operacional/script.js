@@ -337,12 +337,15 @@ function emailSalvo(id) {
   try { return JSON.parse(localStorage.getItem(CHAVE_EMAIL + id) || 'null'); } catch { return null; }
 }
 // troca {campo} pelo valor que tá no form
-const preencher = (txt, v) => String(txt).replace(/\{(\w+)\}/g, (tudo, k) => (v[k] !== undefined && v[k] !== true && v[k] !== false ? v[k] : tudo));
+// {{campo}} vira o valor do form; campo vazio fica em branco, campo que não existe fica como está (pra ela ver o erro)
+const preencher = (txt, v) => String(txt).replace(/\{\{\s*(\w+)\s*\}\}/g, (tudo, k) => (k in v ? (typeof v[k] === 'boolean' ? (v[k] ? 'sim' : 'não') : v[k]) : tudo));
+// lista das variáveis do documento atual: nome técnico + rótulo do campo
+const variaveis = () => DOCS[docAtual].grupos.flatMap(g => g.campos.filter(([, , , o = {}]) => o.t !== 'check').map(([nome, rot]) => [nome, rot]));
 // o contrário: vira o texto gerado em modelo, colocando {campo} no lugar dos valores do form (só os maiores, pra não trocar número solto)
 function virarModelo(txt, v) {
   let t = String(txt);
   Object.entries(v).filter(([, val]) => typeof val === 'string' && val.trim().length >= 4).sort((a, b) => b[1].length - a[1].length)
-    .forEach(([k, val]) => { t = t.split(val).join(`{${k}}`); });
+    .forEach(([k, val]) => { t = t.split(val).join(`{{${k}}}`); });
   return t;
 }
 
@@ -531,12 +534,27 @@ function alternarEdicao() {
     editandoEmail = true;
     $('#btn-editar-email').textContent = 'Cancelar edição'; $('#btn-editar-email').setAttribute('aria-pressed', 'true');
     box.insertAdjacentHTML('afterbegin', `<div class="editor-email">
-      <p class="dica">Escreva o seu padrão. Use {nomeDoCampo} pra puxar dados do formulário (ex.: {cliente}, {vencimento}). Fica salvo neste navegador.</p>
+      <p class="dica">Escreva o seu padrão. O que estiver entre {{ }} é trocado pelo campo do formulário. Clique numa variável pra inserir onde está o cursor. Fica salvo neste navegador.</p>
+      <div class="vars" role="group" aria-label="Variáveis disponíveis">${variaveis().map(([n, r]) => `<button type="button" class="var" data-var="${n}" title="${esc(r)}">{{${n}}}</button>`).join('')}</div>
       <label for="ed-assunto">Assunto</label><input id="ed-assunto" value="${esc(virarModelo(partesEmail.assunto, v))}">
       <label for="ed-corpo">Corpo</label><textarea id="ed-corpo" rows="10">${esc(virarModelo(partesEmail.corpo.split('\n\n' + partesEmail.corpo.split('\n\n').slice(-3).join('\n\n'))[0], v))}</textarea>
       <div class="editor-acoes"><button type="button" class="btn btn-sec" id="ed-restaurar">Voltar ao padrão original</button><button type="button" class="btn" id="ed-salvar">Salvar padrão</button></div>
     </div>`);
+    // insere a variável no campo que estava em foco (assunto ou corpo), no lugar do cursor
+    let alvo = $('#ed-corpo');
+    ['#ed-assunto', '#ed-corpo'].forEach(id => $(id).addEventListener('focus', e => { alvo = e.target; }));
+    $('.vars').addEventListener('mousedown', e => e.preventDefault()); // não tira o foco do texto
+    $('.vars').addEventListener('click', e => {
+      const b = e.target.closest('[data-var]'); if (!b) return;
+      const tag = `{{${b.dataset.var}}}`, i = alvo.selectionStart ?? alvo.value.length, f = alvo.selectionEnd ?? i;
+      alvo.value = alvo.value.slice(0, i) + tag + alvo.value.slice(f);
+      alvo.focus(); alvo.selectionStart = alvo.selectionEnd = i + tag.length;
+    });
     $('#ed-salvar').addEventListener('click', () => {
+      // avisa se sobrou variável que não existe nesse documento
+      const validos = new Set(variaveis().map(([n]) => n));
+      const ruins = [...($('#ed-assunto').value + $('#ed-corpo').value).matchAll(/\{\{\s*(\w+)\s*\}\}/g)].map(m => m[1]).filter(n => !validos.has(n));
+      if (ruins.length && !confirm(`Essas variáveis não existem neste documento: ${[...new Set(ruins)].join(', ')}. Salvar mesmo assim?`)) return;
       try { localStorage.setItem(CHAVE_EMAIL + docAtual, JSON.stringify({ assunto: $('#ed-assunto').value, corpo: $('#ed-corpo').value })); } catch {}
       fecharEdicao(); atualizar(); $('#aviso').textContent = 'Padrão de e-mail salvo.';
     });
