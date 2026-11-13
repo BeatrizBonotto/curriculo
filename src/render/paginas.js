@@ -241,7 +241,7 @@ function servicos(d, t) {
 }
 
 export function inicio(d, t) {
-  return hero(d, t) + manifesto(d, t) + sobre(d, t) + numeros(d, t) + percurso(d, t) + empresas(d, t) + destaques(d, t) + trajetoriaSecao(d, t) + recomendacoes(d, t) + servicos(d, t) + contato(d, t);
+  return hero(d, t) + manifesto(d, t) + sobre(d, t) + numeros(d, t) + trajetoriaSecao(d, t) + empresas(d, t) + destaques(d, t) + recomendacoes(d, t) + servicos(d, t) + contato(d, t);
 }
 
 // ================= PROJETOS =================

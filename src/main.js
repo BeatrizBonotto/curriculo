@@ -106,10 +106,12 @@ document.addEventListener('click', e => {
   if (!alvo) return;
   e.preventDefault();
   if (nav.classList.contains('aberta')) menu(false);
-  // pula o respiro do topo da seção: o conteúdo encosta logo abaixo do cabeçalho e ocupa a tela
-  const respiro = parseFloat(getComputedStyle(alvo).paddingTop) || 0;
-  const offset = respiro - nav.offsetHeight;
-  lenis ? lenis.scrollTo(alvo, { offset }) : scrollTo({ top: alvo.getBoundingClientRect().top + scrollY + offset, behavior: semMovimento ? 'auto' : 'smooth' });
+  // seção com vídeo: o vídeo encosta embaixo do menu (tela cheia, sem faixa vazia em cima);
+  // sem vídeo: pula o respiro do topo da seção. Posição em px porque a Lenis desconta o scroll-padding sozinha.
+  const video = alvo.querySelector('video, .manifesto-palco');
+  const ref = video && video.getBoundingClientRect().top - alvo.getBoundingClientRect().top < innerHeight ? video : null;
+  const topo = (ref || alvo).getBoundingClientRect().top + scrollY + (ref ? 0 : parseFloat(getComputedStyle(alvo).paddingTop) || 0) - nav.offsetHeight;
+  lenis ? lenis.scrollTo(topo) : scrollTo({ top: topo, behavior: semMovimento ? 'auto' : 'smooth' });
   history.replaceState(null, '', url.hash);
 });
 

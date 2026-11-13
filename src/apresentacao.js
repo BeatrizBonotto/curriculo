@@ -5,6 +5,7 @@ import QRCode from 'qrcode';
 import { SITE } from './config.js';
 import { alinharNome } from './lib/alinhar-nome.js';
 import { icone } from './render/comum.js';
+import { traduzirApresentacao } from './lib/apresentacao-i18n.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -363,6 +364,7 @@ export function abrir(aoFechar = () => {}) {
       <i class="ap-progresso"></i>
     </footer>`;
   document.body.appendChild(raiz);
+  const pararTraducao = traduzirApresentacao(raiz); // EN/ES: troca os textos fixos conforme o idioma da página
   raiz.showModal();
   raiz.addEventListener('cancel', e => { e.preventDefault(); fechar(); });
   document.documentElement.classList.add('ap-aberta');
@@ -421,6 +423,7 @@ export function abrir(aoFechar = () => {}) {
 
   function fechar() {
     if (!raiz) return;
+    pararTraducao();
     clearInterval(relogio);
     revelar?.();
     soltarNome();
