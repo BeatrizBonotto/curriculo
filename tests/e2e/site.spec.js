@@ -262,3 +262,18 @@ test('vídeos rolados pelo scroll têm todos os quadros publicados', async ({ pa
   for (const [pasta, n] of seqs)
     for (const i of [0, n - 1]) expect((await request.get(`${pasta}${String(i).padStart(3, '0')}.webp`)).status(), `${pasta} quadro ${i}`).toBe(200);
 });
+
+test('tamanho do texto: A+ aumenta, fica salvo e A− volta ao padrão', async ({ page, isMobile }) => {
+  await page.goto('/');
+  const tamanho = () => page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).fontSize));
+  const padrao = await tamanho();
+  const grupo = isMobile ? '.nav-fonte-menu' : '.nav > .fonte-controle';
+  if (isMobile) await page.locator('[data-menu]').click();
+  await page.locator(`${grupo} [data-fonte="1"]`).click();
+  expect(await tamanho()).toBeGreaterThan(padrao);
+  await page.reload();
+  expect(await tamanho()).toBeGreaterThan(padrao);
+  if (isMobile) await page.locator('[data-menu]').click();
+  await page.locator(`${grupo} [data-fonte="-1"]`).click();
+  expect(await tamanho()).toBeCloseTo(padrao, 1);
+});

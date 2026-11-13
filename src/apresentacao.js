@@ -223,6 +223,7 @@ export function abrir(aoFechar = () => {}) {
       <span class="ap-cont"></span>
       <span class="ap-tempo">00:00</span>
       <span class="ap-acoes">
+        <span class="ap-fonte" role="group" aria-label="Tamanho do texto"><button type="button" data-fonte="-1" aria-label="Diminuir texto">A−</button><button type="button" data-fonte="1" aria-label="Aumentar texto">A+</button></span>
         <button type="button" data-ap="notas" title="Roteiro (N)">Roteiro</button>
         <button type="button" data-ap="ant" aria-label="Anterior">←</button>
         <button type="button" data-ap="prox" aria-label="Próximo">→</button>
@@ -349,6 +350,28 @@ export function abrir(aoFechar = () => {}) {
     else if (acao === 'notas') alternarNotas();
   });
   document.addEventListener('keydown', teclas);
+
+  // celular: toque no terço esquerdo volta, no direito avança; deslizar também troca de slide.
+  // Com a tela girada (celular em pé), o "esquerdo" da apresentação fica no topo da tela física.
+  let toque = null;
+  raiz.addEventListener('touchstart', e => {
+    if (e.touches.length > 1) { toque = null; return; } // dois dedos: é zoom, não navegação
+    toque = { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() };
+  }, { passive: true });
+  raiz.addEventListener('touchend', e => {
+    if (!toque || !slides.length || e.target.closest('button, a, [data-area], .ap-notas')) { toque = null; return; }
+    const f = e.changedTouches[0];
+    const girada = matchMedia('(orientation: portrait) and (max-width: 700px)').matches;
+    const [d, cruz, pos, tam] = girada ? [f.clientY - toque.y, f.clientX - toque.x, f.clientY, innerHeight] : [f.clientX - toque.x, f.clientY - toque.y, f.clientX, innerWidth];
+    const rapido = Date.now() - toque.t < 600;
+    toque = null;
+    if (Math.abs(d) > 50 && Math.abs(d) > Math.abs(cruz) && rapido) { avancar(d < 0 ? 1 : -1); return; }
+    if (Math.abs(d) < 12 && Math.abs(cruz) < 12) { if (pos < tam / 3) avancar(-1); else if (pos > tam * 2 / 3) avancar(1); }
+  }, { passive: true });
+  function avancar(passo) {
+    if (passo > 0 && revelar && raiz.classList.contains('ap-so-video')) { revelar(); revelar = null; return; }
+    mostrar(i + passo);
+  }
   // só fecha ao sair da tela cheia se ela chegou a abrir (alguns navegadores bloqueiam)
   setTimeout(() => document.addEventListener('fullscreenchange', saiuTelaCheia), 300);
   screen.orientation?.lock?.('landscape').catch(() => {});

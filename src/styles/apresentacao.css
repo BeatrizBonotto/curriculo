@@ -132,3 +132,9 @@
   .ap-areas { gap: 10px; }
   .ap-areas button { padding: 14px 16px; font-size: 1rem; }
 }
+/* tamanho do texto na barra da apresentação */
+.ap-fonte { display: inline-flex; gap: 4px; margin-right: 6px; }
+.ap-fonte button { min-width: 38px; }
+.ap-fonte button:disabled { opacity: .35; cursor: default; }
+/* textos da apresentação seguem a escala escolhida (rem) e o zoom com dois dedos continua liberado */
+.ap { touch-action: pan-x pan-y pinch-zoom; }

@@ -9,6 +9,8 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
 import { tradutor } from './i18n/ui.js';
 import { buscarTudo, prepararIdioma } from './lib/dados.js';
 import { particulas } from './lib/particulas.js';
+import { iniciarFonte } from './lib/fonte.js';
+iniciarFonte();
 import { alinharNome } from './lib/alinhar-nome.js';
 import { assinatura, PAGINAS } from './render/documento.js';
 import { icone } from './render/comum.js';
@@ -64,6 +66,8 @@ function menu(abrir) {
   abrir ? lenis?.stop() : lenis?.start();
 }
 botaoMenu.addEventListener('click', () => menu(!nav.classList.contains('aberta')));
+// rolagem própria do menu (celular deitado tem pouca altura): a Lenis parada cancelaria o gesto, então ele não sobe até ela
+['wheel', 'touchstart', 'touchmove'].forEach(tipo => $('#menu-principal')?.addEventListener(tipo, e => e.stopPropagation(), { passive: true }));
 addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('aberta')) { menu(false); botaoMenu.focus(); } });
 let ultimoY = 0, ultimoEscuro = '';
 const aoRolar = () => {

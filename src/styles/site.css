@@ -1745,3 +1745,19 @@ h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .n
   .contato-grade { gap: 20px; padding-block: 28px var(--secao); }
   .sobre-pagina { padding-block: 12px var(--secao); }
 }
+
+/* menu aberto rola sozinho (celular deitado tem pouca altura); a rolagem suave não intercepta o toque aqui */
+.nav-links { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+@media (max-width: 1079px) { .nav.aberta .nav-links { justify-content: flex-start; max-height: 100dvh; overflow-y: auto; } }
+
+/* tamanho do texto (A− / A+): discreto, junto do botão de tema no desktop e dentro do menu no celular */
+.fonte-controle { display: inline-flex; align-items: center; gap: 2px; padding: 2px; border-radius: 999px; border: 1px solid var(--linha-forte); }
+.fonte-controle button { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: none; border: 0; color: inherit; font-family: var(--fonte); font-size: .8rem; font-weight: 600; line-height: 1; cursor: pointer; opacity: .8; }
+.fonte-controle button span { font-size: .7em; margin-left: 1px; }
+.fonte-controle button:hover { opacity: 1; background: var(--superficie); }
+.fonte-controle button:disabled { opacity: .3; cursor: default; background: none; }
+.nav-fonte-menu { display: none; }
+@media (max-width: 1079px) {
+  .nav > .fonte-controle { display: none; }
+  .nav-fonte-menu { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; font-size: .9rem; color: var(--tinta-2); }
+}
