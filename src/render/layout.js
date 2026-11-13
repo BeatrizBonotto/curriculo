@@ -27,7 +27,7 @@ export function navegacao(lang, t, pagina) {
     <div class="nav-so-menu nav-fonte-menu"><span>${t('nav.fonte')}</span><div class="fonte-controle" role="group" aria-label="${t('nav.fonte')}"><button type="button" data-fonte="-1" aria-label="${t('nav.fonteMenos')}" title="${t('nav.fonteMenos')}">A<span aria-hidden="true">−</span></button><button type="button" data-fonte="1" aria-label="${t('nav.fonteMais')}" title="${t('nav.fonteMais')}">A<span aria-hidden="true">+</span></button></div></div>
     <div class="nav-idiomas" role="group" aria-label="${t('nav.idioma')}">${idiomas}</div>
   </nav>
-  <button class="tema-botao nav-apresentar" type="button" data-apresentacao aria-label="${t('nav.apresentar')}" title="${t('nav.apresentar')}">${icone('quadro')}</button>
+  <button class="tema-botao nav-apresentar" type="button" data-apresentacao aria-label="${t('nav.apresentar')}" title="${t('nav.apresentar')}">${icone('apresentacao')}</button>
   <div class="fonte-controle" role="group" aria-label="${t('nav.fonte')}"><button type="button" data-fonte="-1" aria-label="${t('nav.fonteMenos')}" title="${t('nav.fonteMenos')}">A<span aria-hidden="true">−</span></button><button type="button" data-fonte="1" aria-label="${t('nav.fonteMais')}" title="${t('nav.fonteMais')}">A<span aria-hidden="true">+</span></button></div>
   <button class="tema-botao" type="button" data-tema aria-label="${t('nav.tema')}" title="${t('nav.tema')}">${icone('sol')}${icone('lua')}</button>
   <a class="btn btn-acento nav-cta" href="${rota(lang)}#contato" data-magnetico>${t('nav.cta')}</a>

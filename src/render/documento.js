@@ -17,7 +17,7 @@ export function assinatura(d) {
 
 // id da página = caminho (sem idioma); "" é o início. "dados" = o que o navegador precisa para modais.
 export const PAGINAS = {
-  '': { corpo: inicio, seo: (d, t) => textoSite(d.site, 'seo', d.lang), dados: d => ({ projetos: d.projetos.filter(p => p.destaque), recomendacoes: d.recomendacoes, experiencias: d.experiencias.map(e => ({ id: e.id, instituicao: e.instituicao })), formacoes: d.formacoes.map(f => ({ curso: f.curso, instituicao: f.instituicao, tipo: f.tipo_academico, inicio: f.data_inicio, fim: f.data_fim, atual: f.atual })), certificacoes: d.certificacoes.map(c => ({ nome: c.nome, instituicao: c.instituicao, data: c.data_certificacao })) }),
+  '': { corpo: inicio, seo: (d, t) => textoSite(d.site, 'seo', d.lang), dados: d => ({ projetos: d.projetos.filter(p => p.destaque), recomendacoes: d.recomendacoes, experiencias: d.experiencias.map(e => ({ id: e.id, instituicao: e.instituicao, titulo: e.titulo, inicio: e.data_inicio, fim: e.data_fim, local: e.local, modalidade: e.tipo_local, regime: e.regime, logo: e.logo_url })), formacoes: d.formacoes.map(f => ({ curso: f.curso, instituicao: f.instituicao, tipo: f.tipo_academico, inicio: f.data_inicio, fim: f.data_fim, atual: f.atual, modalidade: f.tipo_local, logo: f.logo_url })), certificacoes: d.certificacoes.map(c => ({ nome: c.nome, instituicao: c.instituicao, data: c.data_certificacao })) }),
     preload: '<link rel="preload" as="image" href="/media/intro-poster.webp" fetchpriority="high">' },
   /* projetos, trajetória, competências e contato viraram seções da home (firebase.json redireciona os endereços antigos) */
 };

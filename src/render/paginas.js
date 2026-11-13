@@ -4,7 +4,7 @@ import { rota } from '../i18n/ui.js';
 import { anosEmQA, textoSite } from '../lib/dados.js';
 import { CAMINHOS, esc, icone, iniciais, paragrafos, periodo, tipoAcademico } from './comum.js';
 
-export const CATS = ['adm', 'qa', 'dev', 'vibe', 'data', 'design'];
+export const CATS = ['adm', 'seguros', 'qa', 'dev', 'vibe', 'data', 'design'];
 const catsProjeto = p => { const c = (p.categorias?.length ? p.categorias : [p.categoria]).map(x => String(x || '').toLowerCase()).filter(x => CATS.includes(x)); return c.length ? c : ['dev']; };
 export const ehCena = url => /\/capa\.webp/.test(url || '');
 const imgProjeto = (p, t, cls = '') => p.imagem_url
@@ -170,13 +170,18 @@ export function detalheRecomendacao(x, t) {
 export function formularioRecomendacao(t) {
   return `<button class="modal-fechar" type="button" data-fechar-modal aria-label="${t('projetos.fechar')}">${icone('fechar')}</button>
 <form class="form form-rec" data-form-rec novalidate aria-labelledby="modal-titulo">
-  <h2 id="modal-titulo" class="titulo-secundario">${t('recs.formTitulo')}</h2><p class="dica-form">${t('recs.formTexto')}</p>
-  <div class="campo"><label for="r-nome">${t('contato.nome')}</label><input id="r-nome" name="nome" required maxlength="120" autocomplete="name"></div>
-  <div class="campo"><label for="r-cargo">${t('recs.cargo')}</label><input id="r-cargo" name="cargo" maxlength="140"></div>
-  <div class="campo"><label for="r-empresa">${t('recs.empresa')}</label><input id="r-empresa" name="empresa" maxlength="140"></div>
-  <div class="campo"><label for="r-msg">${t('contato.mensagem')}</label><textarea id="r-msg" name="mensagem" rows="6" required maxlength="3000"></textarea></div>
+  <header class="rec-form-cab"><span class="rec-form-ic" aria-hidden="true">${icone('conversa')}</span><div><h2 id="modal-titulo">${t('recs.formTitulo')}</h2><p class="dica-form">${t('recs.formTexto')}</p></div></header>
+  <div class="rec-form-grade">
+    <div class="campo"><label for="r-nome">${t('contato.nome')}</label><input id="r-nome" name="nome" required maxlength="120" autocomplete="name"></div>
+    <div class="campo"><label for="r-cargo">${t('recs.cargo')}</label><input id="r-cargo" name="cargo" maxlength="140" autocomplete="organization-title"></div>
+    <div class="campo campo-largo"><label for="r-empresa">${t('recs.empresa')}</label><input id="r-empresa" name="empresa" maxlength="140" autocomplete="organization"></div>
+    <div class="campo campo-largo"><label for="r-msg">${t('contato.mensagem')}</label><textarea id="r-msg" name="mensagem" rows="5" required maxlength="3000"></textarea><small class="rec-form-conta" data-contador aria-live="polite">0 / 3000</small></div>
+  </div>
   <div class="campo-isca" aria-hidden="true"><label for="r-site">Site</label><input id="r-site" name="site" tabindex="-1" autocomplete="off"></div>
-  <button class="btn btn-acento" type="submit">${t('recs.enviar')} ${icone('seta')}</button>
+  <footer class="rec-form-pe">
+    <button class="btn btn-linha" type="button" data-fechar-modal>${t('projetos.fechar')}</button>
+    <button class="btn btn-acento" type="submit">${t('recs.enviar')} ${icone('seta')}</button>
+  </footer>
   <p class="form-status" role="status" aria-live="polite" data-status data-ok="${esc(t('recs.enviada'))}" data-erro="${esc(t('contato.erro'))}" data-invalido="${esc(t('contato.invalido'))}"></p>
 </form>`;
 }

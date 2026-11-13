@@ -106,6 +106,7 @@
    "categoria": "adm",
    "categorias": [
     "adm",
+    "seguros",
     "dev"
    ],
    "imagem_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/central-documentos/capa.webp?v=mwein2kv",
@@ -190,8 +191,9 @@
    "papel": "Simulação de caso real · Dínamo Seguros",
    "descricao_curta": "Proposta de renovação com comparativo de 3 seguradoras e análise de Seguro Fiança com a regra de renda, como faço na carteira de imobiliárias parceiras.",
    "descricao_completa": "Simulação de um caso real da minha rotina na Dínamo Seguros (Analista de Seguros Pleno), com dados fictícios.\r\n\r\nSituação: carteira de imobiliárias parceiras com muitos pedidos de Seguro Fiança e renovações de Ramos Elementares vencendo juntas.\r\n\r\nTarefa: emitir rápido para não travar a locação e não deixar nenhuma apólice vencer sem contato com o cliente.\r\n\r\nAção: régua de renovação com alerta de 45 dias, cotação em 3 seguradoras, proposta com comparativo e checklist de documentos da fiança, conferindo a regra de renda (pelo menos 3 vezes o aluguel com encargos) e a Lei do Inquilinato (arts. 22, 37 e 41).\r\n\r\nResultado: renovações tratadas antes do vencimento, menos idas e vindas com a seguradora e clientes que elogiam a clareza do atendimento.\r\n\r\nO que os clientes dizem (avaliações públicas no Google):\r\n\"Seguro fiança feito com a Beatriz, super recomendo! Extremamente atenciosa, ágil e profissional.\" (Tainá)\r\n\"Não tive dificuldade alguma em fechar meu seguro, graças a explicação e transparência da consultora Beatriz Souza!\" (Rafael Ramos)\r\n\r\nNas imagens: o e-mail ao cliente, a proposta em PDF, a análise de fiança, o fluxograma com decisões e um anexo fictício.",
-   "categoria": "adm",
+   "categoria": "seguros",
    "categorias": [
+    "seguros",
     "adm"
    ],
    "imagem_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-seguros/capa.webp?v=mwehojlt",
@@ -546,7 +548,7 @@
    "data_fim": null,
    "atual": true,
    "categoria_profissional": "ADM",
-   "logo_url": null,
+   "logo_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/dinamo.webp",
    "imagens_urls": null,
    "bloqueado": false,
    "i18n": {
@@ -574,7 +576,7 @@
    "data_fim": "2025-08-01",
    "atual": false,
    "categoria_profissional": "ADM",
-   "logo_url": null,
+   "logo_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/dinamo.webp",
    "imagens_urls": null,
    "bloqueado": false,
    "i18n": {
@@ -602,7 +604,7 @@
    "data_fim": "2020-11-01",
    "atual": false,
    "categoria_profissional": "ADM",
-   "logo_url": null,
+   "logo_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/dinamo.webp",
    "imagens_urls": null,
    "bloqueado": false,
    "i18n": {
@@ -632,7 +634,7 @@
    "data_fim": "2020-04-01",
    "atual": false,
    "categoria_profissional": "ADM",
-   "logo_url": null,
+   "logo_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/inss.webp",
    "imagens_urls": null,
    "bloqueado": false,
    "i18n": {
@@ -664,7 +666,7 @@
    "data_fim": "2016-10-01",
    "atual": false,
    "categoria_profissional": "ADM",
-   "logo_url": null,
+   "logo_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/tecnoset.webp",
    "imagens_urls": null,
    "bloqueado": false,
    "i18n": {
@@ -694,7 +696,7 @@
    "data_fim": "2014-10-01",
    "atual": false,
    "categoria_profissional": "ADM",
-   "logo_url": null,
+   "logo_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/empresas/claro.webp",
    "imagens_urls": null,
    "bloqueado": false,
    "i18n": {
@@ -749,7 +751,7 @@
    "data_inicio": "2019-06-01",
    "data_fim": "2023-06-01",
    "atual": false,
-   "logo_url": null,
+   "logo_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/logos/anhanguera.webp",
    "imagens_urls": null,
    "bloqueado": false,
    "i18n": {
@@ -774,7 +776,7 @@
    "data_inicio": "2015-10-01",
    "data_fim": "2016-10-01",
    "atual": false,
-   "logo_url": null,
+   "logo_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/logos/senac.webp",
    "imagens_urls": null,
    "bloqueado": false,
    "i18n": {
@@ -799,7 +801,7 @@
    "data_inicio": "2013-10-01",
    "data_fim": "2014-10-01",
    "atual": false,
-   "logo_url": null,
+   "logo_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/logos/senac.webp",
    "imagens_urls": null,
    "bloqueado": false,
    "i18n": {

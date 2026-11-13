@@ -33,18 +33,30 @@
       </div>
       <div class="seletor" role="tablist" aria-label="Tipo de documento" id="seletor-doc"></div>
       <div class="gerador">
-        <form id="form-doc" class="form-doc" autocomplete="off" novalidate></form>
+        <div class="lado-form">
+          <div class="barra-ctl">
+            <button class="btn btn-sec" id="btn-exemplo" type="button">Carregar exemplo</button>
+            <button class="btn btn-sec" id="btn-limpar" type="button">Limpar</button>
+            <button class="btn" id="btn-aplicar" type="button">Aplicar</button>
+          </div>
+          <form id="form-doc" class="form-doc" autocomplete="off" novalidate></form>
+        </div>
         <div class="saida">
-          <div class="saida-acoes">
-            <span id="doc-status" class="selo" aria-live="polite"></span>
+          <div class="barra-ctl barra-email">
+            <span class="rotulo">E-mail</span>
             <span class="acoes">
-              <button class="btn btn-sec" id="btn-exemplo" type="button">Carregar exemplo</button>
-              <button class="btn btn-sec" id="btn-limpar" type="button">Limpar</button>
-              <button class="btn btn-sec" id="btn-copiar" type="button">Copiar e-mail</button>
-              <button class="btn" id="btn-pdf" type="button">Imprimir / PDF</button>
+              <button class="btn btn-sec" id="btn-copiar-assunto" type="button">Copiar assunto</button>
+              <button class="btn btn-sec" id="btn-copiar-corpo" type="button">Copiar corpo</button>
+              <button class="btn btn-sec" id="btn-copiar" type="button">Copiar tudo</button>
+              <button class="btn btn-sec" id="btn-editar-email" type="button" aria-pressed="false">Editar padrão</button>
             </span>
           </div>
           <section id="email" class="email" aria-label="E-mail de envio do documento"></section>
+          <div class="barra-ctl barra-pdf">
+            <span class="rotulo">Documento</span>
+            <span id="doc-status" class="selo" aria-live="polite"></span>
+            <span class="acoes"><button class="btn" id="btn-pdf" type="button">Imprimir / PDF</button></span>
+          </div>
           <article id="folha" class="folha" aria-label="Prévia do documento"></article>
           <p id="aviso" class="aviso" role="status"></p>
         </div>

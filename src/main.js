@@ -84,11 +84,13 @@ const aoRolar = () => {
     v = p < 0.55 ? p / 0.55 : Math.max(0, 1 - (p - 0.55) / 0.2);
   }
   // vídeo de abertura tem fundo branco: até a barra escurecer, o texto fica escuro em qualquer tema
-  nav.classList.toggle('topo-claro', !!hero && p < 0.8);
   const escuro = v.toFixed(2);
   if (escuro !== ultimoEscuro) { nav.style.setProperty('--escuro', escuro); ultimoEscuro = escuro; }
   nav.classList.toggle('escura', !hero && v > 0.45);
   nav.classList.toggle('sobre-video', v > 0.02);
+  // texto escuro só quando o fundo atrás é claro de verdade: no topo (quadro branco) e com a barra já quase branca;
+  // no resto da rolagem fica a cor do tema (antes escurecia cedo demais e ficava escuro em cima da barra escura)
+  nav.classList.toggle('topo-claro', !!hero && (y <= 10 || v > 0.45));
 
 
   ultimoY = y;
@@ -330,7 +332,14 @@ document.addEventListener('click', e => {
   if (c) { const q = dados.conquistas?.find(x => x.id === c.dataset.abrirConquista); if (q) abrirModal(detalheConquista(q, t, lang), null, true); return; }
   const rc = e.target.closest('[data-abrir-rec]');
   if (rc) { const x = dados.recomendacoes?.find(r => r.id === rc.dataset.abrirRec); if (x) abrirModal(detalheRecomendacao(x, t), null, true); return; }
-  if (e.target.closest('[data-deixar-rec]')) { abrirModal(formularioRecomendacao(t), null, true); enviarRecomendacao($('[data-form-rec]', modal)); return; }
+  if (e.target.closest('[data-deixar-rec]')) {
+    abrirModal(formularioRecomendacao(t), null, true);
+    const f = $('[data-form-rec]', modal);
+    enviarRecomendacao(f);
+    const msg = $('#r-msg', f), conta = $('[data-contador]', f);
+    msg.addEventListener('input', () => { conta.textContent = `${msg.value.length} / 3000`; });
+    return;
+  }
   const sk = e.target.closest('[data-abrir-skill]');
   if (sk && !sk.closest('.arrastando-moveu')) { const n = dados.arvore?.find(x => x.id === sk.dataset.abrirSkill); if (n) abrirModal(detalheSkill(n, dados.arvore, t, dados.projetos), null, true); return; }
   const vz = e.target.closest('a[data-visor]');

@@ -326,6 +326,25 @@ const DOCS = {
 let docAtual = 'renovacao';
 let anexosAtuais = [];
 let emailAtual = '';
+let partesEmail = { assunto: '', corpo: '' }; // guardo separado pra copiar só o assunto ou só o corpo
+let editandoEmail = false;
+
+/* ===== e-mail padrão editável =====
+   ela pode mudar o texto do e-mail de cada tipo de documento e salvar (fica salvo no navegador dela).
+   o que vier entre chaves, tipo {cliente}, é trocado pelo campo do formulário. */
+const CHAVE_EMAIL = 'central-email-';
+function emailSalvo(id) {
+  try { return JSON.parse(localStorage.getItem(CHAVE_EMAIL + id) || 'null'); } catch { return null; }
+}
+// troca {campo} pelo valor que tá no form
+const preencher = (txt, v) => String(txt).replace(/\{(\w+)\}/g, (tudo, k) => (v[k] !== undefined && v[k] !== true && v[k] !== false ? v[k] : tudo));
+// o contrário: vira o texto gerado em modelo, colocando {campo} no lugar dos valores do form (só os maiores, pra não trocar número solto)
+function virarModelo(txt, v) {
+  let t = String(txt);
+  Object.entries(v).filter(([, val]) => typeof val === 'string' && val.trim().length >= 4).sort((a, b) => b[1].length - a[1].length)
+    .forEach(([k, val]) => { t = t.split(val).join(`{${k}}`); });
+  return t;
+}
 
 /* ================= Anexos fictícios (SVG) =================
    Cada anexo é desenhado como a página de um documento, com marca d'água de fictício. */
@@ -444,6 +463,8 @@ const formVazio = () => [...$('#form-doc').elements].every((el) => !el.name || e
 
 /* Redesenha e-mail e folha a cada alteração */
 function atualizar() {
+  if (editandoEmail) fecharEdicao();
+  $('#btn-aplicar')?.classList.remove('pendente');
   if (formVazio()) {
     $('#folha').innerHTML = '<div class="vazio"><b>Documento em branco</b><p>Preencha os campos ao lado ou carregue o exemplo deste caso para ver o e-mail e o documento prontos.</p><button class="btn" type="button" data-exemplo>Carregar exemplo</button></div>';
     $('#email').hidden = true;
@@ -460,6 +481,9 @@ function atualizar() {
   const listaAnexos = docAtual === 'oficio' || anexosAtuais.length < 2 ? '' : `<h4>Anexos</h4><ol class="ref-legal">${anexosAtuais.slice(1).map((a) => `<li>${esc(a.nome)}</li>`).join('')}</ol>`;
   $('#folha').innerHTML = r.html.includes('<footer class="doc-rodape"') ? r.html.replace('<footer class="doc-rodape"', `${listaAnexos}<footer class="doc-rodape"`) : r.html + listaAnexos;
   const e = ex.email(v, r.dados || {}, r.status);
+  const salvo = emailSalvo(docAtual);
+  if (salvo) { e.assunto = preencher(salvo.assunto, v); e.corpo = preencher(salvo.corpo, v); }
+  partesEmail = { assunto: e.assunto, corpo: `${e.corpo}\n\n${e.assin}` };
   emailAtual = `Para: ${e.para}\nAssunto: ${e.assunto}\n\n${e.corpo}\n\n${e.assin}\n\nAnexos: ${anexosAtuais.map((a) => a.nome).join('; ')}`;
   const br = (t) => esc(t).replace(/\n/g, '<br>');
   $('#email').hidden = false;
@@ -491,6 +515,42 @@ function imprimir(el, nomeArquivo) {
   limparImpressao();
 }
 window.prepararTrecho = (sel) => prepararImpressao($(sel)); // usado pelo gerador de PDFs (Playwright)
+
+async function copiarTexto(txt, msg) {
+  if (!txt) return;
+  try { await navigator.clipboard.writeText(txt); $('#aviso').textContent = msg; }
+  catch { $('#aviso').textContent = 'Não deu pra copiar automático, seleciona e copia na mão.'; }
+}
+
+// editar o padrão: abre caixas com o assunto e o corpo já como modelo
+function alternarEdicao() {
+  const v = valores();
+  const box = $('#email');
+  if (!editandoEmail) {
+    if (box.hidden) { $('#aviso').textContent = 'Preenche ou carrega um exemplo antes de editar o e-mail.'; return; }
+    editandoEmail = true;
+    $('#btn-editar-email').textContent = 'Cancelar edição'; $('#btn-editar-email').setAttribute('aria-pressed', 'true');
+    box.insertAdjacentHTML('afterbegin', `<div class="editor-email">
+      <p class="dica">Escreva o seu padrão. Use {nomeDoCampo} pra puxar dados do formulário (ex.: {cliente}, {vencimento}). Fica salvo neste navegador.</p>
+      <label for="ed-assunto">Assunto</label><input id="ed-assunto" value="${esc(virarModelo(partesEmail.assunto, v))}">
+      <label for="ed-corpo">Corpo</label><textarea id="ed-corpo" rows="10">${esc(virarModelo(partesEmail.corpo.split('\n\n' + partesEmail.corpo.split('\n\n').slice(-3).join('\n\n'))[0], v))}</textarea>
+      <div class="editor-acoes"><button type="button" class="btn btn-sec" id="ed-restaurar">Voltar ao padrão original</button><button type="button" class="btn" id="ed-salvar">Salvar padrão</button></div>
+    </div>`);
+    $('#ed-salvar').addEventListener('click', () => {
+      try { localStorage.setItem(CHAVE_EMAIL + docAtual, JSON.stringify({ assunto: $('#ed-assunto').value, corpo: $('#ed-corpo').value })); } catch {}
+      fecharEdicao(); atualizar(); $('#aviso').textContent = 'Padrão de e-mail salvo.';
+    });
+    $('#ed-restaurar').addEventListener('click', () => {
+      try { localStorage.removeItem(CHAVE_EMAIL + docAtual); } catch {}
+      fecharEdicao(); atualizar(); $('#aviso').textContent = 'Voltou pro e-mail original.';
+    });
+  } else fecharEdicao();
+}
+function fecharEdicao() {
+  editandoEmail = false;
+  $('.editor-email')?.remove();
+  $('#btn-editar-email').textContent = 'Editar padrão'; $('#btn-editar-email').setAttribute('aria-pressed', 'false');
+}
 
 async function copiarEmail() {
   try { await navigator.clipboard.writeText(emailAtual); $('#aviso').textContent = 'E-mail copiado. Cole no seu cliente de e-mail e anexe o PDF.'; }
@@ -591,8 +651,12 @@ function mostrarFluxo(id) {
 /* ================= Inicialização ================= */
 $('#seletor-doc').innerHTML = Object.entries(DOCS).map(([id, d]) => `<button type="button" role="tab" data-doc="${id}"><b>${d.nome}</b><span>${d.resumo}</span></button>`).join('');
 $('#seletor-doc').addEventListener('click', (e) => { const b = e.target.closest('[data-doc]'); if (b) montarForm(b.dataset.doc); });
-$('#form-doc').addEventListener('input', atualizar);
-$('#form-doc').addEventListener('change', atualizar);
+// agora só atualiza quando clicar em Aplicar (ou ao carregar o exemplo)
+$('#btn-aplicar').addEventListener('click', () => { atualizar(); $('#aviso').textContent = 'Documento atualizado.'; });
+$('#form-doc').addEventListener('input', () => { $('#btn-aplicar').classList.add('pendente'); });
+$('#btn-copiar-assunto').addEventListener('click', () => copiarTexto(partesEmail.assunto, 'Assunto copiado.'));
+$('#btn-copiar-corpo').addEventListener('click', () => copiarTexto(partesEmail.corpo, 'Corpo do e-mail copiado.'));
+$('#btn-editar-email').addEventListener('click', alternarEdicao);
 $('#btn-exemplo').addEventListener('click', carregarExemplo);
 $('#btn-limpar').addEventListener('click', () => montarForm(docAtual));
 $('#btn-pdf').addEventListener('click', () => imprimir($('#folha'), EXTRAS[docAtual].pdf(valores())));
