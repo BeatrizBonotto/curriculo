@@ -1713,3 +1713,35 @@ h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .n
   .btn { font-size: .88rem; }
   section p, .destaque-desc, .linha-desc { font-size: .92rem; }
 }
+/* celular mais compacto: base menor, respiros e margens menores, cartões mais baixos */
+@media (max-width: 599px) {
+  html { font-size: 14px; }
+  :root { --secao: 36px; --margem: 16px; }
+  h2[data-dividir], .cabecalho h2, .secao-topo h2, .titulo-secundario { font-size: 1.3rem; }
+  .cabecalho, .secao-topo { margin-bottom: 14px; }
+  .hero-titulo { font-size: 1.7rem; }
+  .numero strong { font-size: 1.5rem; }
+  .numero p { font-size: .78rem; }
+  .destaque-corpo { padding: 14px; gap: 6px; }
+  .destaque h3 { font-size: 1.05rem; }
+  .rec, .recs-grade .rec { padding: 12px 14px; gap: 8px; }
+  .servicos-lista li { padding-block: 12px; }
+  .servicos-lista h3, .percurso-linha h3 { font-size: 1rem; }
+  .sobre-foto { max-width: 70%; margin-inline: auto; }
+  .mvv article { padding: 14px; }
+  .btn { padding-block: 9px; }
+}
+/* celular: menos altura entre título e conteúdo, entre itens da trajetória e nas capas dos projetos */
+@media (max-width: 599px) {
+  .cabecalho { margin-bottom: 12px; }
+  .percurso-linha, .projetos-grade { margin-top: 12px; }
+  .percurso-linha li { padding-bottom: 16px; gap: 2px; }
+  .percurso-linha h3 { font-size: 1rem; }
+  .percurso-linha p { font-size: .9rem; line-height: 1.5; }
+  .projetos-grade { gap: 12px; }
+  .destaque-midia { aspect-ratio: 16 / 9; }
+  .destaque-desc { -webkit-line-clamp: 2; }
+  .recs, .servicos, .percurso, .numeros, .trajetoria { padding-block: var(--secao); }
+  .contato-grade { gap: 20px; padding-block: 28px var(--secao); }
+  .sobre-pagina { padding-block: 12px var(--secao); }
+}
