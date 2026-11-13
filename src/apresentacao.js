@@ -23,10 +23,15 @@ const sobreTexto = () => document.querySelector('.sobre-lead')?.textContent.trim
 const fotoPerfil = () => document.querySelector('.sobre-foto img')?.getAttribute('src') || '';
 const iniciais = nome => String(nome || '').split(/\s+/).filter(Boolean).slice(0, 2).map(p => p[0].toUpperCase()).join('');
 
-// Até 3 recomendações curtas, com foto de perfil (ou iniciais quando não houver)
+// até 3 feedbacks na ordem em que a landing carrega, garantindo pelo menos um de gestão
+const GESTAO = /gestor|gerente|lead|coorden|diretor|head|ceo|cto|fundador|s[óo]cio|supervisor|manager|product owner/i;
+const recorte = (s, n) => { const t = String(s || '').trim(); if (t.length <= n) return t; const c = t.slice(0, n); return c.slice(0, c.lastIndexOf(' ')) + '…'; };
 function feedbacks() {
-  const recs = dadosPagina().recomendacoes || [];
-  return recs.filter(r => r.mensagem && r.mensagem.length < 320).sort((a, b) => a.mensagem.length - b.mensagem.length).slice(0, 3);
+  const recs = (dadosPagina().recomendacoes || []).filter(r => r.mensagem);
+  const escolhidos = recs.slice(0, 3);
+  const gestao = recs.find(r => GESTAO.test(`${r.cargo || ''} ${r.empresa || ''}`));
+  if (gestao && !escolhidos.includes(gestao)) escolhidos[escolhidos.length - 1] = gestao;
+  return escolhidos.filter(Boolean).sort((a, b) => recs.indexOf(a) - recs.indexOf(b));
 }
 const avatar = r => r.imagem_url ? `<img class="ap-avatar" src="${esc(r.imagem_url)}" alt="" loading="lazy">` : `<span class="ap-avatar ap-avatar-ini" aria-hidden="true">${esc(iniciais(r.nome))}</span>`;
 
@@ -45,7 +50,7 @@ function mvv() {
 
 // Slides padrão da estrutura de entrevista: sobre, carreira, casos, feedbacks, projetos, por que eu, encerramento
 const slideSobre = (titulo, pilares, notas) => ({ fundo: 'aurora', html: () => `
-      <div class="ap-sobre">${fotoPerfil() ? `<img class="ap-foto" src="${esc(fotoPerfil())}" alt="" style="--i:1">` : ''}
+      <div class="ap-sobre">${fotoPerfil() ? `<div class="ap-foto-caixa" style="--i:1"><img class="ap-foto" src="${esc(fotoPerfil())}" alt=""></div>` : ''}
       <div><p class="ap-rotulo">Sobre</p><h2>${titulo}</h2>${sobreTexto() ? `<p class="ap-sub ap-resumo">${esc(sobreTexto())}</p>` : ''}${seq(pilares)}</div></div>`, notas });
 const slideMvv = notas => ({ fundo: 'aurora', html: () => `<p class="ap-rotulo">Quem sou</p><h2>Missão, visão e valores.</h2>${seq(mvv())}`, notas });
 
@@ -64,18 +69,51 @@ const slideCarreira = (titulo, itens, notas) => ({ fundo: 'ondas', html: () => {
       <div class="ap-gantt-linha ap-gantt-eixo"><span></span><span class="ap-gantt-trilho">${marcas.map(a => `<small style="left:${x(a)}%">${a}</small>`).join('')}</span></div>
     </div>`;
 }, notas });
-const slideCaso = (areas, video, rotulo, titulo, problema, solucao, impacto, regra, notas) => ({ areas, video,
-  html: `<p class="ap-rotulo">Case de sucesso</p><h2>${titulo}</h2>${caso(rotulo.split('·').pop().trim(), problema, solucao, impacto)}${regra ? `<p class="ap-regra">${regra}</p>` : ''}`, notas });
+// prova do caso: a tela da ferramenta quando existe; senão, um feedback da mesma empresa
+function provaHTML(prova) {
+  if (!prova) return '';
+  const d = dadosPagina(); const projetos = d.apresentacao || d.projetos || [];
+  const p = prova.projeto ? projetos.find(x => x.slug === prova.projeto) : null;
+  const img = p?.galeria?.[0];
+  if (img) return `<figure class="ap-prova"><img src="${esc(img.url)}" alt="${esc(prova.rotulo || p.titulo)}" loading="lazy"><figcaption>${esc(prova.rotulo || p.titulo)}</figcaption></figure>`;
+  if (prova.referencia) return `<figure class="ap-prova ap-prova-ref"><blockquote>${esc(prova.referencia.texto)}</blockquote><figcaption>${esc(prova.referencia.titulo)}</figcaption></figure>`;
+  const recs = (d.recomendacoes || []).filter(r => prova.empresa && r.empresa && r.empresa.toLowerCase().includes(prova.empresa.toLowerCase()));
+  const rec = recs[prova.indice || 0];
+  if (rec) return `<figure class="ap-prova ap-prova-rec"><blockquote>"${esc(recorte(rec.mensagem, 220))}"</blockquote><figcaption>${esc(rec.nome)}${rec.cargo ? ` · ${esc(rec.cargo)}` : ''}</figcaption></figure>`;
+  return '';
+}
+const slideCaso = (areas, video, rotulo, titulo, problema, solucao, impacto, regra, notas, prova) => ({ areas, video,
+  html: `<p class="ap-rotulo">Case de sucesso</p><h2>${titulo}</h2>
+    <div class="ap-caso"><div>${caso(rotulo.split('·').pop().trim(), problema, solucao, impacto)}${regra && !prova?.referencia ? `<p class="ap-regra">${regra}</p>` : ''}</div>${provaHTML(prova)}</div>`, notas });
+// formação: técnico, graduação, pós e certificações na mesma grade de cartões
+const ano = s => (s ? String(s).slice(0, 4) : '');
+const slideFormacao = notas => ({ fundo: 'aurora', html: () => {
+  const d = dadosPagina();
+  const form = (d.formacoes || []).slice().sort((a, b) => String(b.inicio).localeCompare(String(a.inicio)));
+  const item = (t, sub, i) => `<li style="--i:${i + 1}"><b>${esc(t)}</b><span>${esc(sub)}</span></li>`;
+  const semAcento = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const tipoLabel = v => { const s = semAcento(v); return /lato|pos|especializ|mba/.test(s) ? 'Pós-graduação' : /bacharel|gradua|licenciatura|tecnologo/.test(s) ? 'Graduação' : /tecnic/.test(s) ? 'Curso técnico' : /livre/.test(s) ? 'Curso livre' : String(v || ''); };
+  const periodo = f => { const a = ano(f.inicio), b = f.atual ? 'atual' : ano(f.fim); return !b || b === a ? a : `${a} → ${b}`; };
+  const cursos = form.map(f => semAcento(f.curso));
+  const certs = (d.certificacoes || []).filter(c => !cursos.some(cur => cur && semAcento(c.nome).includes(cur))).sort((a, b) => String(b.data).localeCompare(String(a.data)));
+  const grupos = [
+    form.length ? `<div class="ap-grupo"><h3>Formação acadêmica</h3><ul>${form.map((f, i) => item(f.curso, [tipoLabel(f.tipo), f.instituicao, periodo(f)].filter(Boolean).join(' · '), i)).join('')}</ul></div>` : '',
+    certs.length ? `<div class="ap-grupo"><h3>Cursos e certificações</h3><ul>${certs.map((c, i) => item(c.nome, [c.instituicao, ano(c.data)].filter(Boolean).join(' · '), i)).join('')}</ul></div>` : '',
+  ].filter(Boolean).join('');
+  return `<p class="ap-rotulo">Formação</p><h2>Técnico, graduação e cursos.</h2>
+    <div class="ap-formacao">${grupos || '<p class="ap-sub">Formação e certificações estão na página Trajetória do site.</p>'}</div>`;
+}, notas });
 const slideFeedbacks = (titulo, notas) => ({ video: V.entrevista, html: () => `
       <p class="ap-rotulo">Feedbacks</p><h2>${titulo}</h2>
-      <div class="ap-recs">${feedbacks().map((r, i) => `<blockquote style="--i:${i + 1}"><p>“${esc(r.mensagem)}”</p><footer>${avatar(r)}<cite><b>${esc(r.nome)}</b>${[r.cargo, r.empresa].filter(Boolean).map(esc).join(' · ')}</cite></footer></blockquote>`).join('')}</div>`, notas });
+      <div class="ap-recs">${feedbacks().map((r, i) => `<blockquote style="--i:${i + 1}"><p>“${esc(recorte(r.mensagem, 200))}”</p><footer>${avatar(r)}<cite><b>${esc(r.nome)}</b>${[r.cargo, r.empresa].filter(Boolean).map(esc).join(' · ')}</cite></footer></blockquote>`).join('')}</div>`, notas });
 
 // imagens dos casos da área escolhida (capa, documento e fluxograma de cada um), com a legenda cadastrada
+// uma imagem por projeto, na ordem dos destaques da área
 function fotosProjetos(area) {
   const projetos = dadosPagina().projetos || [];
-  return projetos.filter(p => AREAS[area].projetos.includes(p.slug))
-    .flatMap(p => (p.galeria || []).filter(g => /desktop-01|p03-documento|p05-fluxograma/.test(g.url)).map(g => ({ src: g.url, legenda: (g.legenda || p.titulo).split(':')[0] })))
-    .slice(0, 6);
+  return AREAS[area].destaques.map(slug => projetos.find(p => p.slug === slug)).filter(Boolean)
+    .map(p => { const g = (p.galeria || [])[0]; return g ? { src: g.url, legenda: p.titulo, tela: g.legenda ? '' : rotuloFoto(g.url) } : null; })
+    .filter(Boolean);
 }
 // contatos publicados na página (e-mail, WhatsApp, LinkedIn), mais o site
 function contatos() {
@@ -91,9 +129,9 @@ const nomeBloco = cargo => `<p class="ap-nome" data-ap-nome><span class="ap-nome
 
 // Áreas: o tema escolhido no início define os casos, as imagens e o cargo da capa
 const AREAS = {
-  adm: { nome: 'Administração', cargo: 'Analista Administrativa', projetos: ['central-documentos', 'portfolio-rotinas-documentais', 'portfolio-rotinas-suprimentos'] },
-  seguros: { nome: 'Seguros', cargo: 'Analista de Seguros', projetos: ['central-documentos', 'portfolio-rotinas-seguros'] },
-  ti: { nome: 'TI', cargo: 'Tecnologia · Informática para Internet', projetos: ['central-documentos', 'starbucks'] },
+  adm: { nome: 'Administração', cargo: 'Analista Administrativa', projetos: ['central-documentos', 'portfolio-rotinas-documentais', 'portfolio-rotinas-suprimentos'], destaques: ['central-documentos', 'portfolio-rotinas-documentais', 'portfolio-rotinas-suprimentos'] },
+  seguros: { nome: 'Seguros', cargo: 'Analista de Seguros', projetos: ['central-documentos', 'portfolio-rotinas-seguros'], destaques: ['central-documentos', 'portfolio-rotinas-seguros'] },
+  ti: { nome: 'TI', cargo: 'Tecnologia · Informática para Internet', projetos: ['central-documentos', 'starbucks'], destaques: ['central-documentos', 'starbucks'] },
 };
 
 const SLIDES = (area) => [
@@ -121,32 +159,40 @@ const SLIDES = (area) => [
     [2023, 2025, 'Politécnica Brasileira', 'Técnico em Informática para Internet'],
   ], 'Conte como uma evolução: cada experiência somou uma habilidade. Destaque o crescimento dentro da Dínamo, de estagiária a analista.'),
 
+  // 3b. Formação
+  slideFormacao('Diga o que cada formação somou: o técnico em informática deu base prática de web, a graduação em administração deu visão de gestão e processo. Cite um curso que mudou sua forma de trabalhar.'),
+
   // 4. Casos reais por área
   slideCaso(['seguros'], V.entrevista, 'Caso real · Dínamo Seguros', 'Renovação sem deixar apólice vencer.',
     'Muitas renovações de Ramos Elementares vencendo ao mesmo tempo.',
     'Régua com alerta 45 dias antes, cotação em 3 seguradoras e proposta com comparativo de prêmio e coberturas.',
     'Renovações tratadas antes do vencimento e cliente decidindo com clareza.',
-    'Sem renovação, a cobertura termina às 24h do último dia de vigência.', 'Explique como compara propostas: prêmio, franquia, coberturas e parcelamento. Diga como conduz o contato consultivo.'),
+    'Sem renovação, a cobertura termina às 24h do último dia de vigência.', 'Explique como compara propostas: prêmio, franquia, coberturas e parcelamento. Diga como conduz o contato consultivo.',
+    { empresa: 'Dínamo Seguros', indice: 0 }),
   slideCaso(['seguros'], V.escritorio, 'Caso real · Seguro Fiança', 'Análise que não trava a locação.',
     'Pedidos urgentes das imobiliárias, com documentação incompleta.',
     'Checklist de documentos e regra de renda (pelo menos 3x o aluguel com encargos) antes de enviar à seguradora.',
     'Menos idas e vindas com a seguradora e locação liberada mais rápido.',
-    'Lei 8.245/91: arts. 37 e 41 (garantias) e art. 22, VIII (seguro contra incêndio).', 'Se a renda não fecha, cite as saídas: composição de renda ou outra garantia, já que a lei não permite duas no mesmo contrato.'),
+    'Lei 8.245/91: arts. 37 e 41 (garantias) e art. 22, VIII (seguro contra incêndio).', 'Se a renda não fecha, cite as saídas: composição de renda ou outra garantia, já que a lei não permite duas no mesmo contrato.',
+    { empresa: 'Dínamo Seguros', indice: 1 }),
   slideCaso(['adm'], V.escritorio, 'Caso real · INSS', 'Documento encontrado pelo protocolo em minutos.',
     'Alto volume de documentos físicos e risco de extravio.',
     'Triagem, conferência, digitalização, indexação por protocolo e ofícios no padrão oficial.',
     'Localização rápida e comunicação interna padronizada.',
-    'Fecho: Respeitosamente para autoridade superior; Atenciosamente para a mesma hierarquia.', 'Explique o fluxo documental e por que indexar por protocolo evita retrabalho.'),
+    'Fecho: Respeitosamente para autoridade superior; Atenciosamente para a mesma hierarquia.', 'Explique o fluxo documental e por que indexar por protocolo evita retrabalho.',
+    { referencia: { titulo: 'Manual de Redação · Presidência da República', texto: 'Fecho: Respeitosamente para autoridade superior; Atenciosamente para a mesma hierarquia.' } }),
   slideCaso(['adm'], V.entrevista, 'Caso real · Tecnoset e Claro', 'Estoque acima do mínimo e planilhas no mesmo padrão.',
     'Falta de suprimentos e planilhas em formatos diferentes entre áreas.',
     'Ponto de pedido, cotação com 3 fornecedores e padrão único de colunas com validação.',
     'Reposição antes de faltar e lançamentos com menos correções.',
-    'Ponto de pedido = consumo diário × prazo de entrega + estoque de segurança.', 'Mostre que sabe calcular o ponto de pedido e por que comparar pelo custo total com frete.'),
+    'Ponto de pedido = consumo diário × prazo de entrega + estoque de segurança.', 'Mostre que sabe calcular o ponto de pedido e por que comparar pelo custo total com frete.',
+    { referencia: { titulo: 'Ponto de pedido', texto: 'Consumo diário × prazo de entrega + estoque de segurança.' } }),
   slideCaso(['ti', 'adm', 'seguros'], V.escritorio, 'Caso real · Central de Documentos', 'Uma ferramenta feita para o meu dia a dia.',
     'Documentos parecidos refeitos à mão, com risco de esquecer regra, anexo ou fecho.',
     'Página em HTML, CSS e JavaScript que gera o e-mail de envio e o documento em PDF a partir de um formulário.',
     'Padrão único, cálculos prontos e nenhum dado sai do navegador (LGPD).',
-    '', 'Mostre a ferramenta ao vivo se der: gere uma proposta de renovação com o exemplo.'),
+    '', 'Mostre a ferramenta ao vivo se der: gere uma proposta de renovação com o exemplo.',
+    { projeto: 'central-documentos', rotulo: 'Central de Documentos' }),
 
   // 5. Pausa
   { pausa: true, fundo: 'constelacao', html: `<p class="ap-rotulo">Pausa</p><h2>Alguma pergunta até aqui?</h2><p class="ap-sub">Posso detalhar qualquer caso antes de seguir.</p>`,
@@ -158,7 +204,7 @@ const SLIDES = (area) => [
   // 7. Projetos
   { fundo: 'constelacao', html: () => `
       <p class="ap-rotulo">Projetos</p><h2>Casos documentados.</h2>
-      <ul class="ap-galeria">${fotosProjetos(area).map((f, i) => `<li style="--i:${i + 1}"><img src="${esc(f.src)}" alt="" loading="lazy"><span>${esc(f.legenda)}</span></li>`).join('')}</ul>`,
+      <ul class="ap-galeria">${fotosProjetos(area).map((f, i) => `<li style="--i:${i + 1}"><img src="${esc(f.src)}" alt="" loading="lazy"><span><b>${esc(f.legenda)}</b>${f.tela ? `<em>${esc(f.tela)}</em>` : ''}</span></li>`).join('')}</ul>`,
     notas: 'Passe pelas imagens: e-mail ao cliente, documento em PDF e fluxograma de cada caso.' },
 
   // 8. Por que eu
