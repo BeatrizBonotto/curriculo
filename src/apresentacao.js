@@ -17,17 +17,65 @@ const V = {
 };
 
 // Até 3 feedbacks reais (avaliações do Google já publicadas no site), curtos.
+// ---------- Dados lidos da própria página (fonte única: o que já está publicado no site) ----------
+const dadosPagina = () => { try { return JSON.parse(document.getElementById('dados')?.textContent || '{}'); } catch { return {}; } };
+const sobreTexto = () => document.querySelector('.sobre-lead')?.textContent.trim() || '';
+const fotoPerfil = () => document.querySelector('.sobre-foto img')?.getAttribute('src') || '';
+const iniciais = nome => String(nome || '').split(/\s+/).filter(Boolean).slice(0, 2).map(p => p[0].toUpperCase()).join('');
+
+// Até 3 recomendações curtas, com foto de perfil (ou iniciais quando não houver)
 function feedbacks() {
-  let recs = [];
-  try { recs = JSON.parse(document.getElementById('dados')?.textContent || '{}').recomendacoes || []; } catch {}
-  return recs.filter(r => r.mensagem && r.mensagem.length < 260).sort((a, b) => a.mensagem.length - b.mensagem.length).slice(1, 4);
+  const recs = dadosPagina().recomendacoes || [];
+  return recs.filter(r => r.mensagem && r.mensagem.length < 320).sort((a, b) => a.mensagem.length - b.mensagem.length).slice(0, 3);
+}
+const avatar = r => r.imagem_url ? `<img class="ap-avatar" src="${esc(r.imagem_url)}" alt="" loading="lazy">` : `<span class="ap-avatar ap-avatar-ini" aria-hidden="true">${esc(iniciais(r.nome))}</span>`;
+
+// Lista em sequência (uma informação embaixo da outra, numerada): mais fácil de ler e de seguir o raciocínio
+const seq = (itens, classe = '') => `<ol class="ap-seq ${classe}">${itens.map(([titulo, texto], i) => `<li style="--i:${i + 1}"><span class="ap-seq-n">${i + 1}</span><div><b>${titulo}</b><span>${texto}</span></div></li>`).join('')}</ol>`;
+// caso de sucesso: onde foi, qual era o problema, a solução e o impacto
+const caso = (onde, problema, solucao, impacto) => seq([['Onde', onde], ['Problema', problema], ['Solução', solucao], ['Impacto', impacto]], 'ap-seq-caso');
+
+// missão, visão e valores publicados na seção Sobre do site
+function mvv() {
+  return [...document.querySelectorAll('.mvv article')].map(a => {
+    const itens = [...a.querySelectorAll('li')].map(li => li.textContent.trim());
+    return [a.querySelector('h2')?.textContent.trim() || '', itens.length ? itens.join(' · ') : a.querySelector('p')?.textContent.trim() || ''];
+  }).filter(([t, d]) => t && d);
 }
 
-// imagens dos casos administrativos (capa e documento de cada um), com a legenda cadastrada
+// Slides padrão da estrutura de entrevista: sobre, carreira, casos, feedbacks, projetos, por que eu, encerramento
+const slideSobre = (titulo, pilares, notas) => ({ fundo: 'aurora', html: () => `
+      <div class="ap-sobre">${fotoPerfil() ? `<img class="ap-foto" src="${esc(fotoPerfil())}" alt="" style="--i:1">` : ''}
+      <div><p class="ap-rotulo">Sobre</p><h2>${titulo}</h2>${sobreTexto() ? `<p class="ap-sub ap-resumo">${esc(sobreTexto())}</p>` : ''}${seq(pilares)}</div></div>`, notas });
+const slideMvv = notas => ({ fundo: 'aurora', html: () => `<p class="ap-rotulo">Quem sou</p><h2>Missão, visão e valores.</h2>${seq(mvv())}`, notas });
+
+// carreira: linha do tempo em barras (gráfico) com os números na mesma tela; itens = [início, fim ou null, empresa, papel]
+const slideCarreira = (titulo, itens, notas) => ({ fundo: 'ondas', html: () => {
+  const hoje = new Date().getFullYear();
+  const ini = Math.min(...itens.map(i => i[0])), fim = hoje + 1;
+  const x = a => ((a - ini) / (fim - ini)) * 100;
+  const marcas = Array.from({ length: fim - ini + 1 }, (_, k) => ini + k).filter(a => (a - ini) % 3 === 0);
+  if (hoje - marcas[marcas.length - 1] >= 2) marcas.push(hoje); // o ano atual só entra se não encostar na marca anterior
+  const empresas = new Set(itens.filter(i => !/técnico em|curso|formação/i.test(i[2] + ' ' + i[3])).map(i => i[2].split(' (')[0])).size;
+  return `<p class="ap-rotulo">Carreira</p><h2>${titulo}</h2>
+    <div class="ap-numeros"><span><b>${hoje - ini}</b> anos de experiência</span><span><b>${empresas}</b> empresas</span></div>
+    <div class="ap-gantt" role="img" aria-label="Linha do tempo da carreira">
+      ${itens.map(([a, b, org, papel], i) => `<div class="ap-gantt-linha" style="--i:${i + 1}"><span class="ap-gantt-rot"><b>${org}</b>${papel}</span><span class="ap-gantt-trilho"><i style="left:${x(a)}%;width:${x((b ?? hoje) + 1) - x(a)}%"><em>${b ? `${a} a ${b}` : `desde ${a}`}</em></i></span></div>`).join('')}
+      <div class="ap-gantt-linha ap-gantt-eixo"><span></span><span class="ap-gantt-trilho">${marcas.map(a => `<small style="left:${x(a)}%">${a}</small>`).join('')}</span></div>
+    </div>`;
+}, notas });
+const slideCaso = (areas, video, rotulo, titulo, problema, solucao, impacto, regra, notas) => ({ areas, video,
+  html: `<p class="ap-rotulo">Case de sucesso</p><h2>${titulo}</h2>${caso(rotulo.split('·').pop().trim(), problema, solucao, impacto)}${regra ? `<p class="ap-regra">${regra}</p>` : ''}`, notas });
+const slideFeedbacks = (titulo, notas) => ({ video: V.entrevista, html: () => `
+      <p class="ap-rotulo">Feedbacks</p><h2>${titulo}</h2>
+      <div class="ap-recs">${feedbacks().map((r, i) => `<blockquote style="--i:${i + 1}"><p>“${esc(r.mensagem)}”</p><footer>${avatar(r)}<cite><b>${esc(r.nome)}</b>${[r.cargo, r.empresa].filter(Boolean).map(esc).join(' · ')}</cite></footer></blockquote>`).join('')}</div>`, notas });
+
+// imagens dos casos da área escolhida (capa, documento e fluxograma de cada um), com a legenda cadastrada
 function fotosProjetos(area) {
-  let projetos = [];
-  try { projetos = JSON.parse(document.getElementById('dados')?.textContent || '{}').projetos || []; } catch {}
-  return projetos.filter(p => AREAS[area].projetos.includes(p.slug)).flatMap(p => (p.galeria || []).filter(g => /desktop-01|p03-documento|p05-fluxograma/.test(g.url)).map(g => ({ src: g.url, legenda: (g.legenda || p.titulo).split(':')[0] }))).slice(0, 6);
+  const projetos = dadosPagina().projetos || [];
+  return projetos.filter(p => AREAS[area].projetos.includes(p.slug))
+    .flatMap(p => (p.galeria || []).filter(g => /desktop-01|p03-documento|p05-fluxograma/.test(g.url)).map(g => ({ src: g.url, legenda: (g.legenda || p.titulo).split(':')[0] })))
+    .slice(0, 6);
 }
 // contatos publicados na página (e-mail, WhatsApp, LinkedIn), mais o site
 function contatos() {
@@ -41,7 +89,7 @@ function contatos() {
 const sobrenome = () => document.querySelector('.hero-nome-2')?.textContent.trim() || 'G. Souza Bonotto';
 const nomeBloco = cargo => `<p class="ap-nome" data-ap-nome><span class="ap-nome-1">Beatriz</span><span class="ap-nome-2">${esc(sobrenome())}</span><span class="ap-nome-cargo">${esc(cargo)}</span></p>`;
 
-// Áreas da apresentação: o tema escolhido no início define casos, imagens e cargo da capa.
+// Áreas: o tema escolhido no início define os casos, as imagens e o cargo da capa
 const AREAS = {
   adm: { nome: 'Administração', cargo: 'Analista Administrativa', projetos: ['central-documentos', 'portfolio-rotinas-documentais', 'portfolio-rotinas-suprimentos'] },
   seguros: { nome: 'Seguros', cargo: 'Analista de Seguros', projetos: ['central-documentos', 'portfolio-rotinas-seguros'] },
@@ -49,96 +97,84 @@ const AREAS = {
 };
 
 const SLIDES = (area) => [
+  // 1. Introdução
   { video: V.intro, abertura: true, classe: 'ap-capa', html: nomeBloco(AREAS[area].cargo),
-    notas: 'Deixe o vídeo rodar. Quando o nome aparecer, cumprimente e agradeça o tempo. Diga que vai mostrar em cerca de 10 minutos como trabalha, com casos reais simulados, e que haverá pausas para perguntas.' },
+    notas: 'Deixe o vídeo rodar. Quando o nome aparecer, cumprimente e agradeça o tempo. Diga o que vai mostrar: quem você é, sua carreira e casos reais. Avise que vai pausar para perguntas.' },
 
-  { fundo: 'aurora', html: `
-      <p class="ap-rotulo">Quem sou</p>
-      <h2>Organização, atendimento consultivo e processo bem documentado.</h2>
-      <ul class="ap-pilares">
-        <li style="--i:1"><b>Organização</b><span>Rotinas com prazo, checklist e registro de cada etapa.</span></li>
-        <li style="--i:2"><b>Atendimento consultivo</b><span>Explico opções com clareza para o cliente decidir com segurança.</span></li>
-        <li style="--i:3"><b>Conformidade</b><span>LGPD, normas da SUSEP e padrão oficial de redação.</span></li>
-      </ul>`,
-    notas: 'Resuma em uma frase seu jeito de trabalhar. Dê um exemplo rápido de cada pilar. Não leia os cartões: comente.' },
+  // 2. Sobre
+  slideSobre('Organização, atendimento consultivo e processo bem documentado.', [
+    ['Organização', 'Rotinas com prazo, checklist e registro de cada etapa.'],
+    ['Atendimento consultivo', 'Explico as opções com clareza para o cliente decidir com segurança.'],
+    ['Conformidade', 'LGPD, normas da SUSEP e padrão oficial de redação.'],
+  ], 'Apresente-se em até 1 minuto: formação, anos de experiência e o que procura agora. Ligue com a vaga: diga por que ela faz sentido para você.'),
 
-  { fundo: 'ondas', html: `
-      <p class="ap-rotulo">Trajetória</p>
-      <h2>Do apoio administrativo à análise de seguros.</h2>
-      <ol class="ap-linha">
-        <li style="--i:1"><b>Claro Brasil</b><span>Aprendiz administrativa · padronização de planilhas e entrada de dados</span></li>
-        <li style="--i:2"><b>Tecnoset</b><span>Aprendiz administrativa · suprimentos e chamados</span></li>
-        <li style="--i:3"><b>INSS</b><span>Estagiária administrativa · gestão documental pública</span></li>
-        <li style="--i:4"><b>Dínamo Seguros</b><span>Desde 2020: de estagiária a Analista de Seguros Pleno · fiança, incêndio e ramos elementares</span></li>
-      </ol>`,
-    notas: 'Mostre a evolução: cada experiência somou uma habilidade. Destaque que hoje atende carteira de imobiliárias parceiras na Dínamo.' },
+  // 3. Carreira
+  slideMvv('Fale da missão com suas palavras e dê um exemplo real de cada valor no trabalho. Isso responde "como você trabalha?" antes da pergunta.'),
 
-  { areas: ['seguros'], video: V.entrevista, html: `
-      <p class="ap-rotulo">Caso 1 · Dínamo Seguros</p>
-      <h2>Régua de renovação e Seguro Fiança sem travar a locação.</h2>
-      <div class="ap-star">
-        <div style="--i:1"><b>Situação</b>Muitas renovações vencendo juntas e pedidos de fiança urgentes das imobiliárias.</div>
-        <div style="--i:2"><b>Ação</b>Alerta 45 dias antes, cotação em 3 seguradoras, contato consultivo e checklist de documentos.</div>
-        <div style="--i:3"><b>Resultado</b>Renovações tratadas antes do vencimento e menos pendências na análise cadastral.</div>
-      </div>
-      <p class="ap-regra">Regras que aplico: Lei 8.245/91 (arts. 37 e 41), seguro fiança regulado pela SUSEP, renda de pelo menos 3x o aluguel com encargos.</p>`,
-    notas: 'Conte o caso no formato Situação, Ação, Resultado. Explique por que a regra de 3x a renda existe e o que faz quando não fecha (composição de renda ou outra garantia, já que a lei não permite duas garantias no mesmo contrato).' },
+  // 3. Carreira: linha do tempo e números na mesma tela
+  slideCarreira('Do apoio administrativo à análise de seguros.', [
+    [2013, 2014, 'Claro Brasil', 'Aprendiz Administrativa'],
+    [2015, 2016, 'Tecnoset', 'Aprendiz Administrativa'],
+    [2019, 2020, 'INSS', 'Estagiária Administrativa'],
+    [2020, 2025, 'Dínamo Seguros', 'Estagiária e Auxiliar Administrativa'],
+    [2025, null, 'Dínamo Seguros', 'Analista de Seguros Pleno'],
+    [2023, 2025, 'Politécnica Brasileira', 'Técnico em Informática para Internet'],
+  ], 'Conte como uma evolução: cada experiência somou uma habilidade. Destaque o crescimento dentro da Dínamo, de estagiária a analista.'),
 
-  { areas: ['seguros'], pausa: true, fundo: 'constelacao', html: `<p class="ap-rotulo">Pausa</p><h2>Perguntas sobre seguros?</h2><p class="ap-sub">Fico à vontade para detalhar renovação, fiança ou atendimento.</p>`,
-    notas: 'Pare e pergunte: "Querem que eu detalhe alguma parte?". Espere. Se não houver perguntas, siga.' },
+  // 4. Casos reais por área
+  slideCaso(['seguros'], V.entrevista, 'Caso real · Dínamo Seguros', 'Renovação sem deixar apólice vencer.',
+    'Muitas renovações de Ramos Elementares vencendo ao mesmo tempo.',
+    'Régua com alerta 45 dias antes, cotação em 3 seguradoras e proposta com comparativo de prêmio e coberturas.',
+    'Renovações tratadas antes do vencimento e cliente decidindo com clareza.',
+    'Sem renovação, a cobertura termina às 24h do último dia de vigência.', 'Explique como compara propostas: prêmio, franquia, coberturas e parcelamento. Diga como conduz o contato consultivo.'),
+  slideCaso(['seguros'], V.escritorio, 'Caso real · Seguro Fiança', 'Análise que não trava a locação.',
+    'Pedidos urgentes das imobiliárias, com documentação incompleta.',
+    'Checklist de documentos e regra de renda (pelo menos 3x o aluguel com encargos) antes de enviar à seguradora.',
+    'Menos idas e vindas com a seguradora e locação liberada mais rápido.',
+    'Lei 8.245/91: arts. 37 e 41 (garantias) e art. 22, VIII (seguro contra incêndio).', 'Se a renda não fecha, cite as saídas: composição de renda ou outra garantia, já que a lei não permite duas no mesmo contrato.'),
+  slideCaso(['adm'], V.escritorio, 'Caso real · INSS', 'Documento encontrado pelo protocolo em minutos.',
+    'Alto volume de documentos físicos e risco de extravio.',
+    'Triagem, conferência, digitalização, indexação por protocolo e ofícios no padrão oficial.',
+    'Localização rápida e comunicação interna padronizada.',
+    'Fecho: Respeitosamente para autoridade superior; Atenciosamente para a mesma hierarquia.', 'Explique o fluxo documental e por que indexar por protocolo evita retrabalho.'),
+  slideCaso(['adm'], V.entrevista, 'Caso real · Tecnoset e Claro', 'Estoque acima do mínimo e planilhas no mesmo padrão.',
+    'Falta de suprimentos e planilhas em formatos diferentes entre áreas.',
+    'Ponto de pedido, cotação com 3 fornecedores e padrão único de colunas com validação.',
+    'Reposição antes de faltar e lançamentos com menos correções.',
+    'Ponto de pedido = consumo diário × prazo de entrega + estoque de segurança.', 'Mostre que sabe calcular o ponto de pedido e por que comparar pelo custo total com frete.'),
+  slideCaso(['ti', 'adm', 'seguros'], V.escritorio, 'Caso real · Central de Documentos', 'Uma ferramenta feita para o meu dia a dia.',
+    'Documentos parecidos refeitos à mão, com risco de esquecer regra, anexo ou fecho.',
+    'Página em HTML, CSS e JavaScript que gera o e-mail de envio e o documento em PDF a partir de um formulário.',
+    'Padrão único, cálculos prontos e nenhum dado sai do navegador (LGPD).',
+    '', 'Mostre a ferramenta ao vivo se der: gere uma proposta de renovação com o exemplo.'),
 
-  { areas: ['adm'], video: V.escritorio, html: `
-      <p class="ap-rotulo">Caso 2 · INSS</p>
-      <h2>Documento encontrado pelo protocolo em minutos.</h2>
-      <div class="ap-star">
-        <div style="--i:1"><b>Situação</b>Alto volume de documentos físicos e risco de extravio.</div>
-        <div style="--i:2"><b>Ação</b>Triagem, conferência, digitalização, indexação por protocolo e ofícios no padrão oficial.</div>
-        <div style="--i:3"><b>Resultado</b>Localização rápida e comunicação interna padronizada.</div>
-      </div>
-      <p class="ap-regra">Padrão que sigo: Manual de Redação da Presidência da República e tratamento de dados pessoais pela LGPD.</p>`,
-    notas: 'Explique o fluxo documental e por que a indexação por protocolo evita retrabalho. Cite o fecho correto: Respeitosamente para autoridade superior, Atenciosamente para mesma hierarquia.' },
+  // 5. Pausa
+  { pausa: true, fundo: 'constelacao', html: `<p class="ap-rotulo">Pausa</p><h2>Alguma pergunta até aqui?</h2><p class="ap-sub">Posso detalhar qualquer caso antes de seguir.</p>`,
+    notas: 'Pare de verdade e espere. Se não houver perguntas, pergunte qual dos casos mais se parece com o dia a dia da vaga.' },
 
-  { areas: ['adm'], fundo: 'ondas', html: `
-      <p class="ap-rotulo">Caso 3 · Tecnoset e Claro</p>
-      <h2>Estoque acima do mínimo e planilhas que qualquer um usa.</h2>
-      <div class="ap-star">
-        <div style="--i:1"><b>Situação</b>Falta de suprimentos e planilhas em formatos diferentes.</div>
-        <div style="--i:2"><b>Ação</b>Ponto de pedido, cotação com 3 fornecedores e padrão único de colunas.</div>
-        <div style="--i:3"><b>Resultado</b>Reposição antes de faltar e lançamentos com menos correções.</div>
-      </div>`,
-    notas: 'Mostre que sabe calcular ponto de pedido (consumo diário x prazo de entrega + estoque de segurança) e por que cotar 3 fornecedores.' },
+  // 6. Feedbacks
+  slideFeedbacks('O que dizem os clientes.', 'Leia um trecho curto de uma avaliação. Relacione com o atendimento consultivo.'),
 
-  { areas: ['seguros', 'adm'], video: V.entrevista, html: () => `
-      <p class="ap-rotulo">O que dizem os clientes</p>
-      <h2>Avaliações públicas do meu atendimento.</h2>
-      <div class="ap-recs">${feedbacks().map((r, i) => `<blockquote style="--i:${i + 1}"><p>“${esc(r.mensagem)}”</p><cite>${esc(r.nome)} · avaliação no Google</cite></blockquote>`).join('')}</div>`,
-    notas: 'Leia um trecho curto de um feedback. Relacione com o pilar de atendimento consultivo.' },
-
-  { areas: ['ti'], video: V.escritorio, html: `
-      <p class="ap-rotulo">Caso TI · Central de Documentos</p>
-      <h2>Uma ferramenta feita para o meu dia a dia.</h2>
-      <div class="ap-star">
-        <div style="--i:1"><b>Situação</b>Documentos parecidos refeitos à mão, com risco de esquecer regra, anexo ou fecho.</div>
-        <div style="--i:2"><b>Ação</b>Página em HTML, CSS e JavaScript que gera o e-mail e o documento em PDF a partir de um formulário.</div>
-        <div style="--i:3"><b>Resultado</b>Padrão único, cálculos prontos e nada sai do navegador (LGPD).</div>
-      </div>
-      <p class="ap-regra">Base técnica: curso técnico em Informática para Internet.</p>`,
-    notas: 'Conte por que criou a ferramenta: um problema real da rotina. Mostre que entende HTML, CSS e JavaScript e que pensou em privacidade (nada é enviado a servidor).' },
-
-  { areas: ['adm', 'ti'], pausa: true, fundo: 'constelacao', html: `<p class="ap-rotulo">Pausa</p><h2>Alguma pergunta até aqui?</h2><p class="ap-sub">Posso detalhar qualquer caso antes de seguir.</p>`,
-    notas: 'Pare e pergunte se querem detalhar algum caso. Espere. Se não houver perguntas, siga.' },
-
+  // 7. Projetos
   { fundo: 'constelacao', html: () => `
-      <p class="ap-rotulo">Projetos</p>
-      <h2>Casos da minha rotina, documentados.</h2>
+      <p class="ap-rotulo">Projetos</p><h2>Casos documentados.</h2>
       <ul class="ap-galeria">${fotosProjetos(area).map((f, i) => `<li style="--i:${i + 1}"><img src="${esc(f.src)}" alt="" loading="lazy"><span>${esc(f.legenda)}</span></li>`).join('')}</ul>`,
-    notas: 'Passe pelas imagens: e-mail ao cliente, documento em PDF e fluxograma de cada caso. Se houver tempo, abra a central de documentos e gere uma proposta ao vivo.' },
+    notas: 'Passe pelas imagens: e-mail ao cliente, documento em PDF e fluxograma de cada caso.' },
 
+  // 8. Por que eu
+  { fundo: 'aurora', html: `<p class="ap-rotulo">O que eu entrego</p><h2>Por que posso somar à equipe.</h2>${seq([
+      ['Processo sob controle', 'Prazos, checklist e registro: nada se perde no caminho.'],
+      ['Atendimento que gera confiança', 'Explico com clareza e acompanho até resolver.'],
+      ['Melhoria contínua', 'Quando algo se repete, padronizo e automatizo.'],
+    ])}`,
+    notas: 'Resuma o valor em três frases. Depois faça suas perguntas: como a equipe trabalha hoje, qual o maior desafio da vaga e quais os próximos passos.' },
+
+  // 9. Encerramento
   { pausa: true, video: V.introLoop, classe: 'ap-capa ap-fim', html: () => `
       <div class="ap-fim-texto"><p class="ap-rotulo">Obrigada</p>${nomeBloco('Perguntas finais? Fico à disposição.')}
       <ul class="ap-contatos">${contatos().map(([href, txt, ic]) => `<li><a href="${esc(href)}" target="_blank" rel="noopener"><span class="ap-contato-ic">${icone(ic)}</span>${esc(txt)}</a></li>`).join('')}</ul></div>
       <figure class="ap-qr"><div data-ap-qr></div><figcaption>${esc(SITE.url.replace('https://', ''))}</figcaption></figure>`,
-    notas: 'Agradeça. Pergunte o que mais pesa para a vaga e conecte com um dos casos. Mostre o QR code para acessarem o site e combine o próximo passo.' },
+    notas: 'Agradeça. Combine o próximo passo e o prazo de retorno. Mostre o QR code para acessarem o site.' },
 ];
 
 /* Fundos animados em canvas, discretos: aurora (manchas de luz), ondas (linhas finas) e constelação (pontos que seguem o mouse). */
@@ -208,7 +244,7 @@ export function abrir(aoFechar = () => {}) {
   let slides = [];
   let i = 0, soltarNome = () => {}, revelar = null;
   const inicio = Date.now();
-  raiz = document.createElement('div');
+  raiz = document.createElement('dialog'); // camada superior do navegador: fica acima de qualquer modal do site
   raiz.className = 'ap';
   raiz.setAttribute('role', 'dialog');
   raiz.setAttribute('aria-modal', 'true');
@@ -232,6 +268,8 @@ export function abrir(aoFechar = () => {}) {
       <i class="ap-progresso"></i>
     </footer>`;
   document.body.appendChild(raiz);
+  raiz.showModal();
+  raiz.addEventListener('cancel', e => { e.preventDefault(); fechar(); });
   document.documentElement.classList.add('ap-aberta');
   const $ = s => raiz.querySelector(s);
   const video = $('.ap-video');
@@ -275,7 +313,7 @@ export function abrir(aoFechar = () => {}) {
     fundo.usar(v ? '' : s.fundo);
     if (s.abertura) revelar = abertura();
     $('.ap-notas p').textContent = s.notas;
-    $('.ap-cont').textContent = `${i + 1} / ${slides.length}${s.pausa ? ' · pausa para perguntas' : ''}`;
+    $('.ap-cont').textContent = `${i + 1} / ${slides.length}${s.pausa && !s.classe?.includes('ap-fim') ? ' · pausa para perguntas' : ''}`;
     $('.ap-progresso').style.transform = `scaleX(${(i + 1) / slides.length})`;
   }
   // a velocidade volta ao padrão quando o src muda; reaplica quando o vídeo carrega
@@ -287,6 +325,7 @@ export function abrir(aoFechar = () => {}) {
   }, 1000);
 
   function fechar() {
+    if (!raiz) return;
     clearInterval(relogio);
     revelar?.();
     soltarNome();

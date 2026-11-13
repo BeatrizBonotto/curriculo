@@ -195,6 +195,8 @@ document.addEventListener('click', e => { const d = $('[data-lingua]'); if (d?.o
 // modo apresentação: pede a tela cheia ainda dentro do clique (o navegador exige) e carrega os slides sob demanda
 $$('[data-apresentacao]').forEach(b => b.addEventListener('click', () => {
   if ($('[data-nav]')?.classList.contains('aberta')) $('[data-menu]')?.click(); // fecha o menu do celular
+  if (modal?.open) fecharModal(); // um modal aberto ficaria por cima dos slides
+  document.querySelector('.visor')?.remove();
   document.documentElement.requestFullscreen?.().catch(() => {});
   lenis?.stop();
   import('./apresentacao.js').then(m => m.abrir(() => lenis?.start()));

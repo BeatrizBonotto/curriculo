@@ -138,3 +138,61 @@
 .ap-fonte button:disabled { opacity: .35; cursor: default; }
 /* textos da apresentação seguem a escala escolhida (rem) e o zoom com dois dedos continua liberado */
 .ap { touch-action: pan-x pan-y pinch-zoom; }
+
+/* ===== Estrutura de entrevista (nov/2026): sequência numerada, sobre com foto e feedbacks com foto ===== */
+dialog.ap { max-width: none; max-height: none; width: 100vw; height: 100dvh; margin: 0; padding: 0; border: 0; color: inherit; }
+dialog.ap::backdrop { background: #000; }
+.ap-seq { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 10px; max-width: 760px; counter-reset: none; }
+.ap-seq li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px; align-items: start; padding: 12px 16px; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); }
+.ap-seq-n { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; font-family: var(--mono); font-size: .8rem; font-weight: 700; color: #111; background: var(--ap-acento); }
+.ap-seq b { display: block; color: #fff; font-size: 1.02rem; margin-bottom: 2px; }
+.ap-seq span:not(.ap-seq-n) { color: rgba(255,255,255,.82); font-size: .95rem; line-height: 1.5; }
+.ap-seq-star li:nth-child(1) .ap-seq-n { background: rgba(255,255,255,.75); }
+.ap-seq-star li:nth-child(3) { border-color: var(--ap-acento); }
+.ap-seq-linha { gap: 0; }
+.ap-seq-linha li { border-radius: 0; background: none; border: 0; border-left: 2px solid rgba(255,255,255,.18); margin-left: 15px; padding: 6px 0 12px 22px; grid-template-columns: minmax(0, 1fr); position: relative; }
+.ap-seq-linha .ap-seq-n { position: absolute; left: -16px; top: 4px; }
+.ap-seq-linha b { font-size: .95rem; }
+.ap-sobre { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: clamp(20px, 4vw, 56px); align-items: center; }
+.ap-foto { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 16px; border: 1px solid rgba(255,255,255,.15); animation: ap-in .8s cubic-bezier(.2,.7,.2,1) both; }
+.ap-resumo { font-size: .98rem; line-height: 1.6; max-width: 62ch; margin: 0 0 6px; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.ap-recs blockquote footer { display: flex; align-items: center; gap: 10px; }
+.ap-recs cite { display: grid; font-style: normal; font-size: .78rem; line-height: 1.35; color: rgba(255,255,255,.7); }
+.ap-recs cite b { color: #fff; font-size: .88rem; }
+.ap-avatar { width: 40px; height: 40px; flex: none; border-radius: 50%; object-fit: cover; border: 2px solid var(--ap-acento); }
+.ap-avatar-ini { display: grid; place-items: center; font-size: .78rem; font-weight: 700; color: #111; background: var(--ap-acento); }
+@media (max-height: 500px), (orientation: portrait) and (max-width: 700px) {
+  .ap-seq { gap: 6px; }
+  .ap-seq li { padding: 7px 10px; gap: 10px; grid-template-columns: 26px minmax(0, 1fr); }
+  .ap-seq-n { width: 24px; height: 24px; font-size: .7rem; }
+  .ap-seq b { font-size: .85rem; }
+  .ap-seq span:not(.ap-seq-n) { font-size: .76rem; }
+  .ap-sobre { grid-template-columns: 120px minmax(0, 1fr); gap: 16px; }
+  .ap-resumo { -webkit-line-clamp: 2; font-size: .78rem; }
+  .ap-avatar { width: 28px; height: 28px; }
+}
+
+/* carreira: números e linha do tempo (gráfico de barras) na mesma tela */
+.ap-numeros { display: flex; gap: 26px; margin: 4px 0 14px; font-size: .8rem; color: rgba(255,255,255,.7); }
+.ap-numeros b { display: block; font-family: var(--titulo); font-size: 1.9rem; line-height: 1; color: #fff; }
+.ap-gantt { display: grid; gap: 5px; max-width: 920px; }
+.ap-gantt-linha { display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); gap: 14px; align-items: center; }
+.ap-gantt-rot { display: grid; font-size: .74rem; line-height: 1.2; color: rgba(255,255,255,.6); }
+.ap-gantt-rot b { color: #fff; font-size: .86rem; }
+.ap-gantt-trilho { position: relative; height: 22px; }
+.ap-gantt-trilho i { position: absolute; top: 0; height: 22px; border-radius: 6px; display: flex; align-items: center; padding: 0 8px; overflow: hidden;
+  background: color-mix(in srgb, var(--ap-acento) 45%, transparent); border: 1px solid var(--ap-acento); }
+.ap-gantt-trilho em { font-style: normal; font-family: var(--mono); font-size: .6rem; color: #fff; white-space: nowrap; }
+.ap-gantt-eixo .ap-gantt-trilho { height: 14px; }
+.ap-gantt-eixo small { position: absolute; transform: translateX(-50%); font-family: var(--mono); font-size: .58rem; color: rgba(255,255,255,.45); }
+.ap-seq-caso li:nth-child(4) { border-color: var(--ap-acento); }
+@media (max-height: 500px), (orientation: portrait) and (max-width: 700px) {
+  .ap-numeros { gap: 18px; margin-bottom: 8px; }
+  .ap-numeros b { font-size: 1.4rem; }
+  .ap-gantt-linha { grid-template-columns: minmax(0, 118px) minmax(0, 1fr); gap: 8px; }
+  .ap-gantt-rot { font-size: .62rem; }
+  .ap-gantt-rot b { font-size: .72rem; }
+  .ap-gantt-trilho, .ap-gantt-trilho i { height: 16px; }
+  .ap-gantt-trilho em { font-size: .5rem; padding: 0 5px; }
+}
+.ap { --ap-acento: #e8a5b9; }

@@ -236,7 +236,7 @@ function servicos(d, t) {
 }
 
 export function inicio(d, t) {
-  return hero(d, t) + manifesto(d, t) + sobre(d, t) + numeros(d, t) + percurso(d, t) + empresas(d, t) + destaques(d, t) + recomendacoes(d, t) + servicos(d, t) + contato(d, t);
+  return hero(d, t) + manifesto(d, t) + sobre(d, t) + numeros(d, t) + percurso(d, t) + empresas(d, t) + destaques(d, t) + trajetoriaSecao(d, t) + recomendacoes(d, t) + servicos(d, t) + contato(d, t);
 }
 
 // ================= PROJETOS =================
@@ -440,6 +440,25 @@ export function trajetoria(d, t) {
 ${recomendacoes(d, t)}`;
 }
 
+// trajetória na landing: mesma linha do tempo e certificados, sem o cabeçalho de página e sem repetir as recomendações
+export function trajetoriaSecao(d, t) {
+  const itens = itensTrajetoria(d, t);
+  const mesAno = s => (s ? new Intl.DateTimeFormat({ pt: 'pt-BR', en: 'en-US', es: 'es-ES' }[d.lang], { month: 'short', year: 'numeric' }).format(new Date(`${s}T12:00:00`)) : '');
+  const cert = d.certificacoes.map(c => `<li class="revelar cert">${c.certificado_url ? `<a class="cert-img" href="${esc(c.certificado_url)}" data-visor aria-label="${t('projetos.ampliar')}: ${esc(c.nome)}"><img src="${esc(c.certificado_url)}" alt="${esc(c.nome)}" loading="lazy"><span class="galeria-lupa" aria-hidden="true">${icone('ampliar')}</span></a>` : `<span class="cert-img cert-sem">${icone('medalha')}</span>`}
+    <span class="cert-txt"><strong>${esc(c.nome)}</strong><span>${esc([c.instituicao, mesAno(c.data_certificacao), c.validade].filter(Boolean).join(' · '))}</span></span></li>`).join('');
+  const filtros = [['todos', 'carreira.filtro.todos'], ['exp', 'carreira.filtro.exp'], ['form', 'carreira.filtro.form']];
+  return `<section class="trajetoria-secao" id="trajetoria" aria-labelledby="trajetoria-titulo">
+  <div class="container trajetoria" data-trajetoria>
+    <div class="secao-topo"><div><p class="rotulo">${t('trajetoria.rotulo')}</p><h2 id="trajetoria-titulo" data-dividir>${t('pag.trajetoria.titulo')}</h2><p class="secao-sub">${t('pag.trajetoria.sub')}</p></div></div>
+    ${graficoCarreira(d, t)}
+    <div class="linha-barra"><div class="filtros filtros-linha" role="tablist" aria-label="${t('trajetoria.rotulo')}">${filtros.map(([f, k], i) => `<button type="button" role="tab" aria-selected="${i === 0}" data-filtro-linha="${f}">${t(k)}</button>`).join('')}</div>
+    ${vistas('trajetoria', t, ['lista', 'grade'])}</div>
+    <ol class="linha" data-vista-alvo="trajetoria" data-vista="lista">${itens.map(i => itemLinha(i, t)).join('')}</ol>
+    ${cert ? `<h2 class="titulo-secundario certs-titulo">${t('trajetoria.certificacoes')}</h2><ul class="certs">${cert}</ul>` : ''}
+  </div>
+</section>`;
+}
+
 // ================= COMPETÊNCIAS =================
 const nivelTexto = (n, t) => t('comp.niveis')[n >= 85 ? 4 : n >= 70 ? 3 : n >= 55 ? 2 : n >= 35 ? 1 : 0];
 const catComp = (c, t) => { try { return t(`comp.cat.${c}`); } catch { return c; } };
@@ -634,9 +653,9 @@ export function sobre(d, t) {
     <article class="revelar"><span class="mvv-ic">${icone('estrela')}</span><h2>${t('sobre.valores')}</h2><ul class="lista-check">${(m.valores || []).map(v => `<li>${icone('check')}${esc(v)}</li>`).join('')}</ul></article>
   </section>
   ${pat.titulo ? `<section class="patrocinio revelar" aria-labelledby="pat-titulo">
-    <div><h2 id="pat-titulo" class="titulo-secundario">${esc(pat.titulo)}</h2><p>${esc(pat.texto)}</p>
-      <a class="btn btn-acento" href="${rota(d.lang, 'contato')}?assunto=patrocinio">${t('patrocinio.cta')} ${icone('seta')}</a></div>
-    ${apoiados.length ? `<ul class="patrocinio-projetos">${apoiados.map(p => `<li><a href="${esc(p.link_projeto || '#')}" target="_blank" rel="noopener">${p.imagem_url ? `<img class="${ehCena(p.imagem_url) ? 'capa-cena' : ''}" src="${esc(p.imagem_url)}" alt="" loading="lazy">` : ''}<strong>${esc(p.titulo)}</strong><span>${esc(p.descricao_curta)}</span></a></li>`).join('')}</ul>` : ''}
+    <div class="pat-cab"><span class="pat-selo">${t('patrocinio.selo')}</span><h2 id="pat-titulo">${esc(pat.titulo)}</h2><p>${esc(pat.texto)}</p>
+      <a class="pat-cta" href="${rota(d.lang, 'contato')}?assunto=patrocinio">${t('patrocinio.cta')} ${icone('seta')}</a></div>
+    ${apoiados.length ? `<ul class="patrocinio-projetos">${apoiados.map(p => `<li><a class="pat-ad" href="${esc(p.link_projeto || '#')}" target="_blank" rel="noopener">${p.imagem_url ? `<img src="${esc(p.imagem_url)}" alt="" loading="lazy">` : ''}<span class="pat-ad-corpo"><span class="pat-ad-topo"><b>${t('patrocinio.anuncio')}</b> · ${esc((p.link_projeto || '').replace(/^https?:\/\//, '').replace(/\/$/, ''))}</span><strong>${esc(p.titulo)}</strong><span class="pat-ad-desc">${esc(p.descricao_curta)}</span></span></a></li>`).join('')}</ul>` : ''}
   </section>` : ''}
 </div>
 </section>`;
