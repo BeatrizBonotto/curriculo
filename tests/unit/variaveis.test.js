@@ -27,11 +27,11 @@ describe('números calculados pela data', () => {
 });
 
 describe('recomendações', () => {
-  it('mostra 5 e esconde as demais atrás do "ver mais"', () => {
+  it('mostra 8 (duas linhas de 4 no desktop) e esconde as demais atrás do "ver mais"', () => {
     const d = prepararIdioma(bruto, 'pt');
     const html = PAGINAS[''].corpo(d, tradutor('pt'));
     const total = d.recomendacoes.length;
-    expect((html.match(/data-rec-extra/g) || []).length).toBe(Math.max(0, total - 5));
-    if (total > 5) expect(html).toContain('data-ver-mais-recs');
+    expect((html.match(/data-rec-extra/g) || []).length).toBe(Math.max(0, total - 8));
+    if (total > 8) expect(html).toContain('data-ver-mais-recs');
   });
 });

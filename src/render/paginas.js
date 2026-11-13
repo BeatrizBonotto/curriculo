@@ -4,7 +4,7 @@ import { rota } from '../i18n/ui.js';
 import { anosEmQA, textoSite } from '../lib/dados.js';
 import { CAMINHOS, esc, icone, iniciais, paragrafos, periodo, tipoAcademico } from './comum.js';
 
-export const CATS = ['qa', 'dev', 'vibe', 'data', 'design'];
+export const CATS = ['adm', 'qa', 'dev', 'vibe', 'data', 'design'];
 const catsProjeto = p => { const c = (p.categorias?.length ? p.categorias : [p.categoria]).map(x => String(x || '').toLowerCase()).filter(x => CATS.includes(x)); return c.length ? c : ['dev']; };
 export const ehCena = url => /\/capa\.webp/.test(url || '');
 const imgProjeto = (p, t, cls = '') => p.imagem_url
@@ -35,7 +35,7 @@ function cabecalhoPagina(t, chave) {
 function hero(d, t) {
   const h = textoSite(d.site, 'hero', d.lang);
   const disp = textoSite(d.site, 'disponibilidade', d.lang);
-  const status = disp.ativo ? `<p class="status"><span class="status-ponto" aria-hidden="true"></span>${esc(disp.texto)}</p>` : '';
+  const status = disp.ativo ? `<p class="status${disp.curto ? ' tem-curto' : ''}"><span class="status-ponto" aria-hidden="true"></span><span class="status-txt">${esc(disp.texto)}</span>${disp.curto ? `<span class="status-curto">${esc(disp.curto)}</span>` : ''}</p>` : '';
   // Fase 1: a rolagem avança o vídeo de abertura quadro a quadro (moeda → rosto → nome).
   // Fase 2: o quadro encolhe e o texto entra. Sem JS / movimento reduzido: estado final direto.
   return `<section class="hero" id="topo" data-hero>
@@ -45,7 +45,7 @@ function hero(d, t) {
       <canvas class="hero-canvas" data-sequencia="/media/intro/" data-quadros="60" aria-hidden="true"></canvas>
       <div class="sombra-v" aria-hidden="true"></div>
     </div>
-    <p class="hero-nome" data-hero-nome aria-hidden="true"><span class="hero-nome-1">${[...(d.perfil.primeiro_nome || SITE.nome.split(' ')[0])].map((c, i) => `<span style="--i:${i}">${esc(c)}</span>`).join('')}</span><span class="hero-nome-2">${esc(d.perfil.sobrenome || '')}</span><span class="hero-nome-cargo">${esc(t('meta.cargo'))}</span></p>
+    <div class="hero-nome" data-hero-nome><p class="hero-nome-txt" aria-hidden="true"><span class="hero-nome-1">${[...(d.perfil.primeiro_nome || SITE.nome.split(' ')[0])].map((c, i) => `<span style="--i:${i}">${esc(c)}</span>`).join('')}</span><span class="hero-nome-2">${esc(d.perfil.sobrenome || '')}</span><span class="hero-nome-cargo">${esc(t('meta.cargo'))}</span></p><ul class="hero-redes" aria-label="${t('contato.canais')}">${canais(d, t).map(([href, ic, txt]) => `<li><a href="${esc(href)}" target="_blank" rel="noopener" aria-label="${esc(txt)}" title="${esc(txt)}">${icone(ic)}</a></li>`).join('')}</ul></div>
     <div class="hero-intro container" data-hero-intro aria-hidden="true">${status}<span class="hero-rolar">${icone('baixo')}${t('hero.rolar')}</span></div>
     <div class="hero-conteudo container" data-hero-conteudo>
       <div class="hero-texto">
@@ -54,7 +54,7 @@ function hero(d, t) {
         <h1 class="hero-titulo">${esc(h.titulo)}</h1>
         <p class="hero-sub">${esc(h.subtitulo)}</p>
         <p class="rotulo caminhos-titulo">${t('hero.caminhos')}</p>
-        <nav class="caminhos" aria-label="${t('hero.caminhos')}">${[[rota(d.lang, 'sobre'), 'nav.sobre', 'escudo'], ['#trajetoria', 'nav.trajetoria', 'grafico'], ['#projetos', 'nav.projetos', 'vista-grade'], ['#contato', 'nav.contato', 'email'], [rota(d.lang, 'cv'), 'nav.cv', 'download']]
+        <nav class="caminhos" aria-label="${t('hero.caminhos')}">${[['#sobre', 'nav.sobre', 'escudo'], ['#trajetoria', 'nav.trajetoria', 'grafico'], ['#projetos', 'nav.projetos', 'vista-grade'], ['#contato', 'nav.contato', 'email'], [rota(d.lang, 'cv'), 'nav.cv', 'download']]
           .map(([href, k, ic], n) => `<a class="caminho ${n === 0 ? 'caminho-forte' : ''}" href="${href}" data-magnetico>${icone(ic)}<span>${t(k)}</span></a>`).join('')}</nav>
       </div>
     </div>
@@ -153,7 +153,7 @@ const autor = (x, t) => `<header class="autor">${x.imagem_url ? `<img src="${esc
   ${x.fonte ? `<span class="fonte" title="${esc(t('recs.fonte', { fonte: x.fonte }))}">${icone(FONTES[String(x.fonte).toLowerCase()] || 'globo', t('recs.fonte', { fonte: x.fonte }))}</span>` : ''}</header>`;
 const nota = (x, t) => (x._traduzido ? `<p class="mono nota">${t('recs.traduzido')}</p>` : '');
 
-const VISIVEIS_RECS = 5;
+const VISIVEIS_RECS = 8;
 function cartaoRec(x, t, destaque = false, extra = false) {
   return `<li class="${destaque ? 'rec-destaque' : ''}" ${extra ? 'data-rec-extra hidden' : ''}><figure class="rec">
   ${autor(x, t)}
@@ -189,7 +189,7 @@ function recomendacoes(d, t) {
   <div class="container">
     <div class="secao-topo"><div><p class="rotulo">${t('recs.rotulo')}</p><h2 id="recs-titulo" data-dividir>${t('recs.titulo')}</h2></div>
       <div class="recs-acoes">${vistas('recs', t)}<button type="button" class="btn btn-linha btn-pequeno" data-deixar-rec>${t('recs.deixar')}</button></div></div>
-    <ul class="recs-grade" data-vista-alvo="recs" data-vista="grade" data-recs data-deslize>${[principal, ...r.filter(x => x !== principal)].map((x, i) => cartaoRec(x, t, i === 0, i >= VISIVEIS_RECS)).join('')}</ul>
+    <ul class="recs-grade" data-vista-alvo="recs" data-vista="grade" data-recs data-deslize>${[principal, ...r.filter(x => x !== principal)].map((x, i) => cartaoRec(x, t, false, i >= VISIVEIS_RECS)).join('')}</ul>
     ${r.length > VISIVEIS_RECS ? `<div class="recs-mais"><button type="button" class="btn btn-linha" data-ver-mais-recs aria-expanded="false" data-menos="${esc(t('recs.verMenos'))}">${t('recs.verMais', { n: r.length - VISIVEIS_RECS })}</button></div>` : ''}
   </div>
 </section>`;
@@ -236,7 +236,7 @@ function servicos(d, t) {
 }
 
 export function inicio(d, t) {
-  return hero(d, t) + empresas(d, t) + manifesto(d, t) + numeros(d, t) + percurso(d, t) + destaques(d, t) + recomendacoes(d, t) + servicos(d, t) + contato(d, t);
+  return hero(d, t) + manifesto(d, t) + sobre(d, t) + numeros(d, t) + percurso(d, t) + empresas(d, t) + destaques(d, t) + recomendacoes(d, t) + servicos(d, t) + contato(d, t);
 }
 
 // ================= PROJETOS =================
@@ -282,8 +282,8 @@ ${galeria.length ? `<div class="galeria" data-galeria>
     <button type="button" role="tab" aria-selected="false" data-modo="mobile">${t('projetos.mobile')}</button></div>` : ''}
   <div class="galeria-palco">
     <ul class="galeria-faixa" data-galeria-faixa aria-label="${t('projetos.galeria')}">${galeria.map((g, i) => `<li class="galeria-item galeria-${disp(g)}" data-dispositivo="${disp(g)}" data-i="${i}">
-      <button type="button" class="galeria-ver" data-galeria-ampliar aria-label="${t('projetos.ampliar')}"><figure class="moldura moldura-${disp(g)}${disp(g) === 'mobile' && g.w && g.h / g.w < 1.6 ? ' moldura-tablet' : ''}"><img src="${esc(g.url)}" ${g.w ? `width="${g.w}" height="${g.h}"` : ''} alt="${esc(g.legenda || `${t('projetos.print', { titulo: p.titulo })} (${i + 1})`)}" loading="lazy" decoding="async"></figure>
-      <span class="galeria-lupa" aria-hidden="true">${icone('ampliar')}</span></button></li>`).join('')}</ul>
+      <button type="button" class="galeria-ver" data-galeria-ampliar aria-label="${t('projetos.ampliar')}"><figure class="moldura moldura-${disp(g)}${disp(g) === 'mobile' && g.w && g.h / g.w < 1.6 ? ' moldura-tablet' : ''}"><img src="${esc(g.url)}" ${g.w ? `width="${g.w}" height="${g.h}"` : ''} alt="${esc(g.legenda || `${t('projetos.print', { titulo: p.titulo })} (${i + 1})`)}"${g.legenda ? ` data-legenda="${esc(g.legenda)}"` : ''} loading="lazy" decoding="async"></figure>
+      <span class="galeria-lupa" aria-hidden="true">${icone('ampliar')}</span></button>${g.legenda ? `<p class="galeria-legenda">${esc(g.legenda)}</p>` : ''}</li>`).join('')}</ul>
     <button type="button" class="btn-icone galeria-seta galeria-seta-ant" data-galeria-ant aria-label="${t('projetos.anterior')}">${icone('esquerda')}</button>
     <button type="button" class="btn-icone galeria-seta galeria-seta-prox" data-galeria-prox aria-label="${t('projetos.proxima')}">${icone('direita')}</button>
   </div>
@@ -616,10 +616,11 @@ export function competencias(d, t) {
 export function sobre(d, t) {
   const s = textoSite(d.site, 'sobre', d.lang), m = textoSite(d.site, 'sobre_mim', d.lang), pat = textoSite(d.site, 'patrocinio', d.lang);
   const apoiados = (d.site.patrocinio?.projetos || []).map(slug => d.projetos.find(p => p.slug === slug)).filter(Boolean);
-  return `${cabecalhoPagina(t, 'sobre')}
+  return `<section class="sobre-secao" id="sobre" aria-labelledby="sobre-titulo">
+<div class="container cabecalho"><p class="rotulo">${t('nav.sobre')}</p><h2 id="sobre-titulo" data-dividir>${t('pag.sobre.sub')}</h2></div>
 <div class="container sobre-pagina">
   <section class="sobre-intro">
-    <figure class="sobre-foto revelar"><img src="/media/perfil-padrao.webp" alt="${t('sobre.foto')}" width="768" height="1024" loading="lazy"></figure>
+    <figure class="sobre-foto revelar"><img src="/media/perfil-sobre.webp" alt="${t('sobre.foto')}" width="768" height="1024" loading="lazy"></figure>
     <div class="sobre-blocos">
       <article class="revelar"><h2 class="rotulo">${t('sobre.resumo')}</h2><p class="sobre-lead">${esc(s.texto)}</p></article>
       <article class="revelar"><h2 class="rotulo">${t('sobre.carreira')}</h2><p class="recolhivel">${esc(m.carreira)}</p></article>
@@ -637,7 +638,8 @@ export function sobre(d, t) {
       <a class="btn btn-acento" href="${rota(d.lang, 'contato')}?assunto=patrocinio">${t('patrocinio.cta')} ${icone('seta')}</a></div>
     ${apoiados.length ? `<ul class="patrocinio-projetos">${apoiados.map(p => `<li><a href="${esc(p.link_projeto || '#')}" target="_blank" rel="noopener">${p.imagem_url ? `<img class="${ehCena(p.imagem_url) ? 'capa-cena' : ''}" src="${esc(p.imagem_url)}" alt="" loading="lazy">` : ''}<strong>${esc(p.titulo)}</strong><span>${esc(p.descricao_curta)}</span></a></li>`).join('')}</ul>` : ''}
   </section>` : ''}
-</div>`;
+</div>
+</section>`;
 }
 
 // ================= CONTATO =================

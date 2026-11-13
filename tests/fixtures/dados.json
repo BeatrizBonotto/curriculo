@@ -97,6 +97,387 @@
  },
  "projetos": [
   {
+   "id": "4cd10c46-cdf1-468d-837f-7d70cae02abb",
+   "slug": "central-documentos",
+   "titulo": "Central de Documentos",
+   "papel": "Ferramenta do meu dia a dia · HTML, CSS e JavaScript",
+   "descricao_curta": "Página que gera, a partir de um formulário, o e-mail de envio e o documento em PDF: proposta de renovação, análise de Seguro Fiança, ofício, requisição de compra e plano 5W2H.",
+   "descricao_completa": "Ferramenta que montei para o meu dia a dia administrativo e de seguros.\n\nProblema: documentos parecidos refeitos à mão, com risco de esquecer uma regra, um anexo ou o fecho certo.\n\nSolução: escolho o documento, preencho o formulário e a página monta na hora o e-mail de envio (assunto, resumo, assinatura e anexos) e o documento padronizado, pronto para imprimir ou salvar em PDF. Os cálculos saem prontos: economia da renovação, comprometimento de renda da fiança, ponto de pedido e custo total das cotações.\n\nTambém traz fluxogramas com decisões Sim e Não e as regras de cada etapa, e uma lista de recursos com seguradoras, legislação e consultas cadastrais.\n\nPrivacidade: nada do que é preenchido sai do navegador (LGPD). Os exemplos usam dados fictícios.",
+   "categoria": "adm",
+   "categorias": [
+    "adm",
+    "dev"
+   ],
+   "imagem_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/central-documentos/capa.webp?v=mwein2kv",
+   "galeria": [
+    {
+     "h": 900,
+     "w": 1440,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/central-documentos/desktop-01.webp?v=mweimzkg",
+     "legenda": "Proposta de renovação: o formulário à esquerda gera, ao lado, o e-mail de envio e o documento.",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 900,
+     "w": 1440,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/central-documentos/desktop-02-formulario.webp?v=mwein0dl",
+     "legenda": "Requisição de compra: campos com exemplo, cálculo do ponto de pedido e das 3 cotações.",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 900,
+     "w": 1440,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/central-documentos/desktop-03-fluxograma.webp?v=mwein0qj",
+     "legenda": "Fluxogramas com início, decisões Sim e Não, fim e as regras de cada etapa.",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 900,
+     "w": 1440,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/central-documentos/desktop-04-recursos.webp?v=mwein18o",
+     "legenda": "Recursos: seguradoras, legislação, consultas cadastrais, redação oficial e índices.",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 1688,
+     "w": 780,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/central-documentos/mobile-01.webp?v=mwein1qr",
+     "legenda": "No celular: e-mail da análise de Seguro Fiança com os anexos conferidos.",
+     "dispositivo": "mobile"
+    }
+   ],
+   "tecnologias": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "LGPD"
+   ],
+   "funcionalidades": [
+    "E-mail de envio pronto com anexos",
+    "Documentos padronizados em PDF",
+    "Cálculos automáticos",
+    "Fluxogramas com regras",
+    "Recursos e links úteis"
+   ],
+   "conquistas": [
+    "Menos retrabalho em documentos repetidos",
+    "Padrão único para clientes e órgãos"
+   ],
+   "link_projeto": "https://beatrizgsbonotto.web.app/portfolio-operacional/",
+   "link_github": null,
+   "data_projeto": "2026-11-13",
+   "destaque": true,
+   "bloqueado": false,
+   "professional_history_id": null,
+   "ordem": 1,
+   "i18n": {
+    "en": {
+     "papel": "My everyday tool · HTML, CSS and JavaScript",
+     "titulo": "Document Center",
+     "descricao_curta": "A page that turns a form into the cover email and the PDF document: renewal proposal, rent guarantee analysis, official letter, purchase request and 5W2H plan."
+    },
+    "es": {
+     "papel": "Herramienta de mi día a día · HTML, CSS y JavaScript",
+     "titulo": "Central de Documentos",
+     "descricao_curta": "Página que, a partir de un formulario, genera el correo de envío y el documento en PDF: propuesta de renovación, análisis de seguro de caución, oficio, solicitud de compra y plan 5W2H."
+    }
+   }
+  },
+  {
+   "id": "1adc8271-984d-4a24-8169-6c1fd1e8da57",
+   "slug": "portfolio-rotinas-seguros",
+   "titulo": "Renovação de carteira e Seguro Fiança",
+   "papel": "Simulação de caso real · Dínamo Seguros",
+   "descricao_curta": "Proposta de renovação com comparativo de 3 seguradoras e análise de Seguro Fiança com a regra de renda, como faço na carteira de imobiliárias parceiras.",
+   "descricao_completa": "Simulação de um caso real da minha rotina na Dínamo Seguros (Analista de Seguros Pleno), com dados fictícios.\r\n\r\nSituação: carteira de imobiliárias parceiras com muitos pedidos de Seguro Fiança e renovações de Ramos Elementares vencendo juntas.\r\n\r\nTarefa: emitir rápido para não travar a locação e não deixar nenhuma apólice vencer sem contato com o cliente.\r\n\r\nAção: régua de renovação com alerta de 45 dias, cotação em 3 seguradoras, proposta com comparativo e checklist de documentos da fiança, conferindo a regra de renda (pelo menos 3 vezes o aluguel com encargos) e a Lei do Inquilinato (arts. 22, 37 e 41).\r\n\r\nResultado: renovações tratadas antes do vencimento, menos idas e vindas com a seguradora e clientes que elogiam a clareza do atendimento.\r\n\r\nO que os clientes dizem (avaliações públicas no Google):\r\n\"Seguro fiança feito com a Beatriz, super recomendo! Extremamente atenciosa, ágil e profissional.\" (Tainá)\r\n\"Não tive dificuldade alguma em fechar meu seguro, graças a explicação e transparência da consultora Beatriz Souza!\" (Rafael Ramos)\r\n\r\nNas imagens: o e-mail ao cliente, a proposta em PDF, a análise de fiança, o fluxograma com decisões e um anexo fictício.",
+   "categoria": "adm",
+   "categorias": [
+    "adm"
+   ],
+   "imagem_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-seguros/capa.webp?v=mwehojlt",
+   "galeria": [
+    {
+     "h": 900,
+     "w": 1440,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-seguros/desktop-01.webp?v=mwehoeg4",
+     "legenda": "Central de Documentos: o formulário gera o e-mail de envio e a proposta de renovação, prontos para o cliente.",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 1688,
+     "w": 780,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-seguros/mobile-01.webp?v=mwehofb9",
+     "legenda": "A mesma central no celular: e-mail e documento acompanham o preenchimento em tempo real.",
+     "dispositivo": "mobile"
+    },
+    {
+     "h": 995,
+     "w": 1206,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-seguros/p02-email.webp?v=mwehofvv",
+     "legenda": "E-mail ao cliente: assunto com o benefício, resumo da melhor proposta, assinatura e anexos (PDF, apólice e comparativo).",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 1872,
+     "w": 1206,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-seguros/p03-documento.webp?v=mwehogf9",
+     "legenda": "Proposta de renovação em PDF: comparativo de 3 seguradoras, economia calculada e recomendação que mantém as coberturas.",
+     "dispositivo": "mobile"
+    },
+    {
+     "h": 2079,
+     "w": 1206,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-seguros/p04-analise-fianca.webp?v=mwehohau",
+     "legenda": "Análise de Seguro Fiança: regra de renda (3x o aluguel com encargos), documentos conferidos e base legal (Lei 8.245/91).",
+     "dispositivo": "mobile"
+    },
+    {
+     "h": 2006,
+     "w": 1812,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-seguros/p05-fluxograma.webp?v=mwehoi3r",
+     "legenda": "Fluxograma da emissão do Seguro Fiança: início, decisões com Sim e Não, fim e as regras de cada etapa.",
+     "dispositivo": "mobile"
+    },
+    {
+     "h": 1190,
+     "w": 840,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-seguros/p06-anexo-apolice.webp?v=mwehoign",
+     "legenda": "Anexo fictício: apólice atual, desenhada para simular o documento que vai junto do e-mail.",
+     "dispositivo": "mobile"
+    }
+   ],
+   "tecnologias": [
+    "Seguro Fiança",
+    "Ramos Elementares",
+    "Lei 8.245/91",
+    "LGPD"
+   ],
+   "funcionalidades": [
+    "Proposta de renovação com economia calculada",
+    "Análise de Seguro Fiança com regra de 3x a renda",
+    "Fluxograma com decisões e regras legais",
+    "Mensagem pronta para WhatsApp"
+   ],
+   "conquistas": [
+    "Renovações tratadas antes do vencimento",
+    "Clientes elogiam clareza e agilidade"
+   ],
+   "link_projeto": "https://beatrizgsbonotto.web.app/portfolio-operacional/#doc-renovacao",
+   "link_github": null,
+   "data_projeto": "2026-11-12",
+   "destaque": true,
+   "bloqueado": false,
+   "professional_history_id": "45182f24-85b8-4941-86c4-9fd3a7b001b2",
+   "ordem": 2,
+   "i18n": {
+    "en": {
+     "papel": "Simulation of a real case · Dínamo Seguros",
+     "titulo": "Portfolio renewal and rent guarantee insurance",
+     "descricao_curta": "Renewal proposal comparing 3 insurers and a rent guarantee analysis with the income rule, as I do for partner real estate agencies.",
+     "descricao_completa": "Simulation of a case from my work at Dínamo Seguros, with fictitious data.\n\nI set a renewal alert 45 days before expiry, quote at least 3 insurers, present a comparison of premium, deductible and coverage, and advise the client. For rent guarantee insurance I check documents and the income rule (at least 3 times the rent plus charges) before sending to the insurer, following the Brazilian Tenancy Law and the LGPD.\n\nClients praise the clarity and speed of my service in public Google reviews."
+    },
+    "es": {
+     "papel": "Simulación de caso real · Dínamo Seguros",
+     "titulo": "Renovación de cartera y seguro de caución de alquiler",
+     "descricao_curta": "Propuesta de renovación comparando 3 aseguradoras y análisis de seguro de caución con la regla de ingresos, como hago con las inmobiliarias asociadas.",
+     "descricao_completa": "Simulación de un caso de mi trabajo en Dínamo Seguros, con datos ficticios.\n\nAlerta de renovación 45 días antes del vencimiento, cotización con al menos 3 aseguradoras, comparativo de prima, deducible y coberturas, y atención consultiva. En el seguro de caución reviso documentos y la regla de ingresos (al menos 3 veces el alquiler con gastos) antes de enviar a la aseguradora, según la Ley de Arrendamiento brasileña y la LGPD.\n\nLos clientes destacan la claridad y la rapidez de mi atención en reseñas públicas de Google."
+    }
+   }
+  },
+  {
+   "id": "e0b78153-e880-4db9-8158-7b7c661dd495",
+   "slug": "portfolio-rotinas-documentais",
+   "titulo": "Tramitação documental por protocolo",
+   "papel": "Simulação de caso real · INSS",
+   "descricao_curta": "Recebimento, conferência, digitalização e indexação por protocolo, com ofício no padrão do Manual de Redação da Presidência.",
+   "descricao_completa": "Simulação de um caso real do meu estágio no INSS (Estagiária Administrativa), com dados fictícios.\r\n\r\nSituação: volume alto de documentos físicos chegando todos os dias e risco de extravio.\r\n\r\nTarefa: garantir que cada documento fosse conferido, digitalizado e encontrado depois pelo número de protocolo.\r\n\r\nAção: triagem e conferência na chegada, digitalização, indexação por protocolo, arquivamento padronizado e ofícios no padrão do Manual de Redação da Presidência, com o fecho certo para cada hierarquia (Respeitosamente para superior, Atenciosamente para a mesma hierarquia).\r\n\r\nResultado: documentos localizados em minutos e comunicação interna padronizada, com acesso restrito a quem precisa (LGPD).\r\n\r\nNas imagens: o e-mail de encaminhamento, o ofício em PDF, o fluxograma da tramitação e a relação de protocolos anexa.",
+   "categoria": "adm",
+   "categorias": [
+    "adm"
+   ],
+   "imagem_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-documentais/capa.webp?v=mwehoo8s",
+   "galeria": [
+    {
+     "h": 900,
+     "w": 1440,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-documentais/desktop-01.webp?v=mwehokg8",
+     "legenda": "Central de Documentos: ofício gerado a partir do formulário, com o e-mail de encaminhamento.",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 1688,
+     "w": 780,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-documentais/mobile-01.webp?v=mwehol03",
+     "legenda": "Ofício e e-mail também no celular.",
+     "dispositivo": "mobile"
+    },
+    {
+     "h": 926,
+     "w": 1206,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-documentais/p02-email.webp?v=mweholig",
+     "legenda": "E-mail de encaminhamento: número do ofício no assunto, fecho conforme a hierarquia e relação de protocolos anexa.",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 1352,
+     "w": 1206,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-documentais/p03-documento.webp?v=mweholve",
+     "legenda": "Ofício no padrão do Manual de Redação da Presidência: identificação, endereçamento, assunto, parágrafos numerados e fecho.",
+     "dispositivo": "mobile"
+    },
+    {
+     "h": 1190,
+     "w": 840,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-documentais/p05-anexo-protocolos.webp?v=mwehom85",
+     "legenda": "Anexo fictício: relação de protocolos digitalizados e indexados.",
+     "dispositivo": "mobile"
+    },
+    {
+     "h": 1605,
+     "w": 1812,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-documentais/p05-fluxograma.webp?v=mwehomta",
+     "legenda": "Fluxograma da tramitação documental: conferência, digitalização, indexação por protocolo e devolução com ofício quando falta algo.",
+     "dispositivo": "desktop"
+    }
+   ],
+   "tecnologias": [
+    "Gestão documental",
+    "Protocolo",
+    "Redação oficial",
+    "LGPD"
+   ],
+   "funcionalidades": [
+    "Ofício e memorando no padrão oficial",
+    "Fluxograma de tramitação com decisões",
+    "Regras de guarda e LGPD"
+   ],
+   "conquistas": [
+    "Localização rápida pelo protocolo",
+    "Comunicação interna padronizada"
+   ],
+   "link_projeto": "https://beatrizgsbonotto.web.app/portfolio-operacional/#doc-oficio",
+   "link_github": null,
+   "data_projeto": "2026-11-12",
+   "destaque": true,
+   "bloqueado": false,
+   "professional_history_id": "9850e350-c4b9-461b-9ff4-826b324434eb",
+   "ordem": 3,
+   "i18n": {
+    "en": {
+     "papel": "Simulation of a real case · INSS",
+     "titulo": "Document flow by protocol number",
+     "descricao_curta": "Receiving, checking, scanning and indexing by protocol number, with official letters following the federal writing manual.",
+     "descricao_completa": "Simulation of a case from my internship at INSS, with fictitious data.\n\nI sorted and checked documents on arrival, scanned them, indexed them by protocol number, archived them in a standard way and wrote official letters and memos. Incomplete documents went back to the sender with a written reason.\n\nResult: documents found in minutes and standardized internal communication, with access limited to those who need it (LGPD)."
+    },
+    "es": {
+     "papel": "Simulación de caso real · INSS",
+     "titulo": "Trámite documental por número de protocolo",
+     "descricao_curta": "Recepción, revisión, digitalización e indexación por protocolo, con oficios según el manual oficial de redacción.",
+     "descricao_completa": "Simulación de un caso de mis prácticas en el INSS, con datos ficticios.\n\nClasificaba y revisaba los documentos al llegar, los digitalizaba, los indexaba por número de protocolo, los archivaba de forma estándar y redactaba oficios y memorandos. Los documentos incompletos volvían al origen con el motivo por escrito.\n\nResultado: documentos localizados en minutos y comunicación interna estandarizada, con acceso restringido (LGPD)."
+    }
+   }
+  },
+  {
+   "id": "fdaa18da-1583-43ca-9c45-3e7de3eb5b0f",
+   "slug": "portfolio-rotinas-suprimentos",
+   "titulo": "Reposição de suprimentos e compras",
+   "papel": "Simulação de caso real · Tecnoset",
+   "descricao_curta": "Requisição de compra com ponto de pedido, mapa de 3 cotações e alçada de aprovação, além de plano de ação 5W2H.",
+   "descricao_completa": "Simulação de um caso real da minha passagem pela Tecnoset (Aprendiz Administrativa), com dados fictícios.\r\n\r\nSituação: suprimentos acompanhados de forma dispersa, com falta de itens e chamados encerrados sem registro.\r\n\r\nTarefa: manter o estoque acima do mínimo e acompanhar cada pendência até o fim.\r\n\r\nAção: ponto de pedido (consumo diário × prazo de entrega + estoque de segurança), cotação com 3 fornecedores comparando o custo total com frete, aprovação do gestor acima da alçada, conferência da nota fiscal no recebimento e plano de ação 5W2H para as pendências.\r\n\r\nResultado: reposição antes de faltar e visão clara dos pedidos e chamados pendentes para a equipe.\r\n\r\nNas imagens: o e-mail para Compras, a requisição em PDF, o plano 5W2H, o fluxograma de reposição e um orçamento anexo.",
+   "categoria": "adm",
+   "categorias": [
+    "adm"
+   ],
+   "imagem_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-suprimentos/capa.webp?v=mwehotpk",
+   "galeria": [
+    {
+     "h": 900,
+     "w": 1440,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-suprimentos/desktop-01.webp?v=mwehopav",
+     "legenda": "Central de Documentos: requisição de compra com ponto de pedido e mapa de cotação, mais o e-mail para aprovação.",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 1688,
+     "w": 780,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-suprimentos/mobile-01.webp?v=mwehopza",
+     "legenda": "Requisição e e-mail no celular.",
+     "dispositivo": "mobile"
+    },
+    {
+     "h": 1086,
+     "w": 1206,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-suprimentos/p02-email.webp?v=mwehoqid",
+     "legenda": "E-mail para Compras: estoque x ponto de pedido, fornecedor de menor custo total e pedido de aprovação acima da alçada.",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 1452,
+     "w": 1206,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-suprimentos/p03-documento.webp?v=mwehoqvi",
+     "legenda": "Requisição de compra: ponto de pedido calculado, 3 fornecedores comparados pelo custo total e alerta de alçada.",
+     "dispositivo": "mobile"
+    },
+    {
+     "h": 1524,
+     "w": 1206,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-suprimentos/p04-plano-5w2h.webp?v=mwehordc",
+     "legenda": "Plano de ação 5W2H: cada pendência com responsável, prazo, custo e status, e indicadores de andamento.",
+     "dispositivo": "mobile"
+    },
+    {
+     "h": 1740,
+     "w": 1812,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-suprimentos/p05-fluxograma.webp?v=mwehorz6",
+     "legenda": "Fluxograma de reposição: ponto de pedido, 3 cotações, aprovação por alçada e conferência da nota fiscal.",
+     "dispositivo": "desktop"
+    },
+    {
+     "h": 1190,
+     "w": 840,
+     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/portfolio-rotinas-suprimentos/p06-anexo-orcamento.webp?v=mwehosav",
+     "legenda": "Anexo fictício: orçamento de fornecedor usado no mapa de cotação.",
+     "dispositivo": "mobile"
+    }
+   ],
+   "tecnologias": [
+    "Suprimentos",
+    "Compras",
+    "5W2H"
+   ],
+   "funcionalidades": [
+    "Requisição de compra com mapa de cotação",
+    "Cálculo do ponto de pedido",
+    "Plano de ação 5W2H",
+    "Fluxograma de reposição com decisões"
+   ],
+   "conquistas": [
+    "Reposição antes de faltar",
+    "Compras comparadas pelo custo total"
+   ],
+   "link_projeto": "https://beatrizgsbonotto.web.app/portfolio-operacional/#doc-compra",
+   "link_github": null,
+   "data_projeto": "2026-11-12",
+   "destaque": true,
+   "bloqueado": false,
+   "professional_history_id": "d3dae06d-9692-4b74-b28f-7dea7b71160f",
+   "ordem": 4,
+   "i18n": {
+    "en": {
+     "papel": "Simulation of a real case · Tecnoset",
+     "titulo": "Supply restocking and purchasing",
+     "descricao_curta": "Purchase request with reorder point, 3-quote comparison and approval limit, plus a 5W2H action plan.",
+     "descricao_completa": "Simulation of a case from my time at Tecnoset, with fictitious data.\n\nI kept supplies above the minimum using a reorder point (daily use × delivery time + safety stock), compared 3 suppliers by total cost including freight, sent purchases above the limit for manager approval and checked the invoice against the order on receipt.\n\nResult: restocking before running out and a clear view of pending orders and tickets."
+    },
+    "es": {
+     "papel": "Simulación de caso real · Tecnoset",
+     "titulo": "Reposición de suministros y compras",
+     "descricao_curta": "Solicitud de compra con punto de pedido, comparativo de 3 cotizaciones y límite de aprobación, además de un plan de acción 5W2H.",
+     "descricao_completa": "Simulación de un caso de mi paso por Tecnoset, con datos ficticios.\n\nMantenía los suministros por encima del mínimo con punto de pedido (consumo diario × plazo de entrega + stock de seguridad), comparaba 3 proveedores por costo total con flete, enviaba a aprobación las compras por encima del límite y revisaba la factura contra el pedido al recibir.\n\nResultado: reposición antes de que faltara y visión clara de pedidos y solicitudes pendientes."
+    }
+   }
+  },
+  {
    "id": "c0c5030a-f896-42cf-96c5-514a7dc2fe18",
    "slug": "starbucks",
    "titulo": "Landing page Starbucks",
@@ -135,7 +516,7 @@
    "destaque": true,
    "bloqueado": false,
    "professional_history_id": null,
-   "ordem": 1,
+   "ordem": 5,
    "i18n": {
     "en": {
      "papel": "Full development",
@@ -148,62 +529,6 @@
      "titulo": "Landing page Starbucks",
      "descricao_curta": "Landing page de estudio inspirada en Starbucks, hecha desde cero con HTML, CSS y JavaScript.",
      "descricao_completa": "Proyecto del curso técnico: página responsiva con secciones de productos, cambio de imágenes y diseño pensado para móvil y computadora, publicada en GitHub Pages."
-    }
-   }
-  },
-  {
-   "id": "ff3af965-2070-45e1-9a17-7694ddf3d43d",
-   "slug": "curriculo-multilingue",
-   "titulo": "Currículo multilíngue",
-   "papel": "Desenvolvimento completo",
-   "descricao_curta": "Currículo gerado a partir de um arquivo JSON, em português, inglês e espanhol, pronto para imprimir em A4.",
-   "descricao_completa": "Primeira versão do meu currículo on-line: os dados ficam em JSON e o JavaScript monta a página, com seletor de idioma, layout A4 com quebra de páginas e versão para PDF.",
-   "categoria": "dev",
-   "categorias": [
-    "dev"
-   ],
-   "imagem_url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/curriculo-multilingue/capa.webp?v=mwbkzj8d",
-   "galeria": [
-    {
-     "h": 900,
-     "w": 1440,
-     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/curriculo-multilingue/desktop-01.webp?v=mwbkzg52",
-     "dispositivo": "desktop"
-    },
-    {
-     "h": 1688,
-     "w": 780,
-     "url": "https://nmlosqhywrxpcqlfuhcp.supabase.co/storage/v1/object/public/media/projetos/curriculo-multilingue/mobile-01.webp?v=mwbkzi3v",
-     "dispositivo": "mobile"
-    }
-   ],
-   "tecnologias": [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "Bootstrap"
-   ],
-   "funcionalidades": null,
-   "conquistas": null,
-   "link_projeto": null,
-   "link_github": "https://github.com/BeatrizBonotto/curriculo",
-   "data_projeto": null,
-   "destaque": true,
-   "bloqueado": false,
-   "professional_history_id": null,
-   "ordem": 2,
-   "i18n": {
-    "en": {
-     "papel": "Full development",
-     "titulo": "Multilingual résumé",
-     "descricao_curta": "Résumé generated from a JSON file, in Portuguese, English and Spanish, ready to print on A4.",
-     "descricao_completa": "The first version of my online résumé: the data lives in JSON and JavaScript builds the page, with a language picker, an A4 layout with page breaks and a PDF version."
-    },
-    "es": {
-     "papel": "Desarrollo completo",
-     "titulo": "Currículum multilingüe",
-     "descricao_curta": "Currículum generado a partir de un archivo JSON, en portugués, inglés y español, listo para imprimir en A4.",
-     "descricao_completa": "La primera versión de mi currículum en línea: los datos están en JSON y JavaScript arma la página, con selector de idioma, diseño A4 con saltos de página y versión en PDF."
     }
    }
   }
@@ -1691,18 +2016,6 @@
    "linkedin": "https://linkedin.com/in/beatrizsouza-adm",
    "whatsapp": "5519991035924"
   },
-  "disponibilidade": {
-   "en": {
-    "texto": "Open to administrative and entry-level IT roles · Campinas or remote"
-   },
-   "es": {
-    "texto": "Abierta a vacantes administrativas y de inicio en TI · Campinas o remoto"
-   },
-   "pt": {
-    "texto": "Aberta a vagas administrativas e de entrada em TI · Campinas e remoto"
-   },
-   "ativo": true
-  },
   "sobre_mim": {
    "en": {
     "visao": "Combine administrative experience with technology and help companies with digital tools that make a difference every day.",
@@ -1785,6 +2098,21 @@
    "horas_dia": 8,
    "freela_pct": 20,
    "ti_clt_brl": 3000
+  },
+  "disponibilidade": {
+   "en": {
+    "curto": "Freelance, consulting, remote or hybrid",
+    "texto": "Available for freelance, consulting and remote or hybrid work"
+   },
+   "es": {
+    "curto": "Freelance, consultoría, remoto o híbrido",
+    "texto": "Disponible para freelance, consultoría y trabajo remoto o híbrido"
+   },
+   "pt": {
+    "curto": "Freelancer, consultoria, remoto ou híbrido",
+    "texto": "Disponível para freelancer, consultoria e trabalho remoto ou híbrido"
+   },
+   "ativo": true
   },
   "hero": {
    "en": {

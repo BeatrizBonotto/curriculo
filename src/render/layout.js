@@ -7,7 +7,7 @@ import { head, icone } from './comum.js';
 const NOMES_IDIOMA = { pt: 'Português', en: 'English', es: 'Español' };
 
 // [página ou seção da home, chave do texto, âncora na home]
-export const PAGINAS_NAV = [['sobre', 'nav.sobre'], ['', 'nav.trajetoria', 'trajetoria'], ['', 'nav.projetos', 'projetos'], ['', 'nav.contato', 'contato']];
+export const PAGINAS_NAV = [['', 'nav.sobre', 'sobre'], ['', 'nav.trajetoria', 'trajetoria'], ['', 'nav.projetos', 'projetos'], ['', 'nav.contato', 'contato']];
 const hrefNav = (lang, [id, , ancora]) => (ancora ? `${rota(lang)}#${ancora}` : rota(lang, id));
 
 export function navegacao(lang, t, pagina) {
@@ -15,16 +15,18 @@ export function navegacao(lang, t, pagina) {
   return `<a class="pular" href="#conteudo">${t('nav.pular')}</a>
 <header class="nav" data-nav>
   <a class="nav-marca" href="${rota(lang)}" aria-label="${t('nav.inicio')} · ${SITE.nome}">
-    <img src="/media/logo-64.webp" srcset="/media/logo-128.webp 2x" alt="${t('nav.logo')}" width="34" height="34"><span>${SITE.nome}</span>
+    <span class="nav-assinatura" aria-hidden="true">Beatriz</span>
   </a>
   <details class="nav-lingua" data-lingua><summary aria-label="${t('nav.idioma')}">${icone('traduzir')}<span>${lang.toUpperCase()}</span></summary>
     <div class="nav-lingua-lista">${SITE.idiomas.map(l => `<a href="${rota(l, pagina)}" hreflang="${l}" lang="${l}" data-idioma="${l}" ${l === lang ? 'aria-current="true"' : ''}>${NOMES_IDIOMA[l]}</a>`).join('')}</div></details>
   <nav class="nav-links" aria-label="${t('nav.menu')}" id="menu-principal">
     <a href="${rota(lang)}" class="nav-so-menu" ${pagina === '' ? 'aria-current="page"' : ''}>${t('nav.inicio')}</a>
     ${PAGINAS_NAV.map(p => `<a href="${hrefNav(lang, p)}" ${!p[2] && pagina === p[0] ? 'aria-current="page"' : ''}>${t(p[1])}</a>`).join('')}
+    <button type="button" class="nav-so-menu nav-menu-apresentar" data-apresentacao>${icone('quadro')}${t('nav.apresentarCurto')}</button>
     <a href="${rota(lang, 'cv')}" class="nav-cv">${icone('download')}${t('nav.cv')}</a>
     <div class="nav-idiomas" role="group" aria-label="${t('nav.idioma')}">${idiomas}</div>
   </nav>
+  <button class="tema-botao nav-apresentar" type="button" data-apresentacao aria-label="${t('nav.apresentar')}" title="${t('nav.apresentar')}">${icone('quadro')}</button>
   <button class="tema-botao" type="button" data-tema aria-label="${t('nav.tema')}" title="${t('nav.tema')}">${icone('sol')}${icone('lua')}</button>
   <a class="btn btn-acento nav-cta" href="${rota(lang)}#contato" data-magnetico>${t('nav.cta')}</a>
   <button class="nav-botao" type="button" aria-expanded="false" aria-controls="menu-principal" data-menu aria-label="${t('nav.menu')}" data-rotulo-abrir="${t('nav.menu')}" data-rotulo-fechar="${t('nav.fechar')}">${icone('menu')}</button>

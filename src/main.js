@@ -9,6 +9,7 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
 import { tradutor } from './i18n/ui.js';
 import { buscarTudo, prepararIdioma } from './lib/dados.js';
 import { particulas } from './lib/particulas.js';
+import { alinharNome } from './lib/alinhar-nome.js';
 import { assinatura, PAGINAS } from './render/documento.js';
 import { icone } from './render/comum.js';
 import { detalheCarreira, detalheConquista, detalheProjeto, detalheRecomendacao, detalheSkill, formularioRecomendacao } from './render/paginas.js';
@@ -99,7 +100,10 @@ document.addEventListener('click', e => {
   if (!alvo) return;
   e.preventDefault();
   if (nav.classList.contains('aberta')) menu(false);
-  lenis ? lenis.scrollTo(alvo, { offset: -8 }) : alvo.scrollIntoView({ behavior: semMovimento ? 'auto' : 'smooth' });
+  // pula o respiro do topo da seção: o conteúdo encosta logo abaixo do cabeçalho e ocupa a tela
+  const respiro = parseFloat(getComputedStyle(alvo).paddingTop) || 0;
+  const offset = respiro - nav.offsetHeight;
+  lenis ? lenis.scrollTo(alvo, { offset }) : scrollTo({ top: alvo.getBoundingClientRect().top + scrollY + offset, behavior: semMovimento ? 'auto' : 'smooth' });
   history.replaceState(null, '', url.hash);
 });
 
@@ -170,7 +174,7 @@ function balaoCheat(ancora) {
   });
   requestAnimationFrame(() => campo.focus());
 }
-document.addEventListener('contextmenu', e => { const m = e.target.closest('.nav-marca img, .rodape-marca img'); if (!m) return; e.preventDefault(); balaoCheat(m); });
+document.addEventListener('contextmenu', e => { const m = e.target.closest('.nav-assinatura, .rodape-marca img'); if (!m) return; e.preventDefault(); balaoCheat(m); });
 // idioma: escolha lembrada; na primeira visita segue o idioma do navegador (robôs de busca ficam na página que pediram)
 document.addEventListener('click', e => { const a = e.target.closest('a[hreflang]'); if (a) { try { localStorage.setItem('idioma', a.hreflang); } catch {} } });
 (() => {
@@ -183,6 +187,14 @@ document.addEventListener('click', e => { const a = e.target.closest('a[hreflang
 })();
 // fecha o seletor de idioma ao tocar fora
 document.addEventListener('click', e => { const d = $('[data-lingua]'); if (d?.open && !d.contains(e.target)) d.open = false; });
+
+// modo apresentação: pede a tela cheia ainda dentro do clique (o navegador exige) e carrega os slides sob demanda
+$$('[data-apresentacao]').forEach(b => b.addEventListener('click', () => {
+  if ($('[data-nav]')?.classList.contains('aberta')) $('[data-menu]')?.click(); // fecha o menu do celular
+  document.documentElement.requestFullscreen?.().catch(() => {});
+  lenis?.stop();
+  import('./apresentacao.js').then(m => m.abrir(() => lenis?.start()));
+}));
 
 // tema claro/escuro (a escolha fica salva; sem escolha, segue o sistema)
 $('[data-tema]')?.addEventListener('click', () => {
@@ -412,6 +424,7 @@ function visor(imgs, inicio, aoTrocar) {
   v.className = 'visor';
   v.setAttribute('role', 'dialog'); v.setAttribute('aria-modal', 'true'); v.setAttribute('aria-label', t('projetos.galeria'));
   v.innerHTML = `<div class="visor-area"><img class="visor-img" alt="" draggable="false"></div>
+  <p class="visor-legenda" data-v-leg hidden></p>
   <div class="visor-barra">
     <button type="button" data-v="ant" aria-label="${t('projetos.anterior')}">${icone('esquerda')}</button><span class="mono" data-v-cont></span><button type="button" data-v="prox" aria-label="${t('projetos.proxima')}">${icone('direita')}</button>
     <span class="visor-sep" aria-hidden="true"></span>
@@ -448,6 +461,7 @@ function visor(imgs, inicio, aoTrocar) {
     img.src = imgs[i].currentSrc || imgs[i].src; img.alt = imgs[i].alt;
     z = 1; x = 0; y = 0; aplicar(false);
     $('[data-v-cont]', v).textContent = `${i + 1} / ${imgs.length}`;
+    const leg = $('[data-v-leg]', v), txt = imgs[i].legenda || imgs[i].dataset?.legenda || ''; leg.textContent = txt; leg.hidden = !txt;
     $$('[data-v="ant"], [data-v="prox"]', v).forEach(b => { b.hidden = imgs.length < 2; });
     aoTrocar?.(i);
   };
@@ -532,6 +546,7 @@ function heroEfeitos(raiz) {
   hero.classList.add('animado');
   let atual = 0, progresso = 0, ultimo = '';
   const nome = $('[data-hero-nome]', hero);
+  if (nome) limpar.push(alinharNome($('.hero-nome-txt', nome)));
   const desenhar = (i, forcar) => {
     const img = quadros[i];
     if (!img?.complete || !img.naturalWidth) return;

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Central de Documentos</title>
+  <meta name="description" content="Gerador de documentos administrativos e de seguros padronizados, fluxogramas de processo com regras e estudos de caso. Simulações com dados fictícios.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-in">
+      <a class="marca" href="/" aria-label="Voltar ao site de Beatriz Bonotto"><span class="assinatura">Beatriz</span><span class="marca-sub">Central de Documentos</span></a>
+      <nav aria-label="Seções">
+        <a href="#documentos">Documentos</a>
+        <a href="#fluxos">Fluxogramas</a>
+        <a href="#recursos">Recursos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1. Gerador de documentos -->
+    <section id="documentos" class="bloco">
+      <div class="bloco-topo">
+        <h2>Gerar documento</h2>
+        <p>Escolha o documento, preencha e envie: o e-mail sai pronto com o PDF e os anexos.</p>
+      </div>
+      <div class="seletor" role="tablist" aria-label="Tipo de documento" id="seletor-doc"></div>
+      <div class="gerador">
+        <form id="form-doc" class="form-doc" autocomplete="off" novalidate></form>
+        <div class="saida">
+          <div class="saida-acoes">
+            <span id="doc-status" class="selo" aria-live="polite"></span>
+            <span class="acoes">
+              <button class="btn btn-sec" id="btn-exemplo" type="button">Carregar exemplo</button>
+              <button class="btn btn-sec" id="btn-limpar" type="button">Limpar</button>
+              <button class="btn btn-sec" id="btn-copiar" type="button">Copiar e-mail</button>
+              <button class="btn" id="btn-pdf" type="button">Imprimir / PDF</button>
+            </span>
+          </div>
+          <section id="email" class="email" aria-label="E-mail de envio do documento"></section>
+          <article id="folha" class="folha" aria-label="Prévia do documento"></article>
+          <p id="aviso" class="aviso" role="status"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Fluxogramas -->
+    <section id="fluxos" class="bloco">
+      <div class="bloco-topo">
+        <h2>Fluxogramas com decisões</h2>
+        <p>Início, etapas, decisões com Sim e Não, fim, e as regras que sustentam cada passo.</p>
+      </div>
+      <div class="barra">
+        <label for="sel-fluxo">Processo</label>
+        <select id="sel-fluxo"></select>
+        <button class="btn btn-sec" id="btn-pdf-fluxo" type="button">Imprimir / PDF</button>
+      </div>
+      <div class="fluxo-area" id="area-fluxo">
+        <h3 id="titulo-fluxo" class="titulo-fluxo"></h3>
+        <div class="fluxo-grade">
+          <ol class="fluxo" id="fluxo" aria-label="Etapas do processo"></ol>
+          <aside class="regras" aria-labelledby="regras-titulo">
+            <h4 id="regras-titulo">Regras e referências</h4>
+            <ul id="regras"></ul>
+          </aside>
+        </div>
+        <p class="legenda"><span class="lg lg-ini">Início / fim</span><span class="lg lg-proc">Etapa</span><span class="lg lg-dec">Decisão</span></p>
+      </div>
+    </section>
+
+
+    <!-- 3. Recursos -->
+    <section id="recursos" class="bloco">
+      <div class="bloco-topo">
+        <h2>Recursos</h2>
+        <p>Onde consultar no dia a dia. Abre em nova aba.</p>
+      </div>
+      <div class="recursos">
+        <article class="recurso-grupo"><h3>Seguradoras</h3><ul><li><a href="https://www.portoseguro.com.br/" target="_blank" rel="noopener"><b>Porto Seguro</b><span>Portal do corretor, cotações e 2ª via</span></a></li><li><a href="https://www.tokiomarine.com.br/" target="_blank" rel="noopener"><b>Tokio Marine</b><span>Produtos e área do corretor</span></a></li><li><a href="https://www.allianz.com.br/" target="_blank" rel="noopener"><b>Allianz</b><span>Residencial, empresarial e área do corretor</span></a></li><li><a href="https://www.mapfre.com.br/" target="_blank" rel="noopener"><b>Mapfre</b><span>Ramos elementares e área do corretor</span></a></li><li><a href="https://www.hdiseguros.com.br/" target="_blank" rel="noopener"><b>HDI Seguros</b><span>Residencial, empresarial e auto</span></a></li><li><a href="https://www.pottencial.com.br/" target="_blank" rel="noopener"><b>Pottencial</b><span>Seguro fiança locatícia</span></a></li></ul></article>
+        <article class="recurso-grupo"><h3>Legislação e regulação</h3><ul><li><a href="https://www.gov.br/susep/" target="_blank" rel="noopener"><b>SUSEP</b><span>Normas, consulta de corretor e de produtos</span></a></li><li><a href="https://www.planalto.gov.br/ccivil_03/leis/l8245.htm" target="_blank" rel="noopener"><b>Lei do Inquilinato (8.245/91)</b><span>Garantias locatícias: arts. 22, 37 e 41</span></a></li><li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank" rel="noopener"><b>LGPD (13.709/18)</b><span>Bases legais e direitos do titular</span></a></li><li><a href="https://www.gov.br/anpd/" target="_blank" rel="noopener"><b>ANPD</b><span>Guias de proteção de dados</span></a></li><li><a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm" target="_blank" rel="noopener"><b>Código Civil: contrato de seguro</b><span>Arts. 757 a 802</span></a></li></ul></article>
+        <article class="recurso-grupo"><h3>Consultas cadastrais</h3><ul><li><a href="https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp" target="_blank" rel="noopener"><b>Situação do CPF</b><span>Receita Federal</span></a></li><li><a href="https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp" target="_blank" rel="noopener"><b>Cartão CNPJ</b><span>Receita Federal</span></a></li><li><a href="https://buscacepinter.correios.com.br/" target="_blank" rel="noopener"><b>Busca CEP</b><span>Correios</span></a></li><li><a href="https://www.nfe.fazenda.gov.br/portal/principal.aspx" target="_blank" rel="noopener"><b>Consulta NF-e</b><span>Portal Nacional da NF-e</span></a></li></ul></article>
+        <article class="recurso-grupo"><h3>Redação e índices</h3><ul><li><a href="https://www4.planalto.gov.br/centrodeestudos/assuntos/manual-de-redacao-da-presidencia-da-republica" target="_blank" rel="noopener"><b>Manual de Redação da Presidência</b><span>Padrão ofício e fechos</span></a></li><li><a href="https://www3.bcb.gov.br/CALCIDADAO/" target="_blank" rel="noopener"><b>Calculadora do Cidadão</b><span>Banco Central: correção por IGP-M e IPCA</span></a></li><li><a href="https://portalibre.fgv.br/" target="_blank" rel="noopener"><b>IGP-M (FGV IBRE)</b><span>Índice de reajuste de aluguel</span></a></li><li><a href="https://meu.inss.gov.br/" target="_blank" rel="noopener"><b>Meu INSS</b><span>Serviços e protocolos do INSS</span></a></li></ul></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Nada do que você preenche sai do seu navegador: nenhum dado pessoal é enviado ou guardado. Os exemplos usam nomes e valores fictícios.</p>
+  </footer>
+
+  <dialog id="visor-anexo" class="visor-anexo" aria-label="Anexo"><div class="visor-anexo-topo"><b id="visor-anexo-nome"></b><button class="btn btn-sec" type="button" data-fechar-anexo>Fechar</button></div><div id="visor-anexo-img"></div></dialog>
+  <script src="script.js"></script>
+</body>
+</html>

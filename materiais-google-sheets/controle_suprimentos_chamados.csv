@@ -1,0 +1,16 @@
+﻿Codigo_Item;Descricao_Suprimento;Categoria;Estoque_Atual;Estoque_Minimo;Status_Reposicao;Ultima_Atualizacao
+SUP-101;Papel A4 (resma);Papelaria;18;20;Pedido aberto;13/11/2026
+SUP-102;Toner impressora;Informática;2;3;Pedido aberto;12/11/2026
+SUP-103;Caneta azul (cx);Papelaria;9;5;OK;11/11/2026
+SUP-104;Grampo 26/6 (cx);Papelaria;4;4;Repor;10/11/2026
+SUP-105;Pasta suspensa;Arquivo;35;30;OK;09/11/2026
+SUP-106;Etiqueta adesiva;Arquivo;6;10;Pedido aberto;08/11/2026
+SUP-107;Mouse USB;Informática;5;3;OK;07/11/2026
+SUP-108;Teclado USB;Informática;1;2;Pedido aberto;13/11/2026
+SUP-109;Copo descartável (pct);Copa;12;10;OK;12/11/2026
+SUP-110;Café 500 g;Copa;3;6;Pedido aberto;11/11/2026
+SUP-111;Álcool 70% (L);Limpeza;8;5;OK;10/11/2026
+SUP-112;Papel toalha (fardo);Limpeza;2;4;Pedido aberto;09/11/2026
+SUP-113;Caixa arquivo morto;Arquivo;22;15;OK;08/11/2026
+SUP-114;Cabo HDMI;Informática;4;2;OK;07/11/2026
+SUP-115;Envelope pardo (cx);Papelaria;1;2;Pedido aberto;13/11/2026

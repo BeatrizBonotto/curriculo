@@ -1617,3 +1617,99 @@ h1, h2, h3, .titulo-secundario, .hero-titulo, .pag-titulo, .manifesto-frases, .n
 .contato-painel { color: var(--tinta); }
 /* celular: sem escurecer o topo (o menu já é claro sobre o vídeo branco); só a base escurece para o texto */
 @media (max-width: 759px) { .hero .sombra-v { background: linear-gradient(180deg, rgba(8,8,10,0) 0%, rgba(8,8,10,0) 58%, rgba(8,8,10,.8) 100%); } }
+
+/* ================= Logotipo em assinatura e botão de apresentação (nov/2026) ================= */
+.nav-marca .nav-assinatura { display: inline-block; font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 2.1rem; line-height: 1; letter-spacing: 0; color: var(--acento); padding: 4px 6px 0 0; white-space: nowrap; }
+.nav.escura .nav-marca .nav-assinatura { color: #f3c6d4; }
+.nav-apresentar .ic { position: static; opacity: 1 !important; transform: none !important; }
+.nav-apresentar:hover { background: var(--superficie); }
+/* selo de disponibilidade nunca quebra em duas linhas */
+@media (min-width: 600px) { .status { white-space: nowrap; max-width: 100%; } }
+/* títulos de seção em no máximo 2 linhas no desktop */
+.cabecalho h2, .secao-topo h2 { max-width: 26ch; text-wrap: balance; }
+/* nome do início alinhado nas duas bordas (src/lib/alinhar-nome.js); o cargo vira linha inteira para o traço acompanhar */
+.hero-nome-cargo { display: block; }
+/* números grandes em fonte sem serifa: na Cormorant o "11" parecia o romano "II" */
+.numero strong, .numero-suf { font-family: var(--fonte) !important; font-weight: 600; letter-spacing: -.03em; font-stretch: 100%; }
+/* legenda da imagem no visor (nome e explicação de cada print do projeto) */
+.visor-legenda { position: absolute; left: 50%; bottom: 84px; transform: translateX(-50%); width: min(720px, calc(100% - 32px)); margin: 0; padding: 10px 16px; border-radius: 10px; background: rgba(20,14,17,.82); color: #fff; font-size: .9rem; line-height: 1.45; text-align: center; backdrop-filter: blur(6px); z-index: 2; }
+/* legenda de cada imagem na galeria do projeto */
+.galeria-legenda { margin: 10px auto 0; max-width: 62ch; text-align: center; font-size: .86rem; line-height: 1.45; color: var(--tinta-2); }
+
+/* ===== Início: card do nome mais largo, ícones de contato e selo curto no celular (nov/2026) ===== */
+.hero-nome-txt { margin: 0 auto; }
+.hero-redes { list-style: none; margin: 16px 0 0; padding: 0; display: flex; justify-content: center; gap: 10px; pointer-events: auto; }
+.hero-redes a { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; color: #9E4F67; background: rgba(255,255,255,.7); border: 1px solid rgba(158,79,103,.25); transition: background-color .2s, color .2s; }
+.hero-redes a:hover { background: #9E4F67; color: #fff; }
+.hero-redes .ic { width: 18px; height: 18px; }
+@media (max-width: 759px) {
+  .hero-nome { width: calc(100% - 24px); padding: 16px 20px 18px; }
+}
+@media (min-width: 760px) {
+  .hero-nome-txt { margin: 0; }
+  .hero-nome { width: fit-content; }
+  .hero-redes { justify-content: center; }
+}
+.status-curto { display: none; }
+@media (max-width: 599px) {
+  .status.tem-curto .status-txt { display: none; }
+  .status.tem-curto .status-curto { display: inline; }
+  .status { white-space: nowrap; }
+  .hero-intro .status { max-width: none; }
+}
+/* cabeçalho no celular: assinatura inteira, apresentação só dentro do menu */
+.nav-menu-apresentar { display: none; }
+@media (max-width: 1079px) {
+  .nav-marca { flex: none; }
+  .nav-marca .nav-assinatura { font-size: 1.75rem; padding-right: 2px; }
+  .nav-apresentar { display: none !important; }
+  .nav-menu-apresentar { display: inline-flex; align-items: center; gap: 12px; font: inherit; font-size: clamp(1.9rem, 8.5vw, 3rem); font-weight: 700; font-stretch: 80%; letter-spacing: -.03em; padding: 4px 0; background: none; border: 0; color: inherit; cursor: pointer; text-align: left; }
+  .nav-menu-apresentar .ic { width: .8em; height: .8em; }
+}
+
+/* ===== Feedbacks compactos (nov/2026): escala menor, nome em uma linha, grade simples também no celular ===== */
+.recs-grade[data-vista="grade"] { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.rec { padding: 16px 18px; gap: 10px; border-radius: 14px; font-size: .9rem; }
+.autor { grid-template-columns: 36px minmax(0, 1fr) auto; gap: 10px; }
+.autor img, .autor-ini { width: 36px; height: 36px; font-size: .72rem; }
+.autor-info { font-size: .86rem; }
+.autor-info > strong, .autor-info > b { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.autor-info > span { font-size: .74rem; -webkit-line-clamp: 1; }
+.autor .fonte, .autor > :last-child:not(.autor-info) { transform: scale(.85); }
+.rec-texto p, .rec-destaque .rec-texto p { -webkit-line-clamp: 4; font-size: .88rem; line-height: 1.55; color: var(--tinta-2); }
+.rec-pe { gap: 6px 10px; }
+.rec-original { font-size: .74rem; }
+.rec-pe .ler-mais { font-size: .8rem; }
+@media (max-width: 899px) {
+  .recs-grade[data-vista] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; overflow: visible; margin-inline: 0; padding: 0; scroll-snap-type: none; }
+  .recs-grade > li, .recs-grade > li[data-rec-extra][hidden] { flex: none; }
+  .recs-grade > li[data-rec-extra][hidden] { display: none !important; }
+  .recs-grade .rec { padding: 14px 16px; }
+  .recs-grade .rec-texto p { -webkit-line-clamp: 3; font-size: .86rem; }
+  .recs-mais { display: flex; }
+}
+.contato-secao .contato-hero { min-height: calc(100svh - var(--nav)); }
+/* na coluna de texto do início o selo usa a versão curta: a longa em uma linha encostaria no vídeo */
+.hero-texto .status.tem-curto .status-txt { display: none; }
+.hero-texto .status.tem-curto .status-curto { display: inline; }
+/* "Apresentar" no menu do celular no mesmo estilo dos outros itens, sem ícone e sem quebra */
+.nav-menu-apresentar { white-space: nowrap; }
+.nav-menu-apresentar .ic { display: none; }
+@media (max-width: 1079px) { .nav-menu-apresentar { font-size: clamp(1.6rem, 7.4vw, 2.4rem); padding: 10px 0; width: 100%; border-bottom: 1px solid var(--linha); } }
+
+/* ===== Ajustes de escala e espaçamento (nov/2026) ===== */
+.projetos { padding-bottom: var(--secao); }
+@media (min-width: 1100px) { .recs-grade[data-vista="grade"] { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.cp-email strong { overflow-wrap: normal; word-break: normal; white-space: nowrap; font-size: clamp(.95rem, 4.4vw, 1.4rem); }
+.valor-grupo button { white-space: nowrap; min-width: 0; }
+@media (max-width: 599px) {
+  html { font-size: 15px; }
+  h2[data-dividir], .cabecalho h2, .secao-topo h2, .titulo-secundario { font-size: 1.4rem; line-height: 1.12; }
+  .hero-titulo { font-size: clamp(1.7rem, 8vw, 2.1rem); }
+  .numero strong { font-size: 1.7rem; }
+  .nav-links > a, .nav-menu-apresentar { font-size: clamp(1.2rem, 5.6vw, 1.5rem); padding: 9px 0; }
+  .valor-grupo button { font-size: .74rem; padding-inline: 6px; }
+  .rotulo { font-size: .66rem; }
+  .btn { font-size: .88rem; }
+  section p, .destaque-desc, .linha-desc { font-size: .92rem; }
+}

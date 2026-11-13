@@ -4,7 +4,7 @@ import { rota, tradutor } from '../i18n/ui.js';
 import { idadeEm, textoSite, variaveis } from '../lib/dados.js';
 import { esc, head, icone, paragrafos, periodo, tipoAcademico } from './comum.js';
 import { documento } from './layout.js';
-import { inicio, jsonLd, sobre } from './paginas.js';
+import { inicio, jsonLd } from './paginas.js';
 
 // Assinatura do conteúdo: o navegador só redesenha a página se os dados do banco mudaram desde o build.
 // Inclui os números calculados pela data (anos, idade): quando viram, a página se redesenha sozinha.
@@ -19,7 +19,6 @@ export function assinatura(d) {
 export const PAGINAS = {
   '': { corpo: inicio, seo: (d, t) => textoSite(d.site, 'seo', d.lang), dados: d => ({ projetos: d.projetos.filter(p => p.destaque), recomendacoes: d.recomendacoes, experiencias: d.experiencias.map(e => ({ id: e.id, instituicao: e.instituicao })) }),
     preload: '<link rel="preload" as="image" href="/media/intro-poster.webp" fetchpriority="high">' },
-  sobre: { corpo: sobre, seo: (d, t) => ({ titulo: t('seo.sobre.titulo'), descricao: t('seo.sobre.descricao') }), dados: () => ({}) },
   /* projetos, trajetória, competências e contato viraram seções da home (firebase.json redireciona os endereços antigos) */
 };
 

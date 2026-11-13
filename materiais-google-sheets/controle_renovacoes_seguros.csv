@@ -1,0 +1,16 @@
+﻿ID_Apolice;Cliente_Ficticio;Imobiliaria_Parceira;Ramo;Seguradora;Inicio_Vigencia;Fim_Vigencia;Dias_Para_Vencer;Valor_Premio;Status_Renovacao
+AP-2026001;Ana Ribeiro;Imobiliária Horizonte;Seguro Fiança;Seguradora Alfa;25/11/2025;25/11/2026;12;480,00;Pendente
+AP-2026002;Bruno Tavares;Lar Ideal Imóveis;Incêndio Locatício;Seguradora Beta;08/12/2025;08/12/2026;25;617,50;Em cotação
+AP-2026003;Carla Nunes;Casa Certa;Residencial;Seguradora Gama;16/12/2025;16/12/2026;33;755,00;Aguardando cliente
+AP-2026004;Diego Prado;Chave Nova Imóveis;Empresarial;Seguradora Delta;24/12/2025;24/12/2026;41;892,50;Pendente
+AP-2026005;Elisa Moura;Morada Campinas;Condomínio;Seguradora Alfa;10/01/2026;10/01/2027;58;1030,00;Em cotação
+AP-2026006;Fábio Lacerda;Imobiliária Horizonte;Seguro Fiança;Seguradora Beta;20/11/2025;20/11/2026;7;1167,50;Aguardando cliente
+AP-2026007;Gabriela Siqueira;Lar Ideal Imóveis;Incêndio Locatício;Seguradora Gama;24/01/2026;24/01/2027;72;1305,00;Pendente
+AP-2026008;Henrique Bastos;Casa Certa;Residencial;Seguradora Delta;11/02/2026;11/02/2027;90;1442,50;Renovada
+AP-2026009;Isabela Rocha;Chave Nova Imóveis;Empresarial;Seguradora Alfa;02/12/2025;02/12/2026;19;1580,00;Aguardando cliente
+AP-2026010;Júlio Antunes;Morada Campinas;Condomínio;Seguradora Beta;29/12/2025;29/12/2026;46;1717,50;Pendente
+AP-2026011;Karina Leal;Imobiliária Horizonte;Seguro Fiança;Seguradora Gama;16/01/2026;16/01/2027;64;1855,00;Pendente
+AP-2026012;Lucas Fontes;Lar Ideal Imóveis;Incêndio Locatício;Seguradora Delta;11/12/2025;11/12/2026;28;1992,50;Aguardando cliente
+AP-2026013;Marina Couto;Casa Certa;Residencial;Seguradora Alfa;26/02/2026;26/02/2027;105;2130,00;Pendente
+AP-2026014;Nelson Dias;Chave Nova Imóveis;Empresarial;Seguradora Beta;04/01/2026;04/01/2027;52;2267,50;Em cotação
+AP-2026015;Olívia Pacheco;Morada Campinas;Condomínio;Seguradora Gama;16/11/2025;16/11/2026;3;2405,00;Aguardando cliente

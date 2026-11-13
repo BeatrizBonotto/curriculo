@@ -28,7 +28,7 @@ test('SEO: meta tags, Open Graph, hreflang, JSON-LD, sitemap e robots', async ({
   const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
   expect(ld['@graph'][0]['@type']).toBe('Person');
   const sitemap = await (await request.get('/sitemap.xml')).text();
-  expect(sitemap.match(/<loc>/g)).toHaveLength(9); // início, sobre e currículo, nos 3 idiomas
+  expect(sitemap.match(/<loc>/g)).toHaveLength(6); // início e currículo, nos 3 idiomas (sobre agora é seção do início)
   expect(await (await request.get('/robots.txt')).text()).toContain('Disallow: /admin/');
   expect((await request.get('/media/og.jpg')).ok()).toBeTruthy();
 });
@@ -43,15 +43,14 @@ test('navegação: menu, páginas e troca de idioma', async ({ page, isMobile })
     await expect(botao).toHaveAttribute('aria-expanded', 'false');
     await botao.click();
   }
-  // trajetória, projetos e contato são âncoras da home; Sobre é página
+  // sobre, trajetória, projetos e contato são âncoras da home
   await expect(page.locator('.nav-links a[href="/#contato"]')).toHaveCount(1);
-  await page.locator('.nav-links a[href="/sobre/"]').click();
-  await expect(page).toHaveURL(/\/sobre\/$/);
-  await expect(page.locator('.nav-links a[aria-current="page"]')).toHaveAttribute('href', '/sobre/');
+  await page.locator('.nav-links a[href="/#sobre"]').click();
+  await expect(page.locator('#sobre')).toBeInViewport();
   if (isMobile) await page.locator('[data-menu]').click();
   await page.locator('.nav-idiomas a[hreflang="en"]').click();
-  await expect(page).toHaveURL(/\/en\/sobre\/$/);
-  await expect(page.locator('h1')).toHaveAccessibleName('About me');
+  await expect(page).toHaveURL(/\/en\/$/);
+  await expect(page.locator('#sobre-titulo')).toHaveCount(1);
 });
 
 test('tela de abertura: boas-vindas por 3 s na primeira página da sessão, depois não volta', async ({ page }) => {
@@ -62,7 +61,7 @@ test('tela de abertura: boas-vindas por 3 s na primeira página da sessão, depo
   await expect(splash).toContainText('Bem-vindo');
   await page.waitForFunction(() => !document.querySelector('[data-splash]'), null, { timeout: 10000 });
   expect(await page.evaluate(() => performance.now())).toBeGreaterThanOrEqual(1000);
-  await page.goto('/sobre/');
+  await page.goto('/cv/');
   await expect(page.locator('[data-splash]')).toHaveCount(0);
 });
 
@@ -144,9 +143,8 @@ test('currículo: folhas A4, sem foto, numeradas', async ({ page }) => {
 test('celular: cabeçalho só com o logo e menu ocupando a tela', async ({ page, isMobile }) => {
   test.skip(!isMobile);
   await page.goto('/');
-  // no celular o cabeçalho mostra só o logo; o botão do menu é um círculo
-  await expect(page.locator('.nav-marca span')).toBeHidden();
-  await expect(page.locator('.nav-marca img')).toBeVisible();
+  // no celular o cabeçalho mostra só a assinatura (logotipo)
+  await expect(page.locator('.nav-assinatura')).toBeVisible();
   const bm = await page.locator('[data-menu]').boundingBox();
   expect(Math.abs(bm.width - bm.height)).toBeLessThan(2);
   await page.locator('[data-menu]').click();
@@ -197,7 +195,7 @@ test('currículo: versões vêm do banco e o admin lista os currículos', async 
 
 test('cheat code: errado treme e avisa; certo libera o Admin no menu', async ({ page }) => {
   await page.goto('/');
-  await page.locator('.nav-marca img').click({ button: 'right' });
+  await page.locator('.nav-assinatura').click({ button: 'right' });
   const balao = page.locator('.cheat');
   await expect(balao).toBeVisible();
   await balao.locator('input').fill('abc');

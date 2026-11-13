@@ -23,6 +23,9 @@ for (const [nome, de] of Object.entries(fontes)) fs.copyFileSync(path.join(ORIGE
 // contato em bumerangue: ida + volta, para o loop não ter emenda. Reduz para 1280px antes do reverse (ele guarda todos os quadros na memória)
 execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', path.join(ORIGEM, fontes.entrevista), '-filter_complex', '[0:v]scale=1280:-2,split[a][b];[b]reverse[r];[a][r]concat=n=2:v=1:a=0[v]',
   '-map', '[v]', '-an', '-c:v', 'libx264', '-crf', '23', '-preset', 'veryfast', '-threads', '2', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', `${DESTINO}/entrevista.mp4`]);
+// modo apresentação: abertura e escritório também em bumerangue (o JS ainda desacelera os de fundo)
+for (const nome of ['intro', 'escritorio']) execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', `${DESTINO}/${nome}.mp4`, '-filter_complex', '[0:v]scale=1280:-2,split[a][b];[b]reverse[r];[a][r]concat=n=2:v=1:a=0[v]',
+  '-map', '[v]', '-an', '-c:v', 'libx264', '-crf', '23', '-preset', 'veryfast', '-threads', '2', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', `${DESTINO}/ap-${nome}.mp4`]);
 
 // Logo: monograma em serifa sobre rosé antigo (mesmo desenho no favicon, ícones do app e currículo)
 const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="256" fill="#9E4F67"/>
